@@ -41,7 +41,7 @@
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
                   <TextField maxWidth="1.7976931348623157E308" promptText="Search" HBox.hgrow="ALWAYS" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="Button" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="Search-Icon" />
                </children>
             </HBox>
          </children>
@@ -118,6 +118,9 @@
                               <TableColumn prefWidth="75.0" text="Distance" />
                               <TableColumn prefWidth="75.0" text="..." />
                           </columns>
+                           <VBox.margin>
+                              <Insets bottom="4.3" left="8.7" right="8.7" />
+                           </VBox.margin>
                         </TableView>
                      </children>
                   </VBox>
