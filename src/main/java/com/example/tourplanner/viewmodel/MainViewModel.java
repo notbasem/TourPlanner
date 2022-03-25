@@ -1,6 +1,6 @@
-package com.example.tourplanner.vm;
+package com.example.tourplanner.viewmodel;
 
-public class MainVM {
+public class MainViewModel {
     // Sub-VMs inside of MainVM
     // SearchVM searchVM;
 
