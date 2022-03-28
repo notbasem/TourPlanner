@@ -1,6 +1,6 @@
 package com.example.tourplanner.viewmodel;
 
-import com.example.tourplanner.model.Tour;
+import com.example.tourplanner.DAL.model.Tour;
 
 import java.util.ArrayList;
 import java.util.List;

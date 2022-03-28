@@ -1,6 +1,6 @@
 package com.example.tourplanner.view.controller;
 
-import com.example.tourplanner.model.Tour;
+import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.viewmodel.ToursOverviewViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
