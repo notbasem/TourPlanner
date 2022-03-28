@@ -99,7 +99,7 @@
                      <children>
                         <HBox maxWidth="1.7976931348623157E308">
                            <children>
-                              <Label maxWidth="1.7976931348623157E308" text="Logs:" HBox.hgrow="ALWAYS">
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="338.0" text="Logs:" HBox.hgrow="ALWAYS">
                                  <padding>
                                     <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
                                  </padding>

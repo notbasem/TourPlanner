@@ -10,7 +10,7 @@ import java.io.IOException;
 public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("MainWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("TourDescription.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Tour Planner");
         stage.setScene(scene);

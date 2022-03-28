@@ -2,16 +2,28 @@ package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.viewmodel.TourDescriptionViewModel;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
-public class TourDescriptionController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TourDescriptionController implements Initializable {
+
     @FXML
-    TextArea textArea;
+    public TextField textField;
+
     private final TourDescriptionViewModel tourDescriptionViewModel;
 
     public TourDescriptionController( TourDescriptionViewModel tourDescriptionViewModel){
-        this.tourDescriptionViewModel = new TourDescriptionViewModel();
-
+        this.tourDescriptionViewModel = tourDescriptionViewModel;
     }
 
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        textField.textProperty().bindBidirectional(tourDescriptionViewModel.nameProperty());
+    }
 }

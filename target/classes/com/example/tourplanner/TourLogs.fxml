@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox maxWidth="1.7976931348623157E308">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="Logs:" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
+               </HBox.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="+ - []" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
+         </VBox.margin>
+      </HBox>
+      <TableView>
+        <columns>
+          <TableColumn prefWidth="75.0" text="Date" />
+          <TableColumn prefWidth="75.0" text="Duration" />
+            <TableColumn prefWidth="75.0" text="Distance" />
+            <TableColumn prefWidth="75.0" text="..." />
+        </columns>
+      </TableView>
+   </children>
+</VBox>
