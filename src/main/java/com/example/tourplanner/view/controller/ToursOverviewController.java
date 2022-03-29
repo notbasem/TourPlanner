@@ -1,7 +1,7 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
-import com.example.tourplanner.viewmodel.ToursOverviewViewModel;
+import com.example.tourplanner.viewmodel.ToursOverviewVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -12,14 +12,18 @@ import java.util.ResourceBundle;
 public class ToursOverviewController implements Initializable {
     @FXML
     public ListView<Tour> Tourlist;
-    private final ToursOverviewViewModel toursOverviewViewModel;
+    private final ToursOverviewVM toursOverviewViewModel;
 
-    public ToursOverviewController(ToursOverviewViewModel toursOverviewViewModel){
-        this.toursOverviewViewModel = new ToursOverviewViewModel();
+    public ToursOverviewController(ToursOverviewVM toursOverviewViewModel){
+        this.toursOverviewViewModel = new ToursOverviewVM();
     }
 
-    public ToursOverviewViewModel getToursOverviewViewModel(){return toursOverviewViewModel;}
+    public ToursOverviewVM getToursOverviewViewModel(){return toursOverviewViewModel;}
 
+    @FXML
+    public void onSearchClick() {
+        System.out.println("Button clicked!!");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,4 +1,4 @@
 package com.example.tourplanner.viewmodel;
 
-public class TourLogsViewModel {
+public class MenuVM {
 }

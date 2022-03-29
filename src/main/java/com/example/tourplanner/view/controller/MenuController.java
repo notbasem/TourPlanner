@@ -1,14 +1,13 @@
 package com.example.tourplanner.view.controller;
 
-import com.example.tourplanner.viewmodel.MenuViewModel;
-import javafx.scene.control.Menu;
+import com.example.tourplanner.viewmodel.MenuVM;
 
 public class MenuController {
 
-    private final MenuViewModel menuViewModel;
+    private final MenuVM menuViewModel;
 
-    public MenuController (MenuViewModel menuViewModel)
+    public MenuController (MenuVM menuViewModel)
     {
-        this.menuViewModel = new MenuViewModel() ;
+        this.menuViewModel = new MenuVM() ;
     }
 }

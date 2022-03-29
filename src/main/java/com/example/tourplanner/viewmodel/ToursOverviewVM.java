@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToursOverviewViewModel {
+public class ToursOverviewVM {
     public interface SelectionChangedListener {
         void changeSelection(Tour tour);
     }
@@ -15,7 +15,7 @@ public class ToursOverviewViewModel {
     private List<SelectionChangedListener> listeners = new ArrayList<>();
 
     private ObservableList<Tour> observableTours= FXCollections.observableArrayList();
-    public ToursOverviewViewModel(){}
+    public ToursOverviewVM(){}
 
     public ObservableList<Tour> getObservableTours() {
         return observableTours;

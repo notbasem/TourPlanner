@@ -6,12 +6,12 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tourplanner.view.controller.ToursOverviewController">
    <children>
       <ToolBar>
         <items>
             <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="105.0" text="Tours" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" text="+" />
+            <Button mnemonicParsing="false" onAction="#onSearchClick" prefHeight="25.0" prefWidth="27.0" text="+" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" text="-" />
             <Button layoutX="170.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" text="[]" />
         </items>

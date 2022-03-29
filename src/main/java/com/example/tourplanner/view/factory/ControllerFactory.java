@@ -5,19 +5,19 @@ import com.example.tourplanner.viewmodel.*;
 
 //Controller Factory makes a Singleton out of every Controller --> Only one object of each Controller class exists throughout the entire project
 public class ControllerFactory {
-    private final MainViewModel mainViewModel;
-    private final ToursOverviewViewModel toursOverviewViewModel;
-    private final TourDescriptionViewModel tourDescriptionViewModel;
-    private final MenuViewModel menuViewModel;
-    private final TourLogsViewModel tourLogsViewModel;
+    private final MainVM mainViewModel;
+    private final ToursOverviewVM toursOverviewViewModel;
+    private final TourDescriptionVM tourDescriptionViewModel;
+    private final MenuVM menuViewModel;
+    private final TourLogsVM tourLogsViewModel;
 
 
     public ControllerFactory(){
-        mainViewModel = new MainViewModel();
-        toursOverviewViewModel = new ToursOverviewViewModel();
-        tourDescriptionViewModel = new TourDescriptionViewModel();
-        menuViewModel = new MenuViewModel();
-        tourLogsViewModel = new TourLogsViewModel();
+        this.toursOverviewViewModel = new ToursOverviewVM();
+        this.tourDescriptionViewModel = new TourDescriptionVM();
+        this.menuViewModel = new MenuVM();
+        this.tourLogsViewModel = new TourLogsVM();
+        this.mainViewModel = new MainVM(toursOverviewViewModel, tourDescriptionViewModel);
 
     }
 
