@@ -24,6 +24,17 @@ public class Tour {
         this.routeInformation = routeInformation;
     }
 
+    public Tour (String name){
+        this.name = name;
+        this.tourDescription = null;
+        this.from = null;
+        this.to = null;
+        this. transportType = null;
+        this.TourDistance = null;
+        this.estimatedTime = null;
+        this.routeInformation = null;
+    }
+
     public Tour (){
         this.name = "name";
         this.tourDescription = "tourDescription";
@@ -35,4 +46,8 @@ public class Tour {
         this.routeInformation = "routeInformation";
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

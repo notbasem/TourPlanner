@@ -7,5 +7,7 @@ public class MainVM {
     public MainVM(ToursOverviewVM toursOverviewViewModel, TourDescriptionVM tourDescriptionViewModel) {
         this.toursOverviewViewModel = toursOverviewViewModel;
         this.tourDescriptionViewModel = tourDescriptionViewModel;
+
+        toursOverviewViewModel.addTour(tourDescriptionViewModel.getTitle().toString());
     }
 }

@@ -7,29 +7,33 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox maxWidth="1.7976931348623157E308">
-         <children>
-            <Label maxWidth="1.7976931348623157E308" text="Logs:" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
-               </HBox.margin>
-            </Label>
-            <Label layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="+ - []" />
-         </children>
-         <VBox.margin>
-            <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
-         </VBox.margin>
-      </HBox>
-      <TableView>
-        <columns>
-          <TableColumn prefWidth="75.0" text="Date" />
-          <TableColumn prefWidth="75.0" text="Duration" />
-            <TableColumn prefWidth="75.0" text="Distance" />
-            <TableColumn prefWidth="75.0" text="..." />
-        </columns>
-      </TableView>
-   </children>
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox maxWidth="1.7976931348623157E308">
+            <children>
+                <Label maxWidth="1.7976931348623157E308" text="Logs:" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="4.3" left="8.7" right="8.7" top="4.3"/>
+                    </padding>
+                </Label>
+                <Label maxWidth="1.7976931348623157E308" text="+ - []">
+                    <padding>
+                        <Insets bottom="4.3" left="8.7" right="8.7" top="4.3"/>
+                    </padding>
+                </Label>
+            </children>
+        </HBox>
+        <TableView>
+            <columns>
+                <TableColumn prefWidth="75.0" text="Date"/>
+                <TableColumn prefWidth="75.0" text="Duration"/>
+                <TableColumn prefWidth="75.0" text="Distance"/>
+                <TableColumn prefWidth="75.0" text="..."/>
+            </columns>
+            <VBox.margin>
+                <Insets bottom="4.3" left="8.7" right="8.7"/>
+            </VBox.margin>
+        </TableView>
+    </children>
 </VBox>

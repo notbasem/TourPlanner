@@ -12,15 +12,18 @@
             <fx:include source="ToursOverview.fxml" />
          </left>
          <center>
-            <SplitPane dividerPositions="0.5, 0.516042780748663" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <fx:include source="TourDescription.fxml" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="16.0" prefWidth="383.0" />
-                  <fx:include source="TourLogs.fxml" />
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="383.0">
+                    <children>
+                        <fx:include source="TourDescription.fxml" AnchorPane.bottomAnchor="4.3" AnchorPane.leftAnchor="8.7" AnchorPane.rightAnchor="8.7" AnchorPane.topAnchor="4.3" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="8.0" prefWidth="383.0">
+                    <children>
+                        <fx:include source="TourLogs.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                </AnchorPane>
               </items>
             </SplitPane>
          </center>

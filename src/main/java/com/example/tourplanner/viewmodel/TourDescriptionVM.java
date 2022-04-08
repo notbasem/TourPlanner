@@ -11,7 +11,8 @@ public class TourDescriptionVM {
 
     private final StringProperty name = new SimpleStringProperty();//observable type--> that's why functions like .get can be used in order to return he current value of tourname
 
-    public TourDescriptionVM(){name.addListener((arg, oldVal, newVal)->updateTourModel());
+    public TourDescriptionVM(){
+        name.addListener((arg, oldVal, newVal)->updateTourModel());
     }
 
     public void setTourModel( Tour tour) {
@@ -38,5 +39,9 @@ public class TourDescriptionVM {
             setTourModel(tour);
             DAL.getInstance().tourDao().create(tour);
         }
+    }
+
+    public StringProperty getTitle() {
+        return name;
     }
 }
