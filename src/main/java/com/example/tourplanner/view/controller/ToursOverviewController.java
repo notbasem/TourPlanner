@@ -1,18 +1,14 @@
 package com.example.tourplanner.view.controller;
 
-import com.example.tourplanner.DAL.dialog.TourDialog;
+import com.example.tourplanner.view.dialog.TourDialog;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.viewmodel.ToursOverviewVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ToursOverviewController implements Initializable {
