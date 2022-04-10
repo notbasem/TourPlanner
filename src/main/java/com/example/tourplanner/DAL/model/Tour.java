@@ -35,8 +35,13 @@ public class Tour {
         this.routeInformation = null;
     }
 
-    public Tour (){
-        this.name = "name";
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public void setDefaultValues(Tour tour) {
+        this.name = tour.name;
         this.tourDescription = "tourDescription";
         this.from = "from";
         this.to = "to";
@@ -44,10 +49,5 @@ public class Tour {
         this.TourDistance = 4.55f;
         this.estimatedTime = 4;
         this.routeInformation = "routeInformation";
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }
