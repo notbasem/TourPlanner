@@ -10,6 +10,8 @@ public class ControllerFactory {
     private final TourDescriptionVM tourDescriptionViewModel;
     private final MenuVM menuViewModel;
     private final TourLogsVM tourLogsViewModel;
+    private final PopUpVM popUpViewModel;
+
 
 
     public ControllerFactory(){
@@ -18,7 +20,7 @@ public class ControllerFactory {
         this.menuViewModel = new MenuVM();
         this.tourLogsViewModel = new TourLogsVM();
         this.mainViewModel = new MainVM(toursOverviewViewModel, tourDescriptionViewModel);
-
+        this.popUpViewModel = new PopUpVM();
     }
 
     public Object create(Class<?> controllerClass) {
@@ -33,9 +35,12 @@ public class ControllerFactory {
         }else if (controllerClass == TourLogsController.class) {
             return new TourLogsController(tourLogsViewModel);
 
-        }else if (controllerClass == MenuController.class) {
-            return new MenuController(menuViewModel);
+        }else if (controllerClass == PopUpController.class) {
+            return new PopUpController(popUpViewModel);
 
+        }
+        else if (controllerClass == MenuController.class) {
+            return new MenuController(menuViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: " + controllerClass);
     }

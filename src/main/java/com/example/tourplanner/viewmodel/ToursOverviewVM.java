@@ -2,8 +2,7 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.TourDao;
 import com.example.tourplanner.DAL.model.Tour;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
+import com.example.tourplanner.view.controller.TourListSingleton;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
@@ -21,26 +20,12 @@ public class ToursOverviewVM {
 
     private List<SelectionChangedListener> listeners = new ArrayList<>();
 
-    private ObservableList<Tour> observableTours= FXCollections.observableArrayList();
 
-    public ToursOverviewVM(){
-       /* List<Tour> tours = new ArrayList<>();
-        tours.add(new Tour("Tour1"));
-        observableTours.clear();
-        observableTours.addAll(tours);*/
-    }
+    public ToursOverviewVM(){}
 
     public ObservableList<Tour> getObservableTours() {
-        observableTours = tourDao.getAll();
-        return observableTours;
+       TourListSingleton.getInstance().setTourList(tourDao.getAll()) ;
+        return TourListSingleton.getInstance().getTourlist();
     }
 
-    public ObservableList<Tour> addTour(String tourName) {
-        System.out.println("ADDED TOUR " + tourName);
-        Tour tour = new Tour(tourName);
-        tour.setDefaultValues(tour);
-        tourDao.create(tour);
-        observableTours.add(tour);
-        return observableTours;
-    }
 }

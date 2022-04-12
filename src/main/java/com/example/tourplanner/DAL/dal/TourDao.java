@@ -45,7 +45,7 @@ public class TourDao implements Dao <Tour>{
         ObservableList<Tour> tours = FXCollections.observableArrayList();;
         try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation
-                FROM tours
+                FROM tours ORDER BY tourid
                 """)
         ){
             ResultSet resultSet = statement.executeQuery();
