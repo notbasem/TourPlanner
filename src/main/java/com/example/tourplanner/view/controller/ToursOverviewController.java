@@ -71,6 +71,7 @@ public class ToursOverviewController implements Initializable {
     public void addTour() {
         System.out.println("Show Tour Dialog!");
         TourDialog td = new TourDialog();
+
         td.showAndWait();
         toursOverviewViewModel.addTour(td.getResult());
     }
@@ -96,6 +97,7 @@ public class ToursOverviewController implements Initializable {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
+
 
     @FXML
     public void onSelectedTour() {
