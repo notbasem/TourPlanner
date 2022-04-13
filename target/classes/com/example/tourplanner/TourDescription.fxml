@@ -21,6 +21,6 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <TextArea VBox.vgrow="ALWAYS" />
+      <TextArea fx:id="desc" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

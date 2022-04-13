@@ -14,7 +14,7 @@ public class FXMLDI {
         return loader.load();
     }
 
-    private static FXMLLoader getLoader(String fxml, Locale locale) {
+    public static FXMLLoader getLoader(String fxml, Locale locale) {
         return new FXMLLoader(
                 FXMLDI.class.getResource("/com/example/tourplanner/" + fxml),
                 null,

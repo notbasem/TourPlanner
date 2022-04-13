@@ -9,13 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ToursOverviewVM {
-    TourDescriptionVM tourDescriptionVM;
     TourDao tourDao = new TourDao();
 
 
     public interface SelectionChangedListener {
         void changeSelection(Tour tour);
-
     }
 
     private List<SelectionChangedListener> listeners = new ArrayList<>();

@@ -59,7 +59,15 @@ public class PopUpController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tourname.textProperty().bindBidirectional(popUpViewModel.tourNameInput());
+        tourname.textProperty().bindBidirectional(popUpViewModel.gettourNameInput());
+        tourDescription.textProperty().bindBidirectional(popUpViewModel.getTourDescriptionInput());
+        from.textProperty().bindBidirectional(popUpViewModel.getfromInput());
+        to.textProperty().bindBidirectional(popUpViewModel.gettoInput());
+        transportType.textProperty().bindBidirectional(popUpViewModel.gettransportTypeInput());
+        distance.textProperty().bindBidirectional(popUpViewModel.getdistanceInput());
+        estimatedTime.textProperty().bindBidirectional(popUpViewModel.getestimatedTimeInput());
+        routeInformation.textProperty().bindBidirectional(popUpViewModel.getrouteInformation());
+
     }
 
 }

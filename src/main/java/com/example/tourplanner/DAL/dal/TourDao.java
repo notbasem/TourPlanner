@@ -8,8 +8,6 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class TourDao implements Dao <Tour>{
@@ -24,17 +22,19 @@ public class TourDao implements Dao <Tour>{
         ) {
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
-            tour = new Tour(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getString(5),
-                    resultSet.getFloat(6),
-                    resultSet.getInt(7),
-                    resultSet.getString(8)
-            );
+            if( resultSet.next() ) {
 
+                tour = new Tour(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getFloat(6),
+                        resultSet.getInt(7),
+                        resultSet.getString(8)
+                );
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
