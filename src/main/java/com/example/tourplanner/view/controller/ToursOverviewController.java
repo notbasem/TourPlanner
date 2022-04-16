@@ -27,7 +27,6 @@ public class ToursOverviewController implements Initializable {
     @FXML
     public ListView<Tour> tourlist;
 
-    private Parent root;
     @FXML
     public VBox vBox;
 
@@ -64,17 +63,17 @@ public class ToursOverviewController implements Initializable {
         System.out.println("clicked on " + tourlist.getSelectionModel().getSelectedItem());
         String tourName = String.valueOf(tourlist.getSelectionModel().getSelectedItem());
 
-       FXMLLoader loader = getLoader("TourDescription.fxml", Locale.ENGLISH);
-       Parent root = loader.load();
+        FXMLLoader loader = getLoader("TourDescription.fxml", Locale.ENGLISH);
+        Parent root = loader.load();
         Scene scene = new Scene(root);
-         Stage stage = new Stage();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         TourDescriptionController tourDescriptionController = loader.getController();
-        tourDescriptionController.displayTourInfo(tourName);
+        tourDescriptionController.setTour(tourName);
+       // tourDescriptionController.displayTourInfo(tourName);
 
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

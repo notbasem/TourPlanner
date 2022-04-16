@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.Optional;
@@ -20,6 +18,8 @@ public class TourDescriptionController implements Initializable {
     @FXML
     public TextArea desc;
 
+    private Optional<Tour> tour;
+
     private TourDescriptionVM tourDescriptionViewModel;
 
     public TourDescriptionController(TourDescriptionVM tourDescriptionViewModel){
@@ -27,14 +27,55 @@ public class TourDescriptionController implements Initializable {
     }
 
     @FXML
-    public String displayTourInfo(String tourname){
+    public void displayTourInfo(){
         System.out.println("hi");
-        Optional<Tour> tour= this.tourDescriptionViewModel.displayTourData(tourname);
-        String i = tour.get().getRouteInformation();
+        String i = this.tour.get().getRouteInformation();
         desc.setText(i);
         System.out.println(tour.get().getRouteInformation());
-        return "success";
     }
+    @FXML
+    public void displayTourDescription(){
+        String i = this.tour.get().getTourDescription();
+        desc.setText(i);
+    }
+
+    @FXML
+    public void displayFrom(){
+        String i = this.tour.get().getFrom();
+        desc.setText(i);
+    }
+
+    @FXML
+    public void displayTo(){
+        String i = this.tour.get().getTo();
+        desc.setText(i);
+    }
+
+    public void setTour(String tourname){
+        this.tour = this.tourDescriptionViewModel.displayTourData(tourname);
+    }
+
+    public  Optional<Tour> getTour(String tourname){
+        return this.tourDescriptionViewModel.displayTourData(tourname);
+    }
+
+    @FXML
+    public void displayTransportType(){
+        String i = this.tour.get().getTransportType();
+        desc.setText(i);
+    }
+    @FXML
+    public void displayDistance(){
+        Float i = this.tour.get().getTourDistance();
+        desc.setText(String.valueOf(i));
+    }
+
+    @FXML
+    public void displayTime(){
+        Integer i = this.tour.get().getEstimatedTime();
+        desc.setText(String.valueOf(i));
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

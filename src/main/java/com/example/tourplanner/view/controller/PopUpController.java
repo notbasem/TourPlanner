@@ -67,7 +67,6 @@ public class PopUpController implements Initializable {
         distance.textProperty().bindBidirectional(popUpViewModel.getdistanceInput());
         estimatedTime.textProperty().bindBidirectional(popUpViewModel.getestimatedTimeInput());
         routeInformation.textProperty().bindBidirectional(popUpViewModel.getrouteInformation());
-
     }
 
 }

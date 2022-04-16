@@ -16,9 +16,13 @@
        </Label>
       <HBox>
          <children>
-            <Button mnemonicParsing="false" text="Route" />
-            <Button mnemonicParsing="false" text="Description" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#displayTourDescription" prefHeight="25.0" prefWidth="79.0" text="Description" />
+            <Button mnemonicParsing="false" onAction="#displayFrom" text="From" />
+            <Button mnemonicParsing="false" onAction="#displayTo" text="To" />
+            <Button mnemonicParsing="false" onAction="#displayTransportType" prefHeight="25.0" prefWidth="98.0" text="TransportType" />
+            <Button mnemonicParsing="false" onAction="#displayDistance" prefHeight="25.0" prefWidth="74.0" text="Distance" />
+            <Button mnemonicParsing="false" onAction="#displayTime" prefHeight="25.0" prefWidth="109.0" text="Estimated Time" />
+            <Button mnemonicParsing="false" onAction="#displayTourInfo" prefHeight="25.0" prefWidth="55.0" text="Route" />
          </children>
       </HBox>
       <TextArea fx:id="desc" VBox.vgrow="ALWAYS" />
