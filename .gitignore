@@ -1,0 +1,2 @@
+#Ignore DB-Connection
+src/main/java/com/example/tourplanner/DAL/config/
