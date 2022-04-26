@@ -70,7 +70,7 @@ public class TourDao implements Dao <Tour>{
     }
 
 
-    public void create(Tour tour) {
+    public Tour create(Tour tour) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 INSERT INTO tours
                 (tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation)
@@ -92,6 +92,7 @@ public class TourDao implements Dao <Tour>{
             throwables.printStackTrace();
             //   return false;
         }
+        return tour;
     }
 
     public void delete(Tour tour){

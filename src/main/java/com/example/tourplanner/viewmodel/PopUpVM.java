@@ -55,11 +55,13 @@ public class PopUpVM {
         System.out.println("ADDED TOUR " + tourNameInput.get());
 
         float distance = Float.parseFloat(distanceInput.get());
-        int estimatedTime = Integer.parseInt(estimatedTimeInput.get());
+        int estimatedTime;
 
-        if(estimatedTime%1 == 0){
+        if(estimatedTimeInput.get().matches("\\d+")){
+            estimatedTime = Integer.parseInt(estimatedTimeInput.get());
             System.out.println("It is an integer");
         }else{
+            estimatedTime = -1;
             System.out.println("not an integer");
         }
 

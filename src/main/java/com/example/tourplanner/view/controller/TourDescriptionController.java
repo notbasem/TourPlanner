@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.Optional;
@@ -13,14 +14,14 @@ import java.util.ResourceBundle;
 
 public class TourDescriptionController implements Initializable {
     @FXML
-   public Label title;
+    public TextField title;
 
     @FXML
     public TextArea desc;
 
     private Optional<Tour> tour;
 
-    private TourDescriptionVM tourDescriptionViewModel;
+    private final TourDescriptionVM tourDescriptionViewModel;
 
     public TourDescriptionController(TourDescriptionVM tourDescriptionViewModel){
         this.tourDescriptionViewModel = tourDescriptionViewModel;
@@ -51,6 +52,7 @@ public class TourDescriptionController implements Initializable {
         desc.setText(i);
     }
 
+    /*
     public void setTour(String tourname){
         this.tour = this.tourDescriptionViewModel.displayTourData(tourname);
     }
@@ -58,6 +60,7 @@ public class TourDescriptionController implements Initializable {
     public  Optional<Tour> getTour(String tourname){
         return this.tourDescriptionViewModel.displayTourData(tourname);
     }
+    */
 
     @FXML
     public void displayTransportType(){
@@ -76,10 +79,8 @@ public class TourDescriptionController implements Initializable {
         desc.setText(String.valueOf(i));
     }
 
-
-    @Override
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-      //  textArea.setText("hgiiiiiiii");
-
+        title.textProperty().bindBidirectional(tourDescriptionViewModel.titleProperty());
     }
 }

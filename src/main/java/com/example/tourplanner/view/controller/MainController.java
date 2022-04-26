@@ -11,4 +11,11 @@ public class MainController {
     public MainController(MainVM mainViewModel){
         this.mainViewModel = mainViewModel;
     }
+
+    public MainVM getMainViewModel() {
+        return mainViewModel;
+    }
+
+    @FXML
+    void initialize(){}
 }

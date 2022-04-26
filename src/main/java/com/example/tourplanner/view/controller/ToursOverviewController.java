@@ -32,17 +32,23 @@ public class ToursOverviewController implements Initializable {
 
     private final ToursOverviewVM toursOverviewViewModel;
 
-
     public ToursOverviewController(ToursOverviewVM toursOverviewViewModel) {
-        this.toursOverviewViewModel = new ToursOverviewVM();
+        //this.toursOverviewViewModel = new ToursOverviewVM(); //das hier war falsch
+        this.toursOverviewViewModel =  toursOverviewViewModel;
     }
 
     public ToursOverviewVM getToursOverviewViewModel() {
         return toursOverviewViewModel;
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
+        this.tourlist.getSelectionModel().selectedItemProperty().addListener(toursOverviewViewModel.getChangeListener());
+    }
+
     @FXML
-    public void openPopUp(ActionEvent event) {
+    public void onButtonAdd(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
             Parent root = FXMLDI.load("PopUpWindow.fxml", Locale.ENGLISH);
@@ -55,28 +61,6 @@ public class ToursOverviewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    @FXML
-    public void onSelectedTour() throws IOException {
-        System.out.println("clicked on " + tourlist.getSelectionModel().getSelectedItem());
-        String tourName = String.valueOf(tourlist.getSelectionModel().getSelectedItem());
-
-        FXMLLoader loader = getLoader("TourDescription.fxml", Locale.ENGLISH);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        TourDescriptionController tourDescriptionController = loader.getController();
-        tourDescriptionController.setTour(tourName);
-       // tourDescriptionController.displayTourInfo(tourName);
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
+        this.tourlist.getSelectionModel().selectLast();
     }
 }

@@ -7,7 +7,8 @@ public interface Dao <T> {
    Optional<T> get(String name);
 
     List<T> getAll();
-    void create(T t);
+
+    T create(T t);
 
    // void update(T t, List <?> params);
     void update(T t, String name);

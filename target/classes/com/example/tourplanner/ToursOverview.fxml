@@ -12,12 +12,12 @@
       <ToolBar>
         <items>
             <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="105.0" text="Tours" />
-            <Button mnemonicParsing="false" onAction="#openPopUp" prefHeight="25.0" prefWidth="27.0" text="+" />
+            <Button mnemonicParsing="false" onAction="#onButtonAdd" prefHeight="25.0" prefWidth="27.0" text="+" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" text="-" />
             <Button layoutX="170.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" text="[]" />
         </items>
       </ToolBar>
-      <ListView fx:id="tourlist" onMouseClicked="#onSelectedTour" VBox.vgrow="ALWAYS">
+      <ListView fx:id="tourlist" VBox.vgrow="ALWAYS">
          <padding>
             <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
          </padding></ListView>
