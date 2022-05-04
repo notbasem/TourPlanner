@@ -57,11 +57,11 @@ public class PopUpVM {
         float distance = Float.parseFloat(distanceInput.get());
         int estimatedTime = Integer.parseInt(estimatedTimeInput.get());
 
-        if(estimatedTime%1 == 0){
+       /* if(estimatedTime%1 == 0){
             System.out.println("It is an integer");
         }else{
             System.out.println("not an integer");
-        }
+        }*/
 
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, routeInformation.get());
         tourDao.create(tour);

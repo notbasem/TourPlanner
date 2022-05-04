@@ -94,14 +94,14 @@ public class TourDao implements Dao <Tour>{
         }
     }
 
-    public void delete(Tour tour){
+    public void delete(String tourname){
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 DELETE FROM tours
                 WHERE tourname= ?;
                 """)
 
         ) {
-            statement.setString(1, tour.getName());
+            statement.setString(1, tourname);
             statement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

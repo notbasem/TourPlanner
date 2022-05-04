@@ -12,5 +12,5 @@ public interface Dao <T> {
    // void update(T t, List <?> params);
     void update(T t, String name);
 
-    void delete (T t);
+    void delete (String name);
 }
