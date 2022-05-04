@@ -1,12 +1,11 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.FXMLDI;
-import com.example.tourplanner.view.dialog.TourDialog;
+import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.viewmodel.ToursOverviewVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,9 +18,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import static com.example.tourplanner.FXMLDI.getLoader;
-
 
 public class ToursOverviewController implements Initializable {
     @FXML
@@ -60,18 +56,10 @@ public class ToursOverviewController implements Initializable {
 
     @FXML
     public void onSelectedTour() throws IOException {
-        System.out.println("clicked on " + tourlist.getSelectionModel().getSelectedItem());
+       // System.out.println("clicked on " + tourlist.getSelectionModel().getSelectedItem());
         String tourName = String.valueOf(tourlist.getSelectionModel().getSelectedItem());
 
-        FXMLLoader loader = getLoader("TourDescription.fxml", Locale.ENGLISH);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        TourDescriptionController tourDescriptionController = loader.getController();
-        tourDescriptionController.setTour(tourName);
-       // tourDescriptionController.displayTourInfo(tourName);
+        TourManager.Instance().selectTour(tourName);
 
     }
 
