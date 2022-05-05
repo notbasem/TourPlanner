@@ -4,7 +4,6 @@ import com.example.tourplanner.FXMLDI;
 import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.viewmodel.ToursOverviewVM;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -68,7 +67,6 @@ public class ToursOverviewController implements Initializable {
             if(tour.getName()==TourManager.Instance().getSelectedTour()){
                 TourListSingleton.getInstance().getTourlist().remove(tour);
             }
-
         }
     }
 

@@ -6,19 +6,10 @@ import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.view.controller.TourListSingleton;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ToursOverviewVM {
 
     TourDao tourDao = new TourDao();
-
-
-    public interface SelectionChangedListener {
-        void changeSelection(Tour tour);
-    }
-
-    private List<SelectionChangedListener> listeners = new ArrayList<>();
 
 
     public ToursOverviewVM(){}

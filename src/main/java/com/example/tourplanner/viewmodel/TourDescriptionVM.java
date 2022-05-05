@@ -4,7 +4,6 @@ import com.example.tourplanner.DAL.dal.TourDao;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -14,8 +13,6 @@ public class TourDescriptionVM implements EventListener {
     public TourDescriptionVM(){
         TourManager.Instance().addListener(this);
     }
-
-    private final StringProperty tourNameInput = new SimpleStringProperty();
 
 
     Optional<Tour> tour;
