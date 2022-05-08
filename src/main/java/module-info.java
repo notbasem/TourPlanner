@@ -5,6 +5,8 @@ module com.example.tourplanner {
     requires lombok;
     requires kernel;
     requires layout;
+    requires java.net.http;
+    requires json;
 
 
     opens com.example.tourplanner to javafx.fxml;

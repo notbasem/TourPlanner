@@ -31,6 +31,8 @@ public class TourDescriptionController implements Initializable  {
         System.out.println("hi");
         String i = this.tourDescriptionViewModel.getTour().get().getRouteInformation();
         desc.setText(i);
+        this.tourDescriptionViewModel.apiThingy();
+
         System.out.println(this.tourDescriptionViewModel.getTour().get().getRouteInformation());
     }
 
