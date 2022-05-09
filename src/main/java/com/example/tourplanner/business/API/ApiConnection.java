@@ -26,7 +26,7 @@ public class ApiConnection {
 
     }
 
-    public void sendRequest(String from, String to) throws IOException, InterruptedException {
+    public String sendRequest(String from, String to) throws IOException, InterruptedException {
         URI url = URI.create("http://www.mapquestapi.com/directions/v2/route?key="+key+"&from="+from+"&to="+to.replaceAll(" ", "%20"));
         System.out.println(url);
         HttpClient client = HttpClient.newBuilder().build();
@@ -54,13 +54,13 @@ public class ApiConnection {
         String link = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size=640,680&defaultMarker=none&zoom=11&rand=15108412&session="+session+"&boudingBox="+boundingBox;
 
         Map map = new Map(session,boundingBox);
-        getMap(map);
+        return getMap(map);
     }
 
-    public void getMap(Map map){
+    public String getMap(Map map){
         String req = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size="+map.getSize()+"&defaultMarker="+map.getDefaultMarker()+"&zoom="+map.getZoom()+"&rand="+map.getRand()+"&session="+map.getSession()+"&boudingBox="+map.getBoundingBox();
 
-        System.out.println(req);
+        return req;
     }
 
 

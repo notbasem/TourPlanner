@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.Optional;
@@ -19,6 +21,23 @@ public class TourDescriptionController implements Initializable  {
     @FXML
     public TextArea desc;
 
+    @FXML
+    public TextArea from;
+
+    @FXML
+    public TextArea to;
+
+    @FXML
+    public TextArea transport;
+
+    @FXML
+    public TextArea distance;
+
+    @FXML
+    public TextArea time;
+
+    @FXML
+    public ImageView routeView;
 
     private TourDescriptionVM tourDescriptionViewModel;
 
@@ -30,8 +49,14 @@ public class TourDescriptionController implements Initializable  {
     public void displayTourInfo(){
         System.out.println("hi");
         String i = this.tourDescriptionViewModel.getTour().get().getRouteInformation();
-        desc.setText(i);
-        this.tourDescriptionViewModel.apiThingy();
+      //  desc.setText(i);
+        String link=  this.tourDescriptionViewModel.apiThingy().replaceAll(" ", "%20");
+
+        System.out.println("LINK "+link);
+
+       // String imageSource = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size=640,680&defaultMarker=none&zoom=11&rand=15108412&session=62785689-01ad-993a-02b4-38b4-0eb20cc1095b&boudingBox=13.013587";
+        Image image = new Image(link);
+        routeView.setImage(image);
 
         System.out.println(this.tourDescriptionViewModel.getTour().get().getRouteInformation());
     }
@@ -45,13 +70,13 @@ public class TourDescriptionController implements Initializable  {
     @FXML
     public void displayFrom(){
         String i = this.tourDescriptionViewModel.getTour().get().getFrom();
-        desc.setText(i);
+        from.setText(i);
     }
 
     @FXML
     public void displayTo(){
         String i = this.tourDescriptionViewModel.getTour().get().getTo();
-        desc.setText(i);
+        to.setText(i);
     }
 
     public  Optional<Tour> getTour(String tourname){
@@ -61,18 +86,18 @@ public class TourDescriptionController implements Initializable  {
     @FXML
     public void displayTransportType(){
         String i = this.tourDescriptionViewModel.getTour().get().getTransportType();
-        desc.setText(i);
+        transport.setText(i);
     }
     @FXML
     public void displayDistance(){
         Float i = this.tourDescriptionViewModel.getTour().get().getTourDistance();
-        desc.setText(String.valueOf(i));
+        distance.setText(String.valueOf(i));
     }
 
     @FXML
     public void displayTime(){
         Integer i = this.tourDescriptionViewModel.getTour().get().getEstimatedTime();
-        desc.setText(String.valueOf(i));
+        time.setText(String.valueOf(i));
     }
 
 
