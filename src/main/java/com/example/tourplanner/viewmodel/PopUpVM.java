@@ -1,8 +1,8 @@
 package com.example.tourplanner.viewmodel;
 
+import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.dal.TourDao;
 import com.example.tourplanner.DAL.model.Tour;
-import com.example.tourplanner.view.controller.TourListSingleton;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 
@@ -16,7 +16,6 @@ public class PopUpVM {
     private final StringProperty estimatedTimeInput = new SimpleStringProperty();
     private final StringProperty routeInformation = new SimpleStringProperty();
 
-    TourDao tourDao = new TourDao();
 
 
     public StringProperty gettourNameInput() {
@@ -51,7 +50,7 @@ public class PopUpVM {
         return routeInformation;
     }
 
-    public ObservableList<Tour> addTour() {
+    public void addTour() {
         System.out.println("ADDED TOUR " + tourNameInput.get());
 
         float distance = Float.parseFloat(distanceInput.get());
@@ -64,10 +63,10 @@ public class PopUpVM {
         }*/
 
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, routeInformation.get());
-        tourDao.create(tour);
-        TourListSingleton.getInstance().getTourlist().add(tour);
+        DAL.getInstance().tourDao().create(tour);
+       // TourListSingleton.getInstance().getTourlist().add(tour);
 
-        return TourListSingleton.getInstance().getTourlist();
+     //   return TourListSingleton.getInstance().getTourlist();
     }
 
 }

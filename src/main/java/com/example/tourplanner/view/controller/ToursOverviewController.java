@@ -61,13 +61,9 @@ public class ToursOverviewController implements Initializable {
 
     }
     @FXML
-    public void delTour() throws IOException {
+    public void delTour()  {
        toursOverviewViewModel.deleteTour();
-        for (Tour tour:TourListSingleton.getInstance().getTourlist()) {
-            if(tour.getName()==TourManager.Instance().getSelectedTour()){
-                TourListSingleton.getInstance().getTourlist().remove(tour);
-            }
-        }
+        this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
     }
 
     @Override

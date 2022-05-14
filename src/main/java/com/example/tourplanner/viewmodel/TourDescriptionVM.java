@@ -1,6 +1,6 @@
 package com.example.tourplanner.viewmodel;
 
-import com.example.tourplanner.DAL.dal.TourDao;
+import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
@@ -17,21 +17,18 @@ public class TourDescriptionVM implements EventListener {
 
     Optional<Tour> tour;
 
-    TourDao tourDao = new TourDao();
-
 
     public Optional<Tour> displayTourData(String tourname){
 
-        Optional<Tour> tour = tourDao.get(tourname);
+        Optional<Tour> tour = DAL.getInstance().tourDao().get(tourname);
 
         return tour;
     }
 
     @Override
     public void onEvent() {
-       this.tour= this.tourDao.get(TourManager.Instance().getSelectedTour());
+       this.tour= DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
        System.out.println("Event was fired yaaaay");
-
     }
 
     public String apiThingy(){
