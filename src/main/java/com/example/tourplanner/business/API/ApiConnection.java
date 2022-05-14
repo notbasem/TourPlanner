@@ -40,16 +40,15 @@ public class ApiConnection {
 
         String pretty = json.getJSONObject("route").toString(4);
 
-        System.out.println(pretty);
-
+        //System.out.println(pretty);
 
         String session = route.getString("sessionId");
         Float lng = ul.getFloat("lng");
         Float lat = ul.getFloat("lat");
         String boundingBox = lng.toString()+", "+lat.toString();
 
-        System.out.println("SESSION: "+session);
-        System.out.println("BOUNDING BOX: "+boundingBox);
+        //System.out.println("SESSION: "+session);
+        //System.out.println("BOUNDING BOX: "+boundingBox);
 
         String link = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size=640,680&defaultMarker=none&zoom=11&rand=15108412&session="+session+"&boudingBox="+boundingBox;
 
@@ -62,7 +61,4 @@ public class ApiConnection {
 
         return req;
     }
-
-
-
 }

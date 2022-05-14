@@ -54,7 +54,6 @@ public class TourDescriptionController implements Initializable  {
 
         System.out.println("LINK "+link);
 
-       // String imageSource = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size=640,680&defaultMarker=none&zoom=11&rand=15108412&session=62785689-01ad-993a-02b4-38b4-0eb20cc1095b&boudingBox=13.013587";
         Image image = new Image(link);
         routeView.setImage(image);
 
