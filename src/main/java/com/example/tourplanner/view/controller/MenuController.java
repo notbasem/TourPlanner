@@ -1,6 +1,7 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.MenuVM;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -8,17 +9,24 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 import java.io.FileNotFoundException;
+import java.util.EventListener;
 
 public class MenuController {
-
     private final MenuVM menuViewModel;
+    @FXML Button FileButton;
+    @FXML TextField searchTextField;
+    @FXML Button searchButton;
 
-    @FXML
-    Button FileButton;
+    public MenuController (MenuVM menuViewModel)
+    {
+        this.menuViewModel = new MenuVM() ;
+    }
 
     public void onFileButtonClick(){
         System.out.println("File export button was clicked");
@@ -60,8 +68,9 @@ public class MenuController {
         document.close();
     }
 
-    public MenuController (MenuVM menuViewModel)
-    {
-        this.menuViewModel = new MenuVM() ;
+    @FXML
+    void initialize() {
+        searchTextField.textProperty().bindBidirectional(menuViewModel.searchStringProperty() );
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) ->  menuViewModel.onSearch());
     }
 }

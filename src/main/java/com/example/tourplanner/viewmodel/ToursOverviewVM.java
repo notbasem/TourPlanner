@@ -7,6 +7,9 @@ import com.example.tourplanner.business.TourManager;
 //import com.example.tourplanner.view.controller.TourListSingleton;
 import javafx.collections.ObservableList;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class ToursOverviewVM  {
 
@@ -21,6 +24,4 @@ public class ToursOverviewVM  {
     public void deleteTour(){
         DAL.getInstance().tourDao().delete(TourManager.SelectTourEventInstance().getSelectedTour());
     }
-
-
 }

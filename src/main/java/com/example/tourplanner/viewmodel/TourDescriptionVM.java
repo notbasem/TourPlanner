@@ -31,6 +31,11 @@ public class TourDescriptionVM implements EventListener {
        System.out.println("Event was fired yaaaay");
     }
 
+    @Override
+    public void onSearch() {
+
+    }
+
 
     public Optional<Tour> getTour() {
         return tour;

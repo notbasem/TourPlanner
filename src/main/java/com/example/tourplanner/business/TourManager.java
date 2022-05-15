@@ -5,6 +5,7 @@ import java.util.List;
 public class TourManager {
     List<EventListener> eventListenerList;
     String selectedTour;
+    String searchText;
     private static TourManager selectTourEventInstance;
     private static TourManager toursViewManager;
 
@@ -19,13 +20,28 @@ public class TourManager {
         }
     }
 
+    public void fireOnSearch(){
+        for(EventListener eventListener : eventListenerList){
+            eventListener.onSearch();
+        }
+    }
+
     public void selectTour(String name){
         this.selectedTour = name;
         this.fireEvent();
     }
 
+    public void onSearch(String searchText){
+        this.searchText = searchText;
+        this.fireOnSearch();
+    }
+
     public String getSelectedTour(){
         return this.selectedTour;
+    }
+
+    public String getSearch(){
+        return this.searchText;
     }
 
     public static TourManager SelectTourEventInstance() {

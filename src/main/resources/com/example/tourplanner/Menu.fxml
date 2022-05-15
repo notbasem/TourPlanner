@@ -33,8 +33,7 @@
 
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <TextField maxWidth="1.7976931348623157E308" text="Search" HBox.hgrow="ALWAYS" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="Search-icon" />
+            <TextField maxWidth="1.7976931348623157E308" promptText="Search" HBox.hgrow="ALWAYS" fx:id="searchTextField" />
          </children>
       </HBox>
 
