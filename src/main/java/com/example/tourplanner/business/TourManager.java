@@ -5,7 +5,9 @@ import java.util.List;
 public class TourManager {
     List<EventListener> eventListenerList;
     String selectedTour;
-    private static TourManager instance;
+    private static TourManager selectTourEventInstance;
+    private static TourManager toursViewManager;
+
 
     public void addListener(EventListener listener){
         this.eventListenerList.add(listener);
@@ -26,12 +28,20 @@ public class TourManager {
         return this.selectedTour;
     }
 
-    public static TourManager Instance() {
-        if (instance == null) {
-            instance = new TourManager();
-            instance.init();
+    public static TourManager SelectTourEventInstance() {
+        if (selectTourEventInstance == null) {
+            selectTourEventInstance = new TourManager();
+            selectTourEventInstance.init();
         }
-        return instance;
+        return selectTourEventInstance;
+    }
+
+    public static TourManager ToursViewManager() {
+        if (toursViewManager == null) {
+            toursViewManager = new TourManager();
+            toursViewManager.init();
+        }
+        return toursViewManager;
     }
 
     private void init() {

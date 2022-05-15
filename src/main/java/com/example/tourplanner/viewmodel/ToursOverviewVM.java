@@ -2,14 +2,13 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 //import com.example.tourplanner.view.controller.TourListSingleton;
 import javafx.collections.ObservableList;
 
 
-public class ToursOverviewVM {
-
-
+public class ToursOverviewVM  {
 
     public ToursOverviewVM(){}
 
@@ -20,7 +19,8 @@ public class ToursOverviewVM {
     }
 
     public void deleteTour(){
-        DAL.getInstance().tourDao().delete(TourManager.Instance().getSelectedTour());
+        DAL.getInstance().tourDao().delete(TourManager.SelectTourEventInstance().getSelectedTour());
     }
+
 
 }

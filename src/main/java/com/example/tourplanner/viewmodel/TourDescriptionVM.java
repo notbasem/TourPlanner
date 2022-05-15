@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class TourDescriptionVM implements EventListener {
     public TourDescriptionVM(){
-        TourManager.Instance().addListener(this);
+        TourManager.SelectTourEventInstance().addListener(this);
     }
 
 
@@ -27,7 +27,7 @@ public class TourDescriptionVM implements EventListener {
 
     @Override
     public void onEvent() {
-       this.tour= DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
+       this.tour= DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
        System.out.println("Event was fired yaaaay");
     }
 

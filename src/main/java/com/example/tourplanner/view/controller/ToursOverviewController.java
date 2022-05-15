@@ -1,6 +1,7 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.FXMLDI;
+import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.viewmodel.ToursOverviewVM;
@@ -19,7 +20,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ToursOverviewController implements Initializable {
+public class ToursOverviewController implements Initializable, EventListener {
     @FXML
     public ListView<Tour> tourlist;
 
@@ -31,6 +32,7 @@ public class ToursOverviewController implements Initializable {
 
     public ToursOverviewController(ToursOverviewVM toursOverviewViewModel) {
         this.toursOverviewViewModel = new ToursOverviewVM();
+        TourManager.ToursViewManager().addListener(this);
     }
 
     public ToursOverviewVM getToursOverviewViewModel() {
@@ -57,7 +59,7 @@ public class ToursOverviewController implements Initializable {
     @FXML
     public void onSelectedTour() throws IOException {
         String tourName = String.valueOf(tourlist.getSelectionModel().getSelectedItem());
-        TourManager.Instance().selectTour(tourName);
+        TourManager.SelectTourEventInstance().selectTour(tourName);
 
     }
     @FXML
@@ -69,5 +71,11 @@ public class ToursOverviewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
+    }
+
+    @Override
+    public void onEvent() {
+        this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
+
     }
 }
