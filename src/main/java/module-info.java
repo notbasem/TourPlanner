@@ -1,12 +1,13 @@
 module com.example.tourplanner {
-    requires javafx.controls;
-    requires javafx.fxml;
     requires java.sql;
     requires lombok;
     requires kernel;
     requires layout;
     requires java.net.http;
     requires json;
+    requires javafx.base;
+    requires javafx.fxml;
+    requires javafx.controls;
 
 
     opens com.example.tourplanner to javafx.fxml;

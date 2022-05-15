@@ -8,7 +8,7 @@ public class TourManager {
     String searchText;
     private static TourManager selectTourEventInstance;
     private static TourManager toursViewManager;
-
+    private static TourManager updateTourRouteImage;
 
     public void addListener(EventListener listener){
         this.eventListenerList.add(listener);
@@ -59,6 +59,15 @@ public class TourManager {
         }
         return toursViewManager;
     }
+
+    public static TourManager UpdateTourRouteImage() {
+        if (updateTourRouteImage == null) {
+            updateTourRouteImage = new TourManager();
+            updateTourRouteImage.init();
+        }
+        return updateTourRouteImage;
+    }
+
 
     private void init() {
         this.eventListenerList = new ArrayList<>();

@@ -1,17 +1,22 @@
 package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
-import com.example.tourplanner.DAL.dal.TourDao;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
+import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
-import javafx.collections.ObservableList;
-import lombok.SneakyThrows;
 
 import java.io.IOException;
+import java.util.Optional;
 
-public class PopUpVM {
+public class PopUpVM implements EventListener {
+    ApiConnection apiConnection = new ApiConnection();
+
+    public  PopUpVM(){
+        TourManager.UpdateTourRouteImage().addListener(this);
+    }
+
     private final StringProperty tourNameInput = new SimpleStringProperty();
     private final StringProperty tourDescriptionInput = new SimpleStringProperty();
     private final StringProperty fromInput = new SimpleStringProperty();
@@ -61,13 +66,7 @@ public class PopUpVM {
         float distance = Float.parseFloat(distanceInput.get());
         int estimatedTime = Integer.parseInt(estimatedTimeInput.get());
 
-       /* if(estimatedTime%1 == 0){
-            System.out.println("It is an integer");
-        }else{
-            System.out.println("not an integer");
-        }*/
 
-        ApiConnection apiConnection = new ApiConnection();
         String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
 
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, link);
@@ -77,4 +76,31 @@ public class PopUpVM {
 
     }
 
+    @Override
+    public void onEvent() {
+        Optional<Tour> tour=DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()) ;
+
+        try {
+            System.out.println("OLdlink"+tour.get().getRouteInformation());
+
+            String newlink = apiConnection.sendRequest(tour.get().getFrom(),tour.get().getTo()).replaceAll(" ", "%20");
+
+            tour.get().setRouteInformation(newlink);
+            System.out.println("Newlink"+tour.get().getRouteInformation());
+
+            DAL.getInstance().tourDao().update(tour.get(),tour.get().getName());
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Imagelink updated");
+    }
+
+    @Override
+    public void onSearch() {
+
+    }
 }

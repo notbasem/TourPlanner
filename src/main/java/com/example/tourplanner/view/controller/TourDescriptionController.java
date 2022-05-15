@@ -1,6 +1,7 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -48,6 +49,8 @@ public class TourDescriptionController implements Initializable  {
     @FXML
     public void displayTourInfo(){
 
+
+        TourManager.UpdateTourRouteImage().fireEvent();
 
         Image image = new Image(this.tourDescriptionViewModel.getTour().get().getRouteInformation());
         routeView.setImage(image);
