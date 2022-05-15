@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tourplanner.view.controller.PopUpController">
    <children>
       <Label layoutX="161.0" layoutY="14.0" prefHeight="61.0" prefWidth="278.0" text="Please enter your tour data">
@@ -48,8 +49,6 @@
             <Label text="Estimated Time" GridPane.rowIndex="6" />
             <TextArea fx:id="tourDescription" prefHeight="48.0" prefWidth="206.0" text="&#10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label GridPane.rowIndex="7" />
-            <Label text="Route Information" GridPane.rowIndex="7" />
-            <TextField fx:id="routeInformation" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <Button fx:id="closeButton" layoutX="201.0" layoutY="337.0" mnemonicParsing="false" onAction="#closePopUp" prefHeight="39.0" prefWidth="175.0" text="Create Tour" />

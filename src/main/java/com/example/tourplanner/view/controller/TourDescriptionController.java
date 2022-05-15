@@ -47,14 +47,9 @@ public class TourDescriptionController implements Initializable  {
 
     @FXML
     public void displayTourInfo(){
-        System.out.println("hi");
-        String i = this.tourDescriptionViewModel.getTour().get().getRouteInformation();
-      //  desc.setText(i);
-        String link=  this.tourDescriptionViewModel.apiThingy().replaceAll(" ", "%20");
 
-        System.out.println("LINK "+link);
 
-        Image image = new Image(link);
+        Image image = new Image(this.tourDescriptionViewModel.getTour().get().getRouteInformation());
         routeView.setImage(image);
 
         System.out.println(this.tourDescriptionViewModel.getTour().get().getRouteInformation());

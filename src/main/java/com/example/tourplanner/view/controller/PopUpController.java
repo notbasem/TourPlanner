@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -44,14 +45,13 @@ public class PopUpController implements Initializable {
     @FXML
     public TextField estimatedTime;
 
-    @FXML
-    public TextField routeInformation;
+  //  @FXML public TextField routeInformation;
 
     @FXML
     Button closeButton;
 
     @FXML
-    public void closePopUp(ActionEvent event) {
+    public void closePopUp(ActionEvent event) throws IOException, InterruptedException {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         popUpViewModel.addTour();
         stage.close();
@@ -66,7 +66,6 @@ public class PopUpController implements Initializable {
         transportType.textProperty().bindBidirectional(popUpViewModel.gettransportTypeInput());
         distance.textProperty().bindBidirectional(popUpViewModel.getdistanceInput());
         estimatedTime.textProperty().bindBidirectional(popUpViewModel.getestimatedTimeInput());
-        routeInformation.textProperty().bindBidirectional(popUpViewModel.getrouteInformation());
     }
 
 }

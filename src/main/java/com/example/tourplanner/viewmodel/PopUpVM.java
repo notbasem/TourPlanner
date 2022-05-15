@@ -3,9 +3,13 @@ package com.example.tourplanner.viewmodel;
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.dal.TourDao;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
+import lombok.SneakyThrows;
+
+import java.io.IOException;
 
 public class PopUpVM {
     private final StringProperty tourNameInput = new SimpleStringProperty();
@@ -51,7 +55,7 @@ public class PopUpVM {
         return routeInformation;
     }
 
-    public void addTour() {
+    public void addTour() throws IOException, InterruptedException {
         System.out.println("ADDED TOUR " + tourNameInput.get());
 
         float distance = Float.parseFloat(distanceInput.get());
@@ -63,13 +67,14 @@ public class PopUpVM {
             System.out.println("not an integer");
         }*/
 
-        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, routeInformation.get());
+        ApiConnection apiConnection = new ApiConnection();
+        String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
+
+        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, link);
         DAL.getInstance().tourDao().create(tour);
 
         TourManager.ToursViewManager().fireEvent();
-       // TourListSingleton.getInstance().getTourlist().add(tour);
 
-     //   return TourListSingleton.getInstance().getTourlist();
     }
 
 }

@@ -31,20 +31,7 @@ public class TourDescriptionVM implements EventListener {
        System.out.println("Event was fired yaaaay");
     }
 
-    public String apiThingy(){
-        ApiConnection apiConnection = new ApiConnection();
-        try {
-          return  apiConnection.sendRequest(tour.get().getFrom(),tour.get().getTo());
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-        return null;
-    }
     public Optional<Tour> getTour() {
         return tour;
     }
