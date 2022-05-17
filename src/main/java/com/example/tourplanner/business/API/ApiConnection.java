@@ -38,6 +38,7 @@ public class ApiConnection {
         JSONObject boundingBoxObj = route.getJSONObject("boundingBox");
         JSONObject ul = boundingBoxObj.getJSONObject("ul");
 
+        System.out.println("url: from"+from+" to "+to);
         String pretty = json.getJSONObject("route").toString(4);
 
         //System.out.println(pretty);
@@ -57,7 +58,7 @@ public class ApiConnection {
     }
 
     public String getMap(Map map){
-        String req = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size="+map.getSize()+"&defaultMarker="+map.getDefaultMarker()+"&zoom="+map.getZoom()+"&rand="+map.getRand()+"&session="+map.getSession()+"&boudingBox="+map.getBoundingBox();
+        String req = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&session="+map.getSession()+"&boudingBox="+map.getBoundingBox();
 
         return req;
     }

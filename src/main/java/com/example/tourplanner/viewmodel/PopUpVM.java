@@ -86,7 +86,7 @@ public class PopUpVM implements EventListener {
             String newlink = apiConnection.sendRequest(tour.get().getFrom(),tour.get().getTo()).replaceAll(" ", "%20");
 
             tour.get().setRouteInformation(newlink);
-            System.out.println("Newlink"+tour.get().getRouteInformation());
+            System.out.println("Newlink "+tour.get().getRouteInformation());
 
             DAL.getInstance().tourDao().update(tour.get(),tour.get().getName());
 
