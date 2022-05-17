@@ -12,7 +12,7 @@ public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLDI.load("MainWindow.fxml", Locale.ENGLISH);
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1000, 700);
         stage.setTitle("Tour Planner");
         stage.setScene(scene);
         stage.show();

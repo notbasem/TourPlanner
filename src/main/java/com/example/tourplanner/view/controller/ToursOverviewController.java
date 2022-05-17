@@ -75,7 +75,7 @@ public class ToursOverviewController implements Initializable, EventListener {
         this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
 
         //Automatically choose first Tour
-        tourlist.getSelectionModel().selectFirst();
+        tourlist.getSelectionModel().select(0);
         TourManager.SelectTourEventInstance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
     }
 

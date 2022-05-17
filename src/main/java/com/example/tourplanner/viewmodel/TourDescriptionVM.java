@@ -7,18 +7,30 @@ import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
+import lombok.Getter;
 
+import java.io.IOException;
 import java.util.Optional;
 
+@Getter
 public class TourDescriptionVM implements EventListener {
+    private Optional<Tour> tour;
+    private final StringProperty title = new SimpleStringProperty();
+    private final StringProperty description = new SimpleStringProperty();
+    private final StringProperty from = new SimpleStringProperty();
+    private final StringProperty to = new SimpleStringProperty();
+    private final StringProperty transportType = new SimpleStringProperty();
+    private final StringProperty distance = new SimpleStringProperty();
+    private final StringProperty time = new SimpleStringProperty();
+    // private final StringProperty routeInformation = new SimpleStringProperty();
+    private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
+
     public TourDescriptionVM(){
         TourManager.SelectTourEventInstance().addListener(this);
     }
-    private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
-
-
-    Optional<Tour> tour;
 
 
    // public ObjectProperty imageProperty(){return imageProperty();}
@@ -30,10 +42,26 @@ public class TourDescriptionVM implements EventListener {
         return tour;
     }
 
-    public ObjectProperty<javafx.scene.image.Image> getImageProperty(){
+    public ObjectProperty<Image> getImageProperty(){
         System.out.println("should get image of clicked tour");
+        //Image image = new Image(DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()).get().getRouteInformation());
 
-        Image image = new Image(DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()).get().getRouteInformation());
+        String link = "";
+        try {
+            link = new ApiConnection().sendRequest(from.get(),to.get()).replaceAll(" ", "%20");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
+        Image image = new Image(link,
+                640,     // width
+                680,    // height
+                true,   // preserve ratio
+                true,  // smooth rescaling
+                true   // load in background
+        );
 
         if (image.isError())
             TourManager.UpdateTourRouteImage().fireEvent();
@@ -48,7 +76,7 @@ public class TourDescriptionVM implements EventListener {
     @Override
     public void onEvent() {
        this.tour= DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
-        System.out.println("event fired: Tour selected");
+       System.out.println("event fired: Tour selected");
     }
 
     @Override
@@ -56,8 +84,16 @@ public class TourDescriptionVM implements EventListener {
 
     }
 
-
     public Optional<Tour> getTour() {
         return tour;
+    }
+
+    public void updateTour() {
+        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), Integer.parseInt(time.get()), tour.get().getRouteInformation());
+        DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
+        tour = Optional.of(newTour);
+        System.out.println("URL: " + imageProperty.get().getUrl());
+        System.out.println("URL: " + getImageProperty().get().getUrl());
+        TourManager.ToursViewManager().fireEvent();
     }
 }

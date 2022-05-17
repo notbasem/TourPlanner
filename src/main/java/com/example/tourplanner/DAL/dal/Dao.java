@@ -12,5 +12,7 @@ public interface Dao <T> {
    // void update(T t, List <?> params);
     void update(T t, String name);
 
+    void updateTour(T oldT, T newT);
+
     void delete (String name);
 }

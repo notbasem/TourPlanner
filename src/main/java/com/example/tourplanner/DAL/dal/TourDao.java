@@ -128,10 +128,34 @@ public class TourDao implements Dao <Tour>{
 
     }
 
+    public void updateTour(Tour oldT, Tour newT){
+        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
+                UPDATE tours
+                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?, routeinformation=?
+                WHERE tourname=? ;
+                """)
+        ) {
+            statement.setString(1, newT.getName());
+            statement.setString(2, newT.getTourDescription());
+            statement.setString(3, newT.getFrom());
+            statement.setString(4, newT.getTo());
+            statement.setString(5, newT.getTransportType());
+            statement.setFloat(6, newT.getTourDistance());
+            statement.setInt(7, newT.getEstimatedTime());
+            statement.setString(8, newT.getRouteInformation());
+            statement.setString(9, oldT.getName());
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private void setter(Tour tour, PreparedStatement statement) throws SQLException {
         statement.setString(2, tour.getTourDescription());
-        statement.setString(3, tour.getTo());
-        statement.setString(4, tour.getFrom());
+        statement.setString(3, tour.getFrom());
+        statement.setString(4, tour.getTo());
         statement.setString(5, tour.getTransportType());
         statement.setFloat(6, tour.getTourDistance());
         statement.setInt(7, tour.getEstimatedTime());
