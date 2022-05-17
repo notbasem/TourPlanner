@@ -18,7 +18,7 @@ public class DbConnection implements Closeable {
     }
 
     public Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/toursdb", "postgres", "2711");
+        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/toursdb", "basem", "");
     }
 
     public Connection getConnection() {
