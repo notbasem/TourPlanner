@@ -48,28 +48,15 @@ public class PopUpVM implements EventListener {
         return transportTypeInput;
     }
 
-    public Property<String> getdistanceInput() {
-        return distanceInput;
-    }
 
-    public Property<String> getestimatedTimeInput() {
-        return estimatedTimeInput;
-    }
-
-    public StringProperty getrouteInformation() {
-        return routeInformation;
-    }
 
     public void addTour() throws IOException, InterruptedException {
         System.out.println("ADDED TOUR " + tourNameInput.get());
 
-        float distance = Float.parseFloat(distanceInput.get());
-        int estimatedTime = Integer.parseInt(estimatedTimeInput.get());
-
-
         String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
 
-        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, link);
+        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), apiConnection.getDistance(),apiConnection.getTime(), link);
+        apiConnection.getTime();
         DAL.getInstance().tourDao().create(tour);
 
         TourManager.ToursViewManager().fireEvent();
