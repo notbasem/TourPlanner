@@ -48,8 +48,6 @@ public class PopUpVM implements EventListener {
         return transportTypeInput;
     }
 
-
-
     public void addTour() throws IOException, InterruptedException {
         System.out.println("ADDED TOUR " + tourNameInput.get());
 

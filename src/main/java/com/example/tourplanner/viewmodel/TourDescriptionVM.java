@@ -44,7 +44,6 @@ public class TourDescriptionVM implements EventListener {
 
     public ObjectProperty<Image> getImageProperty(){
         System.out.println("should get image of clicked tour");
-        //Image image = new Image(DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()).get().getRouteInformation());
 
         String link = "";
         try {
@@ -55,13 +54,16 @@ public class TourDescriptionVM implements EventListener {
             e.printStackTrace();
         }
         // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
-        Image image = new Image(link,
+
+        /*Image image = new Image(link,
                 640,     // width
                 680,    // height
                 true,   // preserve ratio
                 true,  // smooth rescaling
                 true   // load in background
-        );
+        );*/
+        Image image = new Image(link);
+
 
         if (image.isError())
             TourManager.UpdateTourRouteImage().fireEvent();

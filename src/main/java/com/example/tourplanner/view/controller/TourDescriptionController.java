@@ -41,8 +41,16 @@ public class TourDescriptionController implements Initializable, EventListener {
         fromInput.textProperty().bindBidirectional(tourDescriptionViewModel.getFrom());
         toInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTo());
         transportInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTransportType());
-        distanceInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDistance());
-        timeInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTime());
+        // distanceInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDistance());
+        //https://stackoverflow.com/questions/20205145/javafx-how-to-show-read-only-text !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+        distanceInput.setEditable(false);
+        distanceInput.setMouseTransparent(false);
+        distanceInput.setFocusTraversable(false);
+        //timeInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTime());
+
+        timeInput.setEditable(false);
+        timeInput.setMouseTransparent(false);
+        timeInput.setFocusTraversable(false);
 
         // Bindings.bindBidirectional(this.imageView.imageProperty(), tourDescriptionViewModel.getImageProperty());
         // imageView.setImage(tourDescriptionViewModel.getImage());
