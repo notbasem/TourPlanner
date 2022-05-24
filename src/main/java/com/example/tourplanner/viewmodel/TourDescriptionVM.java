@@ -89,7 +89,7 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public void updateTour() {
-        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), Integer.parseInt(time.get()), tour.get().getRouteInformation());
+        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), Float.parseFloat(time.get()), tour.get().getRouteInformation());
         DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
         tour = Optional.of(newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());

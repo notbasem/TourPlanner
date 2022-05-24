@@ -10,10 +10,10 @@ public class Tour {
     String to;
     String transportType;
     Float TourDistance;
-    Integer estimatedTime;
+    Float estimatedTime;
     String routeInformation;
 
-    public Tour (String name, String tourDescription, String from, String to, String transportType, Float TourDistance, Integer estimatedTime, String routeInformation){
+    public Tour (String name, String tourDescription, String from, String to, String transportType, Float TourDistance, Float estimatedTime, String routeInformation){
         this.name = name;
         this.tourDescription = tourDescription;
         this.from = from;
@@ -24,16 +24,6 @@ public class Tour {
         this.routeInformation = routeInformation;
     }
 
-    public Tour (String name){
-        this.name = name;
-        this.tourDescription = null;
-        this.from = null;
-        this.to = null;
-        this. transportType = null;
-        this.TourDistance = null;
-        this.estimatedTime = null;
-        this.routeInformation = null;
-    }
 
     @Override
     public String toString() {

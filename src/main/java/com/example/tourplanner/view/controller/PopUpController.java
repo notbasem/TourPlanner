@@ -39,13 +39,6 @@ public class PopUpController implements Initializable {
     @FXML
     public TextField transportType;
 
-    @FXML
-    public TextField distance;
-
-    @FXML
-    public TextField estimatedTime;
-
-  //  @FXML public TextField routeInformation;
 
     @FXML
     Button closeButton;
@@ -64,8 +57,6 @@ public class PopUpController implements Initializable {
         from.textProperty().bindBidirectional(popUpViewModel.getfromInput());
         to.textProperty().bindBidirectional(popUpViewModel.gettoInput());
         transportType.textProperty().bindBidirectional(popUpViewModel.gettransportTypeInput());
-        distance.textProperty().bindBidirectional(popUpViewModel.getdistanceInput());
-        estimatedTime.textProperty().bindBidirectional(popUpViewModel.getestimatedTimeInput());
     }
 
 }

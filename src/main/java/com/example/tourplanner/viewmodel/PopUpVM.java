@@ -69,7 +69,7 @@ public class PopUpVM implements EventListener {
 
         String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
 
-        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), distance, estimatedTime, link);
+        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(),apiConnection.getDistance(), apiConnection.getTime(), link);
         DAL.getInstance().tourDao().create(tour);
 
         TourManager.ToursViewManager().fireEvent();

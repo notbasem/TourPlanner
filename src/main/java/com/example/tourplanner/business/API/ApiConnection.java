@@ -1,4 +1,6 @@
 package com.example.tourplanner.business.API;
+import lombok.Getter;
+import lombok.Setter;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -7,9 +9,13 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
+@Getter
+@Setter
 
 public class ApiConnection {
     String key = "Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV";
+    Float time;
+    Float distance;
     public void sendAsync(String from, String to ) {
         URI url = URI.create("http://www.mapquestapi.com/directions/v2/route?key="+key+"&from="+from+"&to="+to.replaceAll(" ", "%20"));
         //"http://www.mapquestapi.com/directions/v2/route?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&from=Clarendon Blvd,Arlington,VA&to=2400+S+Glebe+Rd,+Arlington,+VA
@@ -46,10 +52,10 @@ public class ApiConnection {
         String session = route.getString("sessionId");
         Float lng = ul.getFloat("lng");
         Float lat = ul.getFloat("lat");
-        String boundingBox = lng.toString()+", "+lat.toString();
+        String boundingBox = lng+", "+lat;
 
-        //System.out.println("SESSION: "+session);
-        //System.out.println("BOUNDING BOX: "+boundingBox);
+        this.distance = route.getFloat("distance");
+        this.time = route.getFloat("time");
 
         String link = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size=640,680&defaultMarker=none&zoom=11&rand=15108412&session="+session+"&boudingBox="+boundingBox;
 
