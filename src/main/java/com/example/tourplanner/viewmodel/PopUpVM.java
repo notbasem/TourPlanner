@@ -22,9 +22,6 @@ public class PopUpVM implements EventListener {
     private final StringProperty fromInput = new SimpleStringProperty();
     private final StringProperty toInput = new SimpleStringProperty();
     private final StringProperty transportTypeInput = new SimpleStringProperty();
-    private final StringProperty distanceInput = new SimpleStringProperty();
-    private final StringProperty estimatedTimeInput = new SimpleStringProperty();
-    private final StringProperty routeInformation = new SimpleStringProperty();
 
 
 
@@ -48,25 +45,8 @@ public class PopUpVM implements EventListener {
         return transportTypeInput;
     }
 
-    public Property<String> getdistanceInput() {
-        return distanceInput;
-    }
-
-    public Property<String> getestimatedTimeInput() {
-        return estimatedTimeInput;
-    }
-
-    public StringProperty getrouteInformation() {
-        return routeInformation;
-    }
-
     public void addTour() throws IOException, InterruptedException {
         System.out.println("ADDED TOUR " + tourNameInput.get());
-
-        float distance = Float.parseFloat(distanceInput.get());
-        int estimatedTime = Integer.parseInt(estimatedTimeInput.get());
-
-
         String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
 
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(),apiConnection.getDistance(), apiConnection.getTime(), link);
