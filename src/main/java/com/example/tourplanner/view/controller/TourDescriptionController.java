@@ -44,9 +44,13 @@ public class TourDescriptionController implements Initializable, EventListener {
         distanceInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDistance());
         timeInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTime());
 
-        // Bindings.bindBidirectional(this.imageView.imageProperty(), tourDescriptionViewModel.getImageProperty());
-        // imageView.setImage(tourDescriptionViewModel.getImage());
-        // title.setText(this.tourDescriptionViewModel.getTour().get().getRouteInformation());
+        distanceInput.setEditable(false);
+        distanceInput.setMouseTransparent(false);
+        distanceInput.setFocusTraversable(false);
+
+        timeInput.setEditable(false);
+        timeInput.setMouseTransparent(false);
+        timeInput.setFocusTraversable(false);
 
     }
 
@@ -60,7 +64,7 @@ public class TourDescriptionController implements Initializable, EventListener {
         toInput.setText(this.tourDescriptionViewModel.getTour().get().getTo());
         transportInput.setText(tourDescriptionViewModel.getTour().get().getTransportType());
         distanceInput.setText(this.tourDescriptionViewModel.getTour().get().getTourDistance().toString());
-        timeInput.setText(this.tourDescriptionViewModel.getTour().get().getEstimatedTime().toString());
+        timeInput.setText(this.tourDescriptionViewModel.getTour().get().getEstimatedTime());
         imageView.setImage(this.tourDescriptionViewModel.getImageProperty().get());
     }
 

@@ -6,9 +6,9 @@ public class TourManager {
     List<EventListener> eventListenerList;
     String selectedTour;
     String searchText;
-    private static TourManager selectTourEventInstance;
+
+    private static TourManager selectClickedTourEventInstance;
     private static TourManager toursViewManager;
-    private static TourManager updateTourRouteImage;
 
     public void addListener(EventListener listener){
         this.eventListenerList.add(listener);
@@ -45,11 +45,11 @@ public class TourManager {
     }
 
     public static TourManager SelectTourEventInstance() {
-        if (selectTourEventInstance == null) {
-            selectTourEventInstance = new TourManager();
-            selectTourEventInstance.init();
+        if (selectClickedTourEventInstance == null) {
+            selectClickedTourEventInstance = new TourManager();
+            selectClickedTourEventInstance.init();
         }
-        return selectTourEventInstance;
+        return selectClickedTourEventInstance;
     }
 
     public static TourManager ToursViewManager() {
@@ -58,14 +58,6 @@ public class TourManager {
             toursViewManager.init();
         }
         return toursViewManager;
-    }
-
-    public static TourManager UpdateTourRouteImage() {
-        if (updateTourRouteImage == null) {
-            updateTourRouteImage = new TourManager();
-            updateTourRouteImage.init();
-        }
-        return updateTourRouteImage;
     }
 
 
