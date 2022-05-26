@@ -46,14 +46,8 @@ public class TourDescriptionVM implements EventListener {
         System.out.println("should get image of clicked tour");
         //Image image = new Image(DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()).get().getRouteInformation());
 
-        String link = "";
-        try {
-            link = new ApiConnection().sendRequest(from.get(),to.get()).replaceAll(" ", "%20");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        ApiConnection apiConnection = new ApiConnection();
+        String link = updateLink(apiConnection, from.get(), to.get());
         // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
         Image image = new Image(link,
                 640,     // width
@@ -90,10 +84,28 @@ public class TourDescriptionVM implements EventListener {
 
     public void updateTour() {
         Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), Float.parseFloat(time.get()), tour.get().getRouteInformation());
+
+        ApiConnection apiConnection = new ApiConnection();
+        if (!from.get().equalsIgnoreCase(tour.get().getFrom()) || !to.get().equalsIgnoreCase(tour.get().getTo())) {
+            String link = updateLink(apiConnection, from.get(), to.get());
+            newTour.setTourDistance(apiConnection.getDistance());
+            newTour.setEstimatedTime(apiConnection.getTime());
+        }
         DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
         tour = Optional.of(newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());
         System.out.println("URL: " + getImageProperty().get().getUrl());
         TourManager.ToursViewManager().fireEvent();
+    }
+
+    public String updateLink(ApiConnection apiConnection, String from, String to) {
+        try {
+            return new ApiConnection().sendRequest(from,to).replaceAll(" ", "%20");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
