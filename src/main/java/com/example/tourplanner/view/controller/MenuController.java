@@ -1,13 +1,18 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.viewmodel.MenuVM;
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.properties.HorizontalAlignment;
+import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.AreaBreakType;
+import com.itextpdf.layout.properties.TabAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,27 +22,36 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 public class MenuController {
     private final MenuVM menuViewModel;
-    @FXML MenuBar menuBar;
-    @FXML MenuItem closeButton;
-    @FXML MenuItem exportButton;
-    @FXML TextField searchTextField;
+    @FXML
+    MenuBar menuBar;
+    @FXML
+    MenuItem closeButton;
+    @FXML
+    MenuItem exportButton;
+    @FXML
+    TextField searchTextField;
 
-    public MenuController (MenuVM menuViewModel)
-    {
-        this.menuViewModel = new MenuVM() ;
+    ApiConnection apiConnection = new ApiConnection();
+
+    public MenuController(MenuVM menuViewModel) {
+        this.menuViewModel = new MenuVM();
     }
 
     @FXML
     void initialize() {
-        searchTextField.textProperty().bindBidirectional(menuViewModel.searchStringProperty() );
-        searchTextField.textProperty().addListener((observable, oldValue, newValue) ->  menuViewModel.onSearch());
+        searchTextField.textProperty().bindBidirectional(menuViewModel.searchStringProperty());
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> menuViewModel.onSearch());
     }
 
     @FXML
-    public void onExport(){
+    public void onExport() throws IOException, InterruptedException {
+
+
         System.out.println("File export button was clicked");
         ObservableList<Tour> tourlist = this.menuViewModel.exportallTours();
         PdfWriter writer = null;
@@ -49,32 +63,71 @@ public class MenuController {
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf);
 
-        Paragraph header = new Paragraph("Tours:");
-        header.setFontSize(32);
-        document.add(header);
 
-        // Creating a table
-        Table table = new Table(8);
-        table.addHeaderCell("Name");
-        table.addHeaderCell("Description");
-        table.addHeaderCell("From");
-        table.addHeaderCell("To");
-        table.addHeaderCell("Transport type");
-        table.addHeaderCell("Distance");
-        table.addHeaderCell("Estimated time");
-        table.addHeaderCell("Route information");
+        for (Tour tour : tourlist) {
+            if (tour != tourlist.get(0)) {
+                document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+            }
 
-        for (Tour tour: tourlist) {
-            table.addCell(tour.getName());
-            table.addCell(tour.getTourDescription());
-            table.addCell(tour.getFrom());
-            table.addCell(tour.getTo());
-            table.addCell(tour.getTransportType());
-            table.addCell(String.valueOf(tour.getTourDistance()));
-            table.addCell(String.valueOf(tour.getEstimatedTime()));
-            table.addCell(tour.getRouteInformation());
+            Paragraph titleHeader = new Paragraph(tour.getName())
+                    .setFont(PdfFontFactory.createFont(StandardFonts.HELVETICA))
+                    .setFontSize(20)
+                    .setBold();
+
+            document.add(titleHeader.setMarginLeft(55).setMarginBottom(40));
+            String url = apiConnection.sendRequest(tour.getFrom(), tour.getTo());
+
+            ImageData imageData = ImageDataFactory.create(url.replace(" ", "%20"));
+            Image pdfImg = new Image(imageData);
+            document.add(pdfImg.setMarginLeft(55).setMarginBottom(50));
+
+            Table table = new Table(UnitValue.createPercentArray(1)).useAllAvailableWidth();
+
+
+            Paragraph from = new Paragraph("From");
+            from.add(new Tab());
+            from.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+            from.add(tour.getFrom());
+
+            Cell cell = new Cell().add(from);
+            table.addCell(cell);
+
+            Paragraph to = new Paragraph("To");
+            to.add(new Tab());
+            to.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+            to.add(tour.getTo());
+
+            Cell cell2 = new Cell().add(to);
+            table.addCell(cell2);
+
+            Paragraph desc = new Paragraph("Tourdescription");
+            desc.add(new Tab());
+            desc.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+            desc.add(tour.getTourDescription());
+
+            Cell cell3 = new Cell().add(desc);
+            table.addCell(cell3);
+
+            Paragraph distance = new Paragraph("Distance");
+            distance.add(new Tab());
+            distance.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+            distance.add(tour.getTourDistance().toString());
+
+            Cell cell4 = new Cell().add(distance);
+            table.addCell(cell4);
+
+            Paragraph time = new Paragraph("Time");
+            time.add(new Tab());
+            time.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+            time.add(tour.getEstimatedTime());
+
+            Cell cell5 = new Cell().add(time);
+            table.addCell(cell5);
+
+
+            document.add(table.setMarginLeft(55).setMarginRight(60));
         }
-        document.add(table);
+
         document.close();
     }
 
