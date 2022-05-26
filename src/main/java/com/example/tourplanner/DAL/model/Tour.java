@@ -30,5 +30,18 @@ public class Tour {
         return name;
     }
 
+    public String tourToString() {
+        return "Tour{" +
+                "name='" + name + '\'' +
+                ", tourDescription='" + tourDescription + '\'' +
+                ", from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", transportType='" + transportType + '\'' +
+                ", TourDistance=" + TourDistance +
+                ", estimatedTime='" + estimatedTime + '\'' +
+                ", routeInformation='" + routeInformation + '\'' +
+                '}';
+    }
+
 
 }

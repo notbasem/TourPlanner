@@ -9,6 +9,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import lombok.Getter;
 
@@ -18,6 +19,7 @@ import java.util.Optional;
 @Getter
 public class TourDescriptionVM implements EventListener {
     private Optional<Tour> tour;
+    private boolean update = true;
     private final StringProperty title = new SimpleStringProperty();
     private final StringProperty description = new SimpleStringProperty();
     private final StringProperty from = new SimpleStringProperty();
@@ -28,24 +30,23 @@ public class TourDescriptionVM implements EventListener {
     // private final StringProperty routeInformation = new SimpleStringProperty();
     private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
 
-    public TourDescriptionVM(){
+    public TourDescriptionVM() {
         TourManager.SelectTourEventInstance().addListener(this);
+        TourManager.ToursViewManager().addListener(this);
     }
 
 
-
-    public Optional<Tour> displayTourData(String tourname){
+    public Optional<Tour> displayTourData(String tourname) {
 
         Optional<Tour> tour = DAL.getInstance().tourDao().get(tourname);
 
         return tour;
     }
 
-    public ObjectProperty<Image> getImageProperty(){
+    public ObjectProperty<Image> getImageProperty() {
         System.out.println("should get image of clicked tour");
-
-        ApiConnection apiConnection = new ApiConnection();
-        String link = updateLink(apiConnection, from.get(), to.get());
+        String link = updateLink(from.get(), to.get());
+        System.out.println("LINK: " + link);
         // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
         Image image = new Image(link,
                 640,     // width
@@ -54,17 +55,37 @@ public class TourDescriptionVM implements EventListener {
                 true,  // smooth rescaling
                 true   // load in background
         );
+        imageProperty.setValue(image);
+        return imageProperty;
+    }
 
-
-
-        imageProperty= new SimpleObjectProperty<Image>(image);
-
-        return imageProperty;}
+    private void updateImageProperty(String map) {
+        // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
+        Image image = new Image(map,
+                640,     // width
+                680,    // height
+                true,   // preserve ratio
+                true,  // smooth rescaling
+                true   // load in background
+        );
+        imageProperty.setValue(image);
+    }
 
     @Override
     public void onEvent() {
-        this.tour= DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
-        System.out.println("event fired: Tour selected");
+        this.tour = DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
+        System.out.println("event fired: Tour selected " + tour.get().tourToString());
+        if (tour.isPresent()) {
+            title.setValue(tour.get().getName());
+            description.setValue(tour.get().getTourDescription());
+            from.setValue(tour.get().getFrom());
+            to.setValue(tour.get().getTo());
+            transportType.setValue(tour.get().getTransportType());
+            distance.setValue(tour.get().getTourDistance().toString());
+            time.setValue(tour.get().getEstimatedTime());
+            imageProperty.setValue(getImageProperty().get());
+        }
+        update = false;
     }
 
     @Override
@@ -78,28 +99,19 @@ public class TourDescriptionVM implements EventListener {
 
     public void updateTour() {
         Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get(), tour.get().getRouteInformation());
-        ApiConnection apiConnection = new ApiConnection();
-        if (!from.get().equalsIgnoreCase(tour.get().getFrom()) || !to.get().equalsIgnoreCase(tour.get().getTo())) {
-            String link = updateLink(apiConnection, from.get(), to.get());
-            newTour.setTourDistance(apiConnection.getDistance());
-            newTour.setEstimatedTime(apiConnection.getTime());
-        }
+        ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
+        System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
 
+        newTour.setTourDistance(apiConnection.getDistance());
+        newTour.setEstimatedTime(apiConnection.getTime());
+        updateImageProperty(apiConnection.getMap().getMapString());
         DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
-        tour = Optional.of(newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());
-        System.out.println("URL: " + getImageProperty().get().getUrl());
         TourManager.ToursViewManager().fireEvent();
     }
 
-    public String updateLink(ApiConnection apiConnection, String from, String to) {
-        try {
-            return new ApiConnection().sendRequest(from,to).replaceAll(" ", "%20");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public String updateLink(String from, String to) {
+        ApiConnection apiConnection = new ApiConnection(from, to);
+        return (apiConnection.getMap().getMapString()).replaceAll(" ", "%20");
     }
 }

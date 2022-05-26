@@ -1,5 +1,6 @@
 package com.example.tourplanner.business.API;
 
+import javafx.geometry.BoundingBox;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,7 @@ public class Map {
     private String defaultMarker ;
     private String zoom = "11";
     private String rand = "15108412";
-    private  String session;
+    private String session;
     private String boundingBox;
 
     public Map(String session, String boundingBox) {
@@ -20,5 +21,9 @@ public class Map {
         this.defaultMarker = "none";
         this.zoom = "11";
         this.rand = "15108412";
+    }
+
+    public String getMapString(){
+        return ("https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&session="+this.getSession()+"&boudingBox="+this.getBoundingBox()).replaceAll(" ", "%20");
     }
 }
