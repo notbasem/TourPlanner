@@ -11,17 +11,12 @@ public class DAL {
             tourDao = new TourDao();
         }
 
-        //
-        // Tours:
-        //
+
         public Dao<Tour> tourDao() {
             return tourDao;
         }
 
 
-        //
-        // Singleton-Pattern for DAL with early-binding
-        //
         private static DAL instance = new DAL();
 
         public static DAL getInstance() {

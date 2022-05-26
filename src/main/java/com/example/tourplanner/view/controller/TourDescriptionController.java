@@ -1,7 +1,5 @@
 package com.example.tourplanner.view.controller;
 
-import com.example.tourplanner.business.EventListener;
-import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

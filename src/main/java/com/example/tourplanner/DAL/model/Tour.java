@@ -13,7 +13,7 @@ public class Tour {
     String estimatedTime;
     String routeInformation;
 
-    public Tour (String name, String tourDescription, String from, String to, String transportType, Float TourDistance, String estimatedTime, String routeInformation){
+    public Tour (String name, String tourDescription, String from, String to, String transportType, Float TourDistance, String estimatedTime){
         this.name = name;
         this.tourDescription = tourDescription;
         this.from = from;
@@ -21,7 +21,6 @@ public class Tour {
         this. transportType = transportType;
         this.TourDistance = TourDistance;
         this.estimatedTime = estimatedTime;
-        this.routeInformation = routeInformation;
     }
 
 
@@ -38,8 +37,7 @@ public class Tour {
                 ", to='" + to + '\'' +
                 ", transportType='" + transportType + '\'' +
                 ", TourDistance=" + TourDistance +
-                ", estimatedTime='" + estimatedTime + '\'' +
-                ", routeInformation='" + routeInformation + '\'' +
+                ", estimatedTime='" + estimatedTime + '\''  +
                 '}';
     }
 

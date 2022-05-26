@@ -3,12 +3,9 @@ package com.example.tourplanner.viewmodel;
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
-import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
 
-import java.io.IOException;
-import java.util.Optional;
 
 public class PopUpVM  {
 
@@ -46,40 +43,12 @@ public class PopUpVM  {
     public void addTour() {
         ApiConnection apiConnection = new ApiConnection(fromInput.get(), toInput.get());
         System.out.println("ADDED TOUR " + tourNameInput.get());
-        String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
 
-        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(),apiConnection.getDistance(), apiConnection.getTime(), link);
+        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(),apiConnection.getDistance(), apiConnection.getTime());
         DAL.getInstance().tourDao().create(tour);
 
         TourManager.ToursViewManager().fireEvent();
 
     }
 
-  /*  @Override
-    public void onEvent() {
-        Optional<Tour> tour=DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()) ;
-
-        try {
-            System.out.println("OLdlink"+tour.get().getRouteInformation());
-
-            String newlink = apiConnection.sendRequest(tour.get().getFrom(),tour.get().getTo()).replaceAll(" ", "%20");
-
-            tour.get().setRouteInformation(newlink);
-            System.out.println("Newlink "+tour.get().getRouteInformation());
-
-            DAL.getInstance().tourDao().update(tour.get(),tour.get().getName());
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Imagelink updated");
-    }
-
-    @Override
-    public void onSearch() {
-
-    }*/
 }

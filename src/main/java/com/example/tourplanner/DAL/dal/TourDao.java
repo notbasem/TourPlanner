@@ -16,7 +16,7 @@ public class TourDao implements Dao <Tour>{
     public Optional<Tour> get(String name) {
         Tour tour = null;
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation
+                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime
                 FROM tours WHERE tourname =?
                 """)
         ) {
@@ -31,8 +31,7 @@ public class TourDao implements Dao <Tour>{
                         resultSet.getString(4),
                         resultSet.getString(5),
                         resultSet.getFloat(6),
-                        resultSet.getString(7),
-                        resultSet.getString(8)
+                        resultSet.getString(7)
                 );
             }
         } catch (SQLException e) {
@@ -44,7 +43,7 @@ public class TourDao implements Dao <Tour>{
     public ObservableList<Tour> getAll(){
         ObservableList<Tour> tours = FXCollections.observableArrayList();;
         try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation
+                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime
                 FROM tours ORDER BY tourid
                 """)
         ){
@@ -57,8 +56,7 @@ public class TourDao implements Dao <Tour>{
                                 resultSet.getString(4),
                                 resultSet.getString(5),
                                 resultSet.getFloat(6),
-                                resultSet.getString(7),
-                                resultSet.getString(8)
+                                resultSet.getString(7)
                         )
                 );
             }
@@ -73,18 +71,17 @@ public class TourDao implements Dao <Tour>{
     public void create(Tour tour) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 INSERT INTO tours
-                (tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+                (tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime)
+                VALUES (?, ?, ?, ?, ?, ?, ?);
                 """)
         ) {
             statement.setString(1, tour.getName());
             statement.setString(2, tour.getTourDescription());
-            statement.setString(3, tour.getTo());
-            statement.setString(4, tour.getFrom());
+            statement.setString(3, tour.getFrom());
+            statement.setString(4, tour.getTo());
             statement.setString(5, tour.getTransportType());
             statement.setFloat(6, tour.getTourDistance());
             statement.setString(7, tour.getEstimatedTime());
-            statement.setString(8, tour.getRouteInformation());
             statement.execute();
 
             //return true;
@@ -109,29 +106,11 @@ public class TourDao implements Dao <Tour>{
 
     }
 
-    public void update(Tour tour, String newname){
-        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                UPDATE tours
-                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?, routeinformation=?
-                WHERE tourname=? ;
-                """)
-        ) {
-            statement.setString(1, newname);
-            setter(tour, statement);
-            statement.setString(9, tour.getName());
-
-            statement.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void updateTour(Tour oldT, Tour newT){
         try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 UPDATE tours
-                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?, routeinformation=?
+                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?
                 WHERE tourname=? ;
                 """)
         ) {
@@ -142,8 +121,7 @@ public class TourDao implements Dao <Tour>{
             statement.setString(5, newT.getTransportType());
             statement.setFloat(6, newT.getTourDistance());
             statement.setString(7, newT.getEstimatedTime());
-            statement.setString(8, newT.getRouteInformation());
-            statement.setString(9, oldT.getName());
+            statement.setString(8, oldT.getName());
 
             statement.execute();
         } catch (SQLException e) {
@@ -151,17 +129,6 @@ public class TourDao implements Dao <Tour>{
         }
 
     }
-
-    private void setter(Tour tour, PreparedStatement statement) throws SQLException {
-        statement.setString(2, tour.getTourDescription());
-        statement.setString(3, tour.getFrom());
-        statement.setString(4, tour.getTo());
-        statement.setString(5, tour.getTransportType());
-        statement.setFloat(6, tour.getTourDistance());
-        statement.setString(7, tour.getEstimatedTime());
-        statement.setString(8, tour.getRouteInformation());
-    }
-
 
 }
 

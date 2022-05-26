@@ -72,7 +72,7 @@ public class MenuController {
 
             document.add(titleHeader.setMarginLeft(55).setMarginBottom(40));
             ApiConnection apiConnection = new ApiConnection(tour.getFrom(), tour.getTo());
-            String url = apiConnection.sendRequest(tour.getFrom(), tour.getTo());
+            String url = apiConnection.getMap().getMapString();
 
             ImageData imageData = ImageDataFactory.create(url.replace(" ", "%20"));
             Image pdfImg = new Image(imageData);

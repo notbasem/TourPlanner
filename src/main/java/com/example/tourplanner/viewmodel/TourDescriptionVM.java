@@ -9,11 +9,9 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import lombok.Getter;
 
-import java.io.IOException;
 import java.util.Optional;
 
 @Getter
@@ -98,7 +96,7 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public void updateTour() {
-        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get(), tour.get().getRouteInformation());
+        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get());
         ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
         System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
 

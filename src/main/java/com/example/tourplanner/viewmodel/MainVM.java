@@ -8,6 +8,5 @@ public class MainVM {
         this.toursOverviewViewModel = toursOverviewViewModel;
         this.tourDescriptionViewModel = tourDescriptionViewModel;
 
-       // toursOverviewViewModel.addTour(tourDescriptionViewModel.getTitle().toString());
     }
 }

@@ -9,9 +9,6 @@ public interface Dao <T> {
     List<T> getAll();
     void create(T t);
 
-   // void update(T t, List <?> params);
-    void update(T t, String name);
-
     void updateTour(T oldT, T newT);
 
     void delete (String name);
