@@ -8,6 +8,7 @@ module com.example.tourplanner {
     requires javafx.base;
     requires javafx.fxml;
     requires javafx.controls;
+    requires io;
 
 
     opens com.example.tourplanner to javafx.fxml;

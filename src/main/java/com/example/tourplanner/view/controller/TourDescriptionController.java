@@ -50,7 +50,6 @@ public class TourDescriptionController implements Initializable {
         timeInput.setEditable(false);
         timeInput.setMouseTransparent(false);
         timeInput.setFocusTraversable(false);
-
     }
 
     public void updateTour() {
