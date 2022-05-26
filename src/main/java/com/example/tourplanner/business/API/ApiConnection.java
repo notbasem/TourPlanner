@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ApiConnection {
     String key = "Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV";
-    Float time;
+    String time;
     Float distance;
     public void sendAsync(String from, String to ) {
         URI url = URI.create("http://www.mapquestapi.com/directions/v2/route?key="+key+"&from="+from+"&to="+to.replaceAll(" ", "%20"));
@@ -45,9 +45,7 @@ public class ApiConnection {
         JSONObject ul = boundingBoxObj.getJSONObject("ul");
 
         System.out.println("url: from"+from+" to "+to);
-        String pretty = json.getJSONObject("route").toString(4);
 
-        //System.out.println(pretty);
 
         String session = route.getString("sessionId");
         Float lng = ul.getFloat("lng");
@@ -55,8 +53,9 @@ public class ApiConnection {
         String boundingBox = lng+", "+lat;
 
         this.distance = route.getFloat("distance");
-        this.time = route.getFloat("time");
+        this.time = route.getString("formattedTime");
 
+        System.out.println("Time: "+this.time);
         String link = "https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&size=640,680&defaultMarker=none&zoom=11&rand=15108412&session="+session+"&boudingBox="+boundingBox;
 
         Map map = new Map(session,boundingBox);

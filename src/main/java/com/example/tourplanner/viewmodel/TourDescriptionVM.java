@@ -33,7 +33,6 @@ public class TourDescriptionVM implements EventListener {
     }
 
 
-   // public ObjectProperty imageProperty(){return imageProperty();}
 
     public Optional<Tour> displayTourData(String tourname){
 
@@ -44,7 +43,6 @@ public class TourDescriptionVM implements EventListener {
 
     public ObjectProperty<Image> getImageProperty(){
         System.out.println("should get image of clicked tour");
-        //Image image = new Image(DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()).get().getRouteInformation());
 
         ApiConnection apiConnection = new ApiConnection();
         String link = updateLink(apiConnection, from.get(), to.get());
@@ -57,20 +55,16 @@ public class TourDescriptionVM implements EventListener {
                 true   // load in background
         );
 
-        if (image.isError())
-            TourManager.UpdateTourRouteImage().fireEvent();
+
 
         imageProperty= new SimpleObjectProperty<Image>(image);
-     //   System.out.println("i'm heere");
-      //  On image = new ObjectProperty<Image>(DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()).get().getRouteInformation());
 
-      //  return image;
-    return imageProperty;}
+        return imageProperty;}
 
     @Override
     public void onEvent() {
-       this.tour= DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
-       System.out.println("event fired: Tour selected");
+        this.tour= DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
+        System.out.println("event fired: Tour selected");
     }
 
     @Override
@@ -83,14 +77,14 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public void updateTour() {
-        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), Float.parseFloat(time.get()), tour.get().getRouteInformation());
-
+        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get(), tour.get().getRouteInformation());
         ApiConnection apiConnection = new ApiConnection();
         if (!from.get().equalsIgnoreCase(tour.get().getFrom()) || !to.get().equalsIgnoreCase(tour.get().getTo())) {
             String link = updateLink(apiConnection, from.get(), to.get());
             newTour.setTourDistance(apiConnection.getDistance());
             newTour.setEstimatedTime(apiConnection.getTime());
         }
+
         DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
         tour = Optional.of(newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());

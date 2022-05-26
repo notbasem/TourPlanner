@@ -10,10 +10,10 @@ public class Tour {
     String to;
     String transportType;
     Float TourDistance;
-    Float estimatedTime;
+    String estimatedTime;
     String routeInformation;
 
-    public Tour (String name, String tourDescription, String from, String to, String transportType, Float TourDistance, Float estimatedTime, String routeInformation){
+    public Tour (String name, String tourDescription, String from, String to, String transportType, Float TourDistance, String estimatedTime, String routeInformation){
         this.name = name;
         this.tourDescription = tourDescription;
         this.from = from;

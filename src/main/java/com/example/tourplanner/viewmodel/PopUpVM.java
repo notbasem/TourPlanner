@@ -10,11 +10,10 @@ import javafx.beans.property.*;
 import java.io.IOException;
 import java.util.Optional;
 
-public class PopUpVM implements EventListener {
+public class PopUpVM  {
     ApiConnection apiConnection = new ApiConnection();
 
     public  PopUpVM(){
-        TourManager.UpdateTourRouteImage().addListener(this);
     }
 
     private final StringProperty tourNameInput = new SimpleStringProperty();
@@ -56,7 +55,7 @@ public class PopUpVM implements EventListener {
 
     }
 
-    @Override
+  /*  @Override
     public void onEvent() {
         Optional<Tour> tour=DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour()) ;
 
@@ -82,5 +81,5 @@ public class PopUpVM implements EventListener {
     @Override
     public void onSearch() {
 
-    }
+    }*/
 }

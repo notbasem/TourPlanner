@@ -31,7 +31,7 @@ public class TourDao implements Dao <Tour>{
                         resultSet.getString(4),
                         resultSet.getString(5),
                         resultSet.getFloat(6),
-                        resultSet.getFloat(7),
+                        resultSet.getString(7),
                         resultSet.getString(8)
                 );
             }
@@ -57,7 +57,7 @@ public class TourDao implements Dao <Tour>{
                                 resultSet.getString(4),
                                 resultSet.getString(5),
                                 resultSet.getFloat(6),
-                                resultSet.getFloat(7),
+                                resultSet.getString(7),
                                 resultSet.getString(8)
                         )
                 );
@@ -83,7 +83,7 @@ public class TourDao implements Dao <Tour>{
             statement.setString(4, tour.getFrom());
             statement.setString(5, tour.getTransportType());
             statement.setFloat(6, tour.getTourDistance());
-            statement.setFloat(7, tour.getEstimatedTime());
+            statement.setString(7, tour.getEstimatedTime());
             statement.setString(8, tour.getRouteInformation());
             statement.execute();
 
@@ -141,7 +141,7 @@ public class TourDao implements Dao <Tour>{
             statement.setString(4, newT.getTo());
             statement.setString(5, newT.getTransportType());
             statement.setFloat(6, newT.getTourDistance());
-            statement.setFloat(7, newT.getEstimatedTime());
+            statement.setString(7, newT.getEstimatedTime());
             statement.setString(8, newT.getRouteInformation());
             statement.setString(9, oldT.getName());
 
@@ -158,7 +158,7 @@ public class TourDao implements Dao <Tour>{
         statement.setString(4, tour.getTo());
         statement.setString(5, tour.getTransportType());
         statement.setFloat(6, tour.getTourDistance());
-        statement.setFloat(7, tour.getEstimatedTime());
+        statement.setString(7, tour.getEstimatedTime());
         statement.setString(8, tour.getRouteInformation());
     }
 
