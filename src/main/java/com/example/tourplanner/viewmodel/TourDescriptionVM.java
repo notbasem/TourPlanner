@@ -5,10 +5,7 @@ import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import lombok.Getter;
@@ -19,7 +16,6 @@ import java.util.Optional;
 @Getter
 public class TourDescriptionVM implements EventListener {
     private Optional<Tour> tour;
-    private boolean update = true;
     private final StringProperty title = new SimpleStringProperty();
     private final StringProperty description = new SimpleStringProperty();
     private final StringProperty from = new SimpleStringProperty();
@@ -27,20 +23,13 @@ public class TourDescriptionVM implements EventListener {
     private final StringProperty transportType = new SimpleStringProperty();
     private final StringProperty distance = new SimpleStringProperty();
     private final StringProperty time = new SimpleStringProperty();
+    private final BooleanProperty updateButton = new SimpleBooleanProperty(true);
     // private final StringProperty routeInformation = new SimpleStringProperty();
     private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
 
     public TourDescriptionVM() {
         TourManager.SelectTourEventInstance().addListener(this);
         TourManager.ToursViewManager().addListener(this);
-    }
-
-
-    public Optional<Tour> displayTourData(String tourname) {
-
-        Optional<Tour> tour = DAL.getInstance().tourDao().get(tourname);
-
-        return tour;
     }
 
     public ObjectProperty<Image> getImageProperty() {
@@ -85,7 +74,6 @@ public class TourDescriptionVM implements EventListener {
             time.setValue(tour.get().getEstimatedTime());
             imageProperty.setValue(getImageProperty().get());
         }
-        update = false;
     }
 
     @Override
@@ -99,14 +87,22 @@ public class TourDescriptionVM implements EventListener {
 
     public void updateTour() {
         Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get(), tour.get().getRouteInformation());
-        ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
-        System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
+        if (!tour.get().getFrom().equals(newTour.getFrom()) || !tour.get().getTo().equals(newTour.getTo())) {
+            System.out.println("Tour: " +tour + " New Tour: "+ newTour);
+            ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
+            System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
 
-        newTour.setTourDistance(apiConnection.getDistance());
-        newTour.setEstimatedTime(apiConnection.getTime());
-        updateImageProperty(apiConnection.getMap().getMapString());
+            newTour.setTourDistance(apiConnection.getDistance());
+            newTour.setEstimatedTime(apiConnection.getTime());
+            updateImageProperty(apiConnection.getMap().getMapString());
+        }
         DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());
+
+        // Tour mit neuem namen selecten
+        TourManager.SelectTourEventInstance().selectTour(newTour.getName());
+
+        // View updaten damit neue tour im ToursOverview angezeigt wird
         TourManager.ToursViewManager().fireEvent();
     }
 

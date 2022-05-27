@@ -3,6 +3,7 @@ package com.example.tourplanner.view.controller;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -33,7 +34,8 @@ public class TourDescriptionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        update.setDisable(tourDescriptionViewModel.isUpdate());
+        //update.setDisable(tourDescriptionViewModel.isUpdate());
+        update.disableProperty().bindBidirectional(tourDescriptionViewModel.getUpdateButton());
         titleInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTitle());
         descriptionInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDescription());
         fromInput.textProperty().bindBidirectional(tourDescriptionViewModel.getFrom());
@@ -50,9 +52,15 @@ public class TourDescriptionController implements Initializable {
         timeInput.setEditable(false);
         timeInput.setMouseTransparent(false);
         timeInput.setFocusTraversable(false);
+
+        enableButton();
     }
 
     public void updateTour() {
         tourDescriptionViewModel.updateTour();
+    }
+
+    private void enableButton() {
+        titleInput.textProperty().addListener((observable, oldValue, newValue) -> update.setDisable(false));
     }
 }
