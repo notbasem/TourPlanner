@@ -116,7 +116,8 @@
                             <TableColumn prefWidth="75.0" text="Date" />
                             <TableColumn prefWidth="75.0" text="Duration" />
                               <TableColumn prefWidth="75.0" text="Distance" />
-                              <TableColumn prefWidth="75.0" text="..." />
+                              <TableColumn prefWidth="75.0" text="Comment" />
+                              <TableColumn prefWidth="75.0" text="Rating" />
                           </columns>
                            <VBox.margin>
                               <Insets bottom="4.3" left="8.7" right="8.7" />

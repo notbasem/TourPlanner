@@ -103,7 +103,7 @@ public class TourDescriptionVM implements EventListener {
         newTour.setTourDistance(apiConnection.getDistance());
         newTour.setEstimatedTime(apiConnection.getTime());
         updateImageProperty(apiConnection.getMap().getMapString());
-        DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
+        DAL.getInstance().tourDao().update(tour.get(), newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());
         TourManager.ToursViewManager().fireEvent();
     }

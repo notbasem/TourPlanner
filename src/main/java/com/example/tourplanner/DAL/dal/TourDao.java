@@ -2,6 +2,7 @@ package com.example.tourplanner.DAL.dal;
 
 import com.example.tourplanner.DAL.dal.config.DbConnection;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.DAL.model.TourLog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class TourDao implements Dao <Tour>{
+public class TourDao implements Dao<Tour> {
 
     @Override
     public Optional<Tour> get(String name) {
@@ -22,7 +23,7 @@ public class TourDao implements Dao <Tour>{
         ) {
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
-            if( resultSet.next() ) {
+            if (resultSet.next()) {
 
                 tour = new Tour(
                         resultSet.getString(1),
@@ -40,15 +41,15 @@ public class TourDao implements Dao <Tour>{
         return Optional.ofNullable(tour);
     }
 
-    public ObservableList<Tour> getAll(){
-        ObservableList<Tour> tours = FXCollections.observableArrayList();;
-        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
+    public ObservableList<Tour> getAll() {
+        ObservableList<Tour> tours = FXCollections.observableArrayList();
+        try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime
                 FROM tours ORDER BY tourid
                 """)
-        ){
+        ) {
             ResultSet resultSet = statement.executeQuery();
-            while( resultSet.next() ) {
+            while (resultSet.next()) {
                 tours.add(new Tour(
                                 resultSet.getString(1),
                                 resultSet.getString(2),
@@ -62,7 +63,8 @@ public class TourDao implements Dao <Tour>{
             }
 
         } catch (SQLException throwables) {
-            throwables.printStackTrace();}
+            throwables.printStackTrace();
+        }
 
         return tours;
     }
@@ -84,14 +86,12 @@ public class TourDao implements Dao <Tour>{
             statement.setString(7, tour.getEstimatedTime());
             statement.execute();
 
-            //return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            //   return false;
         }
     }
 
-    public void delete(String tourname){
+    public void delete(String tourname) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 DELETE FROM tours
                 WHERE tourname= ?;
@@ -106,9 +106,8 @@ public class TourDao implements Dao <Tour>{
 
     }
 
-
-    public void updateTour(Tour oldT, Tour newT){
-        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
+    public void update(Tour oldT, Tour newT) {
+        try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 UPDATE tours
                 SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?
                 WHERE tourname=? ;
@@ -129,6 +128,16 @@ public class TourDao implements Dao <Tour>{
         }
 
     }
+
+    @Override
+    public void deletebyid(int id) {
+    }
+
+    @Override
+    public int getid(TourLog tourLog) {
+        return 0;
+    }
+
 
 }
 

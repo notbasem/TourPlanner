@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class PopUpController implements Initializable {
+public class PopUpController implements Initializable{
     private PopUpVM popUpViewModel;
 
     public PopUpController() {
