@@ -3,6 +3,7 @@ package com.example.tourplanner.view.controller;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class TourDescriptionController implements Initializable, EventListener {
+public class TourDescriptionController implements Initializable {
     @FXML public TextField titleInput;
     @FXML public TextArea descriptionInput;
     @FXML public TextField fromInput;
@@ -29,13 +30,12 @@ public class TourDescriptionController implements Initializable, EventListener {
 
     public TourDescriptionController(TourDescriptionVM tourDescriptionViewModel){
         this.tourDescriptionViewModel = tourDescriptionViewModel;
-        TourManager.SelectTourEventInstance().addListener(this);
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        update.setDisable(true);
+        //update.setDisable(tourDescriptionViewModel.isUpdate());
+        update.disableProperty().bindBidirectional(tourDescriptionViewModel.getUpdateButton());
         titleInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTitle());
         descriptionInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDescription());
         fromInput.textProperty().bindBidirectional(tourDescriptionViewModel.getFrom());
@@ -43,6 +43,7 @@ public class TourDescriptionController implements Initializable, EventListener {
         transportInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTransportType());
         distanceInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDistance());
         timeInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTime());
+        imageView.imageProperty().bindBidirectional(tourDescriptionViewModel.getImageProperty());
 
         distanceInput.setEditable(false);
         distanceInput.setMouseTransparent(false);
@@ -52,28 +53,14 @@ public class TourDescriptionController implements Initializable, EventListener {
         timeInput.setMouseTransparent(false);
         timeInput.setFocusTraversable(false);
 
-    }
-
-
-    @Override
-    public void onEvent() {
-        update.setDisable(false);
-        titleInput.setText(this.tourDescriptionViewModel.getTour().get().getName());
-        descriptionInput.setText(this.tourDescriptionViewModel.getTour().get().getTourDescription());
-        fromInput.setText(this.tourDescriptionViewModel.getTour().get().getFrom());
-        toInput.setText(this.tourDescriptionViewModel.getTour().get().getTo());
-        transportInput.setText(tourDescriptionViewModel.getTour().get().getTransportType());
-        distanceInput.setText(this.tourDescriptionViewModel.getTour().get().getTourDistance().toString());
-        timeInput.setText(this.tourDescriptionViewModel.getTour().get().getEstimatedTime());
-        imageView.setImage(this.tourDescriptionViewModel.getImageProperty().get());
-    }
-
-    @Override
-    public void onSearch() {
-
+        enableButton();
     }
 
     public void updateTour() {
         tourDescriptionViewModel.updateTour();
+    }
+
+    private void enableButton() {
+        titleInput.textProperty().addListener((observable, oldValue, newValue) -> update.setDisable(false));
     }
 }

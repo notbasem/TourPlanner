@@ -36,8 +36,6 @@ public class MenuController {
     @FXML
     TextField searchTextField;
 
-    ApiConnection apiConnection = new ApiConnection();
-
     public MenuController(MenuVM menuViewModel) {
         this.menuViewModel = new MenuVM();
     }
@@ -50,8 +48,6 @@ public class MenuController {
 
     @FXML
     public void onExport() throws IOException, InterruptedException {
-
-
         System.out.println("File export button was clicked");
         ObservableList<Tour> tourlist = this.menuViewModel.exportallTours();
         PdfWriter writer = null;
@@ -75,6 +71,7 @@ public class MenuController {
                     .setBold();
 
             document.add(titleHeader.setMarginLeft(55).setMarginBottom(40));
+            ApiConnection apiConnection = new ApiConnection(tour.getFrom(), tour.getTo());
             String url = apiConnection.sendRequest(tour.getFrom(), tour.getTo());
 
             ImageData imageData = ImageDataFactory.create(url.replace(" ", "%20"));

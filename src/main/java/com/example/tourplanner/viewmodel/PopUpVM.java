@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class PopUpVM  {
-    ApiConnection apiConnection = new ApiConnection();
 
     public  PopUpVM(){
     }
@@ -44,7 +43,8 @@ public class PopUpVM  {
         return transportTypeInput;
     }
 
-    public void addTour() throws IOException, InterruptedException {
+    public void addTour() {
+        ApiConnection apiConnection = new ApiConnection(fromInput.get(), toInput.get());
         System.out.println("ADDED TOUR " + tourNameInput.get());
         String link = apiConnection.sendRequest(fromInput.get(),toInput.get()).replaceAll(" ", "%20");
 
