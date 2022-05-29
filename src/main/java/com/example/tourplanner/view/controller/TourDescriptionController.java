@@ -1,9 +1,7 @@
 package com.example.tourplanner.view.controller;
 
-import com.example.tourplanner.business.EventListener;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
-import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -25,6 +24,7 @@ public class TourDescriptionController implements Initializable {
     @FXML public TextField timeInput;
     @FXML public ImageView imageView;
     @FXML public Button update;
+    Optional<Tour> tour;
 
     private TourDescriptionVM tourDescriptionViewModel;
 
@@ -34,8 +34,6 @@ public class TourDescriptionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //update.setDisable(tourDescriptionViewModel.isUpdate());
-        update.disableProperty().bindBidirectional(tourDescriptionViewModel.getUpdateButton());
         titleInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTitle());
         descriptionInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDescription());
         fromInput.textProperty().bindBidirectional(tourDescriptionViewModel.getFrom());
@@ -53,14 +51,11 @@ public class TourDescriptionController implements Initializable {
         timeInput.setMouseTransparent(false);
         timeInput.setFocusTraversable(false);
 
-        enableButton();
+        // Disable Button if Textfields not set
+        update.disableProperty().bind(tourDescriptionViewModel.getDisableButton());
     }
 
     public void updateTour() {
         tourDescriptionViewModel.updateTour();
-    }
-
-    private void enableButton() {
-        titleInput.textProperty().addListener((observable, oldValue, newValue) -> update.setDisable(false));
     }
 }

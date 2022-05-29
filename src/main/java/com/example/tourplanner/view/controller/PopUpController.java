@@ -1,17 +1,18 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.viewmodel.PopUpVM;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 
-import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class PopUpController implements Initializable {
@@ -20,43 +21,73 @@ public class PopUpController implements Initializable {
     public PopUpController() {
 
     }
+
     public PopUpController(PopUpVM popUpVIewModel) {
         this.popUpViewModel = new PopUpVM();
     }
 
-    @FXML
-    public TextField tourname;
+    @FXML public TextField tourname;
+    @FXML public TextArea tourDescription;
+    @FXML public TextField from;
+    @FXML public TextField to;
+    @FXML public TextField transportType;
+    @FXML public Label error;
+    @FXML Button closeButton;
 
     @FXML
-    public TextArea tourDescription;
-
-    @FXML
-    public TextField from;
-
-    @FXML
-    public TextField to;
-
-    @FXML
-    public TextField transportType;
-
-
-    @FXML
-    Button closeButton;
-
-    @FXML
-    public void closePopUp(ActionEvent event) throws IOException, InterruptedException {
+    public void closePopUp(ActionEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
-        popUpViewModel.addTour();
-        stage.close();
+        if (validateInput()) {
+            popUpViewModel.addTour();
+            stage.close();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tourname.textProperty().bindBidirectional(popUpViewModel.gettourNameInput());
+        tourname.textProperty().bindBidirectional(popUpViewModel.getTourNameInput());
         tourDescription.textProperty().bindBidirectional(popUpViewModel.getTourDescriptionInput());
-        from.textProperty().bindBidirectional(popUpViewModel.getfromInput());
-        to.textProperty().bindBidirectional(popUpViewModel.gettoInput());
-        transportType.textProperty().bindBidirectional(popUpViewModel.gettransportTypeInput());
+        from.textProperty().bindBidirectional(popUpViewModel.getFromInput());
+        to.textProperty().bindBidirectional(popUpViewModel.getToInput());
+        transportType.textProperty().bindBidirectional(popUpViewModel.getTransportTypeInput());
+
+        // Disable Button if Textfields not set
+        closeButton.disableProperty().bind(tourname.textProperty().isEmpty()
+                .or(tourDescription.textProperty().isEmpty())
+                .or(from.textProperty().isEmpty())
+                .or(to.textProperty().isEmpty())
+                .or(transportType.textProperty().isEmpty())
+        );
     }
 
+    // returns true if input is valid for example "   " as title
+    private boolean validateInput() {
+        List<TextInputControl> textFields = Arrays.asList(tourname, tourDescription, from, to, transportType);
+        for (TextInputControl textField : textFields) {
+            if (textField.getText() == null || textField.getText().isBlank()) {
+                error.setText("Required field(s) is/are empty");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /*
+    private boolean validateTextField(TextInputControl textInputControl) {
+        AtomicBoolean valid = new AtomicBoolean(true);
+        textInputControl.focusedProperty().addListener((arg0, oldValue, newValue) -> {
+            if (!newValue) { //when focus lost
+                if(textInputControl.getText() == null || !textInputControl.getText().matches("[\\w\\s\\d!?#.'\\-öäüß]*?")){
+                    // Wrong input
+                    error.setText("Required textfield " + textInputControl.getPromptText() + " is empty");
+                    valid.set(false);
+                } else {
+                    error.setText("");
+                    valid.set(true);
+                }
+            }
+        });
+        return valid.get();
+    }
+    */
 }

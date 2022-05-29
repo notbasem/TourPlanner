@@ -5,12 +5,11 @@ import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.*;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import lombok.Getter;
 
-import java.io.IOException;
 import java.util.Optional;
 
 @Getter
@@ -23,7 +22,6 @@ public class TourDescriptionVM implements EventListener {
     private final StringProperty transportType = new SimpleStringProperty();
     private final StringProperty distance = new SimpleStringProperty();
     private final StringProperty time = new SimpleStringProperty();
-    private final BooleanProperty updateButton = new SimpleBooleanProperty(true);
     // private final StringProperty routeInformation = new SimpleStringProperty();
     private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
 
@@ -97,7 +95,6 @@ public class TourDescriptionVM implements EventListener {
             updateImageProperty(apiConnection.getMap().getMapString());
         }
         DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
-        System.out.println("URL: " + imageProperty.get().getUrl());
 
         // Tour mit neuem namen selecten
         TourManager.SelectTourEventInstance().selectTour(newTour.getName());
@@ -110,4 +107,20 @@ public class TourDescriptionVM implements EventListener {
         ApiConnection apiConnection = new ApiConnection(from, to);
         return (apiConnection.getMap().getMapString()).replaceAll(" ", "%20");
     }
+
+    public BooleanBinding getDisableButton() {
+        System.out.println("TITLE: " + title.get() + "; TOUR-TITLE: " + tour.get().getName());
+        return (title.isEmpty()
+                .or(from.isEmpty())
+                .or(to.isEmpty())
+                .or(transportType.isEmpty())
+                .or(description.isEmpty()))
+                .or((title.isNotEqualTo(tour.get().getName())
+                        .or(from.isNotEqualTo(tour.get().getFrom()))
+                        .or(to.isNotEqualTo(tour.get().getTo()))
+                        .or(transportType.isNotEqualTo(tour.get().getTransportType()))
+                        .or(description.isNotEqualTo(tour.get().getTourDescription()))
+                ).not());
+    }
+
 }
