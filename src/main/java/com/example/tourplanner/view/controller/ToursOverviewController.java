@@ -98,4 +98,15 @@ public class ToursOverviewController implements Initializable, EventListener {
             this.tourlist.setItems((ObservableList<Tour>) tempTourList);
         }
     }
+
+    @FXML
+    public void importTours() {
+
+    }
+
+    @FXML
+    public void exportTours() {
+        toursOverviewViewModel.exportTours();
+    }
+
 }

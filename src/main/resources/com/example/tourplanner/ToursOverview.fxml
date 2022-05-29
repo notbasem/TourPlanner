@@ -14,7 +14,8 @@
             <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="105.0" text="Tours" />
             <Button mnemonicParsing="false" onAction="#openPopUp" prefHeight="25.0" prefWidth="27.0" text="+" />
             <Button mnemonicParsing="false" onAction="#delTour" prefHeight="25.0" prefWidth="27.0" text="-" />
-            <Button layoutX="170.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" text="[]" />
+            <Button mnemonicParsing="false" onAction="#importTours" prefHeight="25.0" prefWidth="27.0" text="v" />
+            <Button mnemonicParsing="false" onAction="#exportTours" prefHeight="25.0" prefWidth="27.0" text="^" />
         </items>
       </ToolBar>
       <ListView fx:id="tourlist" onMouseClicked="#onSelectedTour" VBox.vgrow="ALWAYS">
