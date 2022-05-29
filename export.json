@@ -81,15 +81,6 @@
         "Name": "Name 21312 Name"
     },
     {
-        "Description": "sdasdasd",
-        "Time": "20:48:37",
-        "From": "Moscow",
-        "To": "Vienna",
-        "Transport": "Car",
-        "Distance": 1217.268,
-        "Name": "HalloTour 1213"
-    },
-    {
         "Description": "123123",
         "Time": "02:42:50",
         "From": "Salzburg",
@@ -106,5 +97,32 @@
         "Transport": "Car",
         "Distance": 175.731,
         "Name": "sadas"
+    },
+    {
+        "Description": "MYTOUR1",
+        "Time": "01:54:54",
+        "From": "Vienna",
+        "To": "Graz",
+        "Transport": "Car",
+        "Distance": 100,
+        "Name": "Tour1"
+    },
+    {
+        "Description": "MYTOUR2",
+        "Time": "01:54:54",
+        "From": "Vienna",
+        "To": "Graz",
+        "Transport": "Plane",
+        "Distance": 200,
+        "Name": "Tour2"
+    },
+    {
+        "Description": "MYTOUR3",
+        "Time": "07:43:55",
+        "From": "Paris",
+        "To": "Munich",
+        "Transport": "Car",
+        "Distance": 300,
+        "Name": "Tour3"
     }
 ]

@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -23,11 +24,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ToursOverviewController implements Initializable, EventListener {
-    @FXML
-    public ListView<Tour> tourlist;
-
-    @FXML
-    public VBox vBox;
+    @FXML public ListView<Tour> tourlist;
+    @FXML public VBox vBox;
+    @FXML public Button importButton;
 
     private final ToursOverviewVM toursOverviewViewModel;
 
@@ -101,12 +100,12 @@ public class ToursOverviewController implements Initializable, EventListener {
 
     @FXML
     public void importTours() {
-
+        toursOverviewViewModel.importTours((Stage) importButton.getScene().getWindow());
     }
 
     @FXML
     public void exportTours() {
-        toursOverviewViewModel.exportTours();
+        toursOverviewViewModel.exportTours((Stage) importButton.getScene().getWindow());
     }
 
 }
