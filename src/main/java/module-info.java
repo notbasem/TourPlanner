@@ -17,4 +17,5 @@ module com.example.tourplanner {
     opens com.example.tourplanner.view.factory to javafx.fxml;
     exports com.example.tourplanner.view.controller;
     opens com.example.tourplanner.view.controller to javafx.fxml;
+    opens  com.example.tourplanner.DAL.model to javafx.base;
 }

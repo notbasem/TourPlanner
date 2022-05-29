@@ -18,20 +18,17 @@
                     </padding>
                 </Label>
             <Button mnemonicParsing="false" onAction="#openTourLogsPopUp" text="+" />
-                <Label maxWidth="1.7976931348623157E308" text="+ - []">
-                    <padding>
-                        <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
-                    </padding>
-                </Label>
+            <Button layoutX="381.0" layoutY="10.0" mnemonicParsing="false" onAction="#openTourLogsPopUp" text="-" />
+            <Button layoutX="380.0" layoutY="10.0" mnemonicParsing="false" onAction="#openTourLogsPopUp" text=" []" />
             </children>
         </HBox>
         <TableView fx:id="tableView">
             <columns>
-                <TableColumn prefWidth="75.0" text="Date" />
-                <TableColumn prefWidth="75.0" text="Duration" />
-                <TableColumn prefWidth="75.0" text="Distance" />
-            <TableColumn prefWidth="75.0" text="Comment" />
-            <TableColumn prefWidth="75.0" text="Rating" />
+                <TableColumn fx:id="logDate" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="logDistance" prefWidth="75.0" text="Duration" />
+                <TableColumn fx:id="logDuration" prefWidth="75.0" text="Distance" />
+            <TableColumn fx:id="logComment" prefWidth="75.0" text="Comment" />
+            <TableColumn fx:id="logRating" prefWidth="75.0" text="Rating" />
             </columns>
             <VBox.margin>
                 <Insets bottom="4.3" left="8.7" right="8.7" />
