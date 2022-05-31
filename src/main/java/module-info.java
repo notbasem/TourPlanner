@@ -9,6 +9,7 @@ module com.example.tourplanner {
     requires javafx.fxml;
     requires javafx.controls;
     requires io;
+    requires org.apache.logging.log4j;
 
 
     opens com.example.tourplanner to javafx.fxml;
