@@ -1,12 +1,14 @@
 package com.example.tourplanner.DAL.dal;
 
 import com.example.tourplanner.DAL.model.TourLog;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface Dao <T> {
-   Optional<T> get(String name);
+   //ObservableList<TourLog> getlogs(String name);
+ Optional<T> get(String name);
 
     List<T> getAll();
 
@@ -16,8 +18,13 @@ public interface Dao <T> {
 
 
  void delete (String name);
- void deletebyid (int id);
 
 
- int getid(TourLog tourLog);
+    void deletebyid(int id);
+
+    int getid(TourLog tourLog);
+
+ ObservableList<T> getlogs(String selectedtournamne);
+
+    TourLog getLogById(int id);
 }

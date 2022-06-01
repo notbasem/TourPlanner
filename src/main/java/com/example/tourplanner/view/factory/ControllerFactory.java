@@ -12,6 +12,7 @@ public class ControllerFactory {
     private final TourLogsVM tourLogsViewModel;
     private final PopUpVM popUpViewModel;
     private final TourLogsPopUpVM tourLogsPopUpVM;
+    private final TourLogsEditPopUpVM tourLogsEditPopUpVM;
 
     public ControllerFactory(){
         this.toursOverviewViewModel = new ToursOverviewVM();
@@ -21,6 +22,7 @@ public class ControllerFactory {
         this.mainViewModel = new MainVM(toursOverviewViewModel, tourDescriptionViewModel);
         this.popUpViewModel = new PopUpVM();
         this.tourLogsPopUpVM = new TourLogsPopUpVM();
+        this.tourLogsEditPopUpVM = new TourLogsEditPopUpVM();
 
     }
 
@@ -45,6 +47,9 @@ public class ControllerFactory {
         }
         else if (controllerClass == TourLogsPopUpController.class) {
             return new TourLogsPopUpController(tourLogsPopUpVM);
+        }
+        else if (controllerClass == TourLogsEditPopUpController.class) {
+            return new TourLogsEditPopUpController(tourLogsEditPopUpVM);
         }
         throw new IllegalArgumentException("Unknown controller class: " + controllerClass);
     }

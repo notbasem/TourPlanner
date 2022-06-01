@@ -18,11 +18,11 @@
                     </padding>
                 </Label>
             <Button mnemonicParsing="false" onAction="#openTourLogsPopUp" text="+" />
-            <Button layoutX="381.0" layoutY="10.0" mnemonicParsing="false" onAction="#openTourLogsPopUp" text="-" />
-            <Button layoutX="380.0" layoutY="10.0" mnemonicParsing="false" onAction="#openTourLogsPopUp" text=" []" />
+            <Button layoutX="381.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteTourLog" text="-" />
+            <Button layoutX="380.0" layoutY="10.0" mnemonicParsing="false" onAction="#openTourLogsEditPopUp" text=" []" />
             </children>
         </HBox>
-        <TableView fx:id="tableView">
+        <TableView fx:id="tableView" onMouseClicked="#onSelectedTourLog">
             <columns>
                 <TableColumn fx:id="logDate" prefWidth="75.0" text="Date" />
                 <TableColumn fx:id="logDistance" prefWidth="75.0" text="Duration" />

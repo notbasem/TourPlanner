@@ -106,6 +106,11 @@ public class TourDao implements Dao<Tour> {
 
     }
 
+    @Override
+    public void deletebyid(int id) {
+
+    }
+
     public void update(Tour oldT, Tour newT) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 UPDATE tours
@@ -129,16 +134,23 @@ public class TourDao implements Dao<Tour> {
 
     }
 
-    @Override
-    public void deletebyid(int id) {
-    }
+
 
     @Override
     public int getid(TourLog tourLog) {
         return 0;
     }
 
+    @Override
+    public ObservableList<Tour> getlogs(String selectedtournamne) {
+        return null;
+    }
+
+    @Override
+    public TourLog getLogById(int id) {
+        return null;
+    }
+
 
 }
-
 

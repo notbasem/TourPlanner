@@ -1,14 +1,16 @@
 package com.example.tourplanner.business;
+import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.DAL.model.TourLog;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TourManager {
     List<EventListener> eventListenerList;
     String selectedTour;
-    String searchText;
+    int selectedTourLog;
 
     private static TourManager selectClickedTourEventInstance;
-    private static TourManager toursViewManager;
 
     public void addListener(EventListener listener){
         this.eventListenerList.add(listener);
@@ -20,29 +22,40 @@ public class TourManager {
         }
     }
 
-    public void fireOnSearch(){
+
+    public void fireAddedLogEvent(){
         for(EventListener eventListener : eventListenerList){
-            eventListener.onSearch();
+            eventListener.onAddedTourLogEvent();
         }
     }
+
+    public void fireClickedLogEvent(){
+        for(EventListener eventListener : eventListenerList){
+            eventListener.onclickedTourLog();
+        }
+    }
+
+
+    public void selectTourLog(int id){
+        this.selectedTourLog = id;
+        this.fireAddedLogEvent();
+    }
+
+
 
     public void selectTour(String name){
         this.selectedTour = name;
         this.fireEvent();
     }
 
-    public void onSearch(String searchText){
-        this.searchText = searchText;
-        this.fireOnSearch();
-    }
-
     public String getSelectedTour(){
         return this.selectedTour;
     }
 
-    public String getSearch(){
-        return this.searchText;
+    public int getSelectedTourLog(){
+        return this.selectedTourLog;
     }
+
 
     public static TourManager SelectTourEventInstance() {
         if (selectClickedTourEventInstance == null) {
@@ -51,15 +64,6 @@ public class TourManager {
         }
         return selectClickedTourEventInstance;
     }
-
-    public static TourManager ToursViewManager() {
-        if (toursViewManager == null) {
-            toursViewManager = new TourManager();
-            toursViewManager.init();
-        }
-        return toursViewManager;
-    }
-
 
     private void init() {
         this.eventListenerList = new ArrayList<>();

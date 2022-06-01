@@ -7,7 +7,7 @@ public class DAL {
 
 
         private Dao<Tour> tourDao;
-        private Dao <TourLog> tourLogsDao;
+        public Dao <TourLog> tourLogsDao;
 
         private DAL() {
             tourDao = new TourDao();

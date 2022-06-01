@@ -51,7 +51,6 @@ public class TourLogsPopUpController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println("hfydj");
         date.textProperty().bindBidirectional( tourLogsPopUpVM.getDateInput());
         duration.textProperty().bindBidirectional( tourLogsPopUpVM.getTourDurationInput());
         distance.textProperty().bindBidirectional(tourLogsPopUpVM.getDistanceInput());

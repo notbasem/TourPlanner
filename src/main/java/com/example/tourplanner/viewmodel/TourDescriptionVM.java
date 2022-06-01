@@ -2,6 +2,8 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.API.AddedTourEventListener;
+import com.example.tourplanner.business.API.AddedTourManager;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
@@ -15,7 +17,7 @@ import lombok.Getter;
 import java.util.Optional;
 
 @Getter
-public class TourDescriptionVM implements EventListener {
+public class TourDescriptionVM implements AddedTourEventListener, EventListener {
     private Optional<Tour> tour;
     private boolean update = true;
     private final StringProperty title = new SimpleStringProperty();
@@ -30,15 +32,7 @@ public class TourDescriptionVM implements EventListener {
 
     public TourDescriptionVM() {
         TourManager.SelectTourEventInstance().addListener(this);
-        TourManager.ToursViewManager().addListener(this);
-    }
-
-
-    public Optional<Tour> displayTourData(String tourname) {
-
-        Optional<Tour> tour = DAL.getInstance().tourDao().get(tourname);
-
-        return tour;
+        AddedTourManager.getAddedTourManager().addListener(this);
     }
 
     public ObjectProperty<Image> getImageProperty() {
@@ -91,6 +85,15 @@ public class TourDescriptionVM implements EventListener {
 
     }
 
+    @Override
+    public void onAddedTourLogEvent() {}
+
+    @Override
+    public void onclickedTourLog() {
+
+    }
+
+
     public Optional<Tour> getTour() {
         return tour;
     }
@@ -105,11 +108,12 @@ public class TourDescriptionVM implements EventListener {
         updateImageProperty(apiConnection.getMap().getMapString());
         DAL.getInstance().tourDao().update(tour.get(), newTour);
         System.out.println("URL: " + imageProperty.get().getUrl());
-        TourManager.ToursViewManager().fireEvent();
+        AddedTourManager.getAddedTourManager().fireEvent();
     }
 
     public String updateLink(String from, String to) {
         ApiConnection apiConnection = new ApiConnection(from, to);
         return (apiConnection.getMap().getMapString()).replaceAll(" ", "%20");
     }
+
 }

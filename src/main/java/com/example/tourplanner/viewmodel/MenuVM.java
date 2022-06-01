@@ -2,8 +2,8 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.API.AddedTourManager;
 import com.example.tourplanner.business.EventListener;
-import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -28,7 +28,17 @@ public class MenuVM implements EventListener {
     }
 
     @Override
+    public void onAddedTourLogEvent() {
+
+    }
+
+    @Override
+    public void onclickedTourLog() {
+
+    }
+
+    @Override
     public void onSearch() {
-        TourManager.ToursViewManager().onSearch(searchString.get());
+        AddedTourManager.getAddedTourManager().onSearch(searchString.get());
     }
 }

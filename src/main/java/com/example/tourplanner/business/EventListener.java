@@ -2,5 +2,7 @@ package com.example.tourplanner.business;
 
 public interface EventListener {
     void onEvent();
+    void onAddedTourLogEvent();
+    void onclickedTourLog();
     void onSearch();
 }

@@ -21,5 +21,19 @@ public class TourLog {
         this.rating = rating;
     }
 
+    public TourLog() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "TourLog{" +
+                "tourname='" + tourname + '\'' +
+                ", date='" + date + '\'' +
+                ", duration='" + duration + '\'' +
+                ", distance=" + distance +
+                ", comment='" + comment + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
 }

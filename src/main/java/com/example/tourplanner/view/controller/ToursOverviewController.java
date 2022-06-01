@@ -1,9 +1,10 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.FXMLDI;
-import com.example.tourplanner.business.EventListener;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.API.AddedTourEventListener;
+import com.example.tourplanner.business.API.AddedTourManager;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.ToursOverviewVM;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ToursOverviewController implements Initializable, EventListener {
+public class ToursOverviewController implements Initializable, AddedTourEventListener {
     @FXML
     public ListView<Tour> tourlist;
 
@@ -34,7 +35,8 @@ public class ToursOverviewController implements Initializable, EventListener {
 
     public ToursOverviewController(ToursOverviewVM toursOverviewViewModel) {
         this.toursOverviewViewModel = new ToursOverviewVM();
-        TourManager.ToursViewManager().addListener(this);
+        //SelectedTourManager.ToursViewManager().addListener(this);
+        AddedTourManager.getAddedTourManager().addListener(this);
     }
 
     public ToursOverviewVM getToursOverviewViewModel() {
@@ -82,13 +84,13 @@ public class ToursOverviewController implements Initializable, EventListener {
     @Override
     public void onEvent() {
         this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
-
     }
 
     @Override
     public void onSearch() {
         List<Tour> tempTourList = this.toursOverviewViewModel.getObservableTours();
-        String searchText = TourManager.ToursViewManager().getSearch();
+        String searchText = AddedTourManager.getAddedTourManager().getSearch();
+
         System.out.println("SearchText: " + searchText);
         if (searchText.isEmpty()) {
             this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());

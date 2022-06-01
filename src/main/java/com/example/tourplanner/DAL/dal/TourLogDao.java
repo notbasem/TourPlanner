@@ -8,37 +8,44 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
 
 public class TourLogDao implements Dao<TourLog> {
 
-    public Optional get(String name) {
-        TourLog tourLog = null;
+    public ObservableList<TourLog> getlogs(String name) {
+        ObservableList<TourLog> tourLogs = FXCollections.observableArrayList();
+
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 SELECT  date, duration,distance,comment, rating
-                FROM tours WHERE tourname =?
+                FROM tourlogs WHERE tourname =?
                 """)
         ) {
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
 
-                tourLog = new TourLog(
-                        name,
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getInt(3),
-                        resultSet.getString(4),
-                        resultSet.getInt(5)
+            while (resultSet.next()) {
 
+                tourLogs.add(
+                        new TourLog(
+                                name,
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getInt(3),
+                                resultSet.getString(4),
+                                resultSet.getInt(5)
+                        )
                 );
             }
+            System.out.println(tourLogs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Optional.ofNullable(tourLog);
+        return tourLogs;
+    }
 
+    @Override
+    public Optional<TourLog> get(String name) {
+        return Optional.empty();
     }
 
     public ObservableList<TourLog> getAll() {
@@ -121,8 +128,8 @@ public class TourLogDao implements Dao<TourLog> {
     @Override
     public void delete(String name) {
     }
-
     @Override
+
     public void deletebyid(int id) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 DELETE FROM tourlogs
@@ -165,6 +172,38 @@ public class TourLogDao implements Dao<TourLog> {
         }
 
         return id;
+    }
+    @Override
+    public TourLog getLogById(int id){
+        TourLog tourLog = new TourLog();
+
+        try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
+              SELECT tourname, date, duration, distance, comment, rating From tourlogs 
+             WHERE tour_id=?       """
+        )){
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                     tourLog = new TourLog(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getInt(4),
+                                resultSet.getString(5),
+                                resultSet.getInt(6)
+                        );
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return tourLog;
     }
 
 

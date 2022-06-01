@@ -3,10 +3,10 @@ package com.example.tourplanner.viewmodel;
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.TourManager;
-import javafx.beans.property.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-public class TourLogsPopUpVM {
-
+public class TourLogsEditPopUpVM {
 
     private final StringProperty dateInput = new SimpleStringProperty();
     private final StringProperty durationInput = new SimpleStringProperty();
@@ -31,13 +31,14 @@ public class TourLogsPopUpVM {
         return ratingInput;
     }
 
-    public void addTourLog() {
-        TourLog tourLog = new TourLog(TourManager.SelectTourEventInstance().getSelectedTour(), getDateInput().get(), getTourDurationInput().get(), Integer. parseInt(getDistanceInput().get()) ,getCommentInput().get(), Integer. parseInt(getRatingInput().get()));
 
-        DAL.getInstance().tourLogsDao().create(tourLog);
-        TourManager.SelectTourEventInstance().fireAddedLogEvent();
-
+    public void setData(){
+        int tourLogId = TourManager.SelectTourEventInstance().getSelectedTourLog();
+        TourLog tourLog = DAL.getInstance().tourLogsDao.getLogById(tourLogId);
+        dateInput.setValue(tourLog.getDate());
+        durationInput.setValue(tourLog.getDuration());
+        distanceInput.setValue(String.valueOf(tourLog.getDistance()));
+        commentInput.setValue(tourLog.getComment());
+        ratingInput.setValue(String.valueOf(tourLog.getRating()));
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.FXMLDI;
+import com.example.tourplanner.business.TourManager;
 import com.example.tourplanner.viewmodel.TourLogsVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,14 +57,45 @@ public class TourLogsController implements Initializable {
     }
 
 
+    @FXML
+    public void openTourLogsEditPopUp(ActionEvent event) {
+        try {
+            Stage stage = new Stage();
+            Parent root = FXMLDI.load("TourLogsEditPopUp.fxml", Locale.ENGLISH);
+            Scene scene = new Scene(root);
+            stage.setTitle("TourLogsEditPopupWindow");
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    public void onSelectedTourLog()  {
+        TourLog selectedTourLog = tableView.getSelectionModel().getSelectedItem() ;
+
+     int id = tourLogsViewModel.getIdOfTour(selectedTourLog);
+        TourManager.SelectTourEventInstance().selectTourLog(id);
+
+        System.out.println(selectedTourLog.toString());;
+    }
+
+    @FXML
+    public void deleteTourLog(){
+        tourLogsViewModel.deleteTourLog();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tableView.itemsProperty().bindBidirectional( tourLogsViewModel.getObservableTours());
+
         logDate.setCellValueFactory(new PropertyValueFactory("date"));
         logDuration.setCellValueFactory(new PropertyValueFactory("duration"));
         logDistance.setCellValueFactory(new PropertyValueFactory("distance"));
         logComment.setCellValueFactory(new PropertyValueFactory("comment"));
         logRating.setCellValueFactory(new PropertyValueFactory("rating"));
 
-        tableView.setItems(tourLogsViewModel.getObservableTours());
     }
 }
