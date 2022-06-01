@@ -20,7 +20,7 @@ public class ApiConnection {
 
     public ApiConnection(String from, String to) {
         System.out.println("NEUE API CONNECTION");
-        this.key = "Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV";
+        this.key = "MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf";
         sendAsync(from, to);
     }
 

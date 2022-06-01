@@ -24,6 +24,6 @@ public class Map {
     }
 
     public String getMapString(){
-        return ("https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&session="+this.getSession()+"&boudingBox="+this.getBoundingBox()).replaceAll(" ", "%20");
+        return ("https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session="+this.getSession()+"&boudingBox="+this.getBoundingBox()).replaceAll(" ", "%20");
     }
 }
