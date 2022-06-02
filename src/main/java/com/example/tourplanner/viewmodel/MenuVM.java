@@ -33,12 +33,12 @@ public class MenuVM implements EventListener {
     }
 
     @Override
-    public void onclickedTourLog() {
-
+    public void onSearch() {
+        AddedTourManager.getAddedTourManager().onSearch(searchString.get());
     }
 
     @Override
-    public void onSearch() {
-        AddedTourManager.getAddedTourManager().onSearch(searchString.get());
+    public void updateTourLog() {
+
     }
 }

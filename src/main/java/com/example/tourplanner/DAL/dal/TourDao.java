@@ -137,7 +137,7 @@ public class TourDao implements Dao<Tour> {
 
 
     @Override
-    public int getid(TourLog tourLog) {
+    public int getid(TourLog tourLog, String tourname) {
         return 0;
     }
 

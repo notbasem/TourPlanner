@@ -76,13 +76,12 @@ public class TourLogsController implements Initializable {
     @FXML
     public void onSelectedTourLog() {
         TourLog selectedTourLog = tableView.getSelectionModel().getSelectedItem();
-        int id = tourLogsViewModel.getIdOfTour(selectedTourLog);
+     /*   if(selectedTourLog==null){
+            selectedTourLog= tableView.getItems().get(0);
+        }*/
+        int id = tourLogsViewModel.getIdOfTour(selectedTourLog, selectedTourLog.getTourname());
         TourManager.SelectTourEventInstance().selectTourLog(id);
-        System.out.println(selectedTourLog.toString());
-    }
-    @FXML
-    public void updateTourLog() {
-        tourLogsViewModel.updateTourLog();
+        System.out.println(selectedTourLog);
     }
 
     @FXML

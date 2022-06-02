@@ -22,7 +22,7 @@ public interface Dao <T> {
 
     void deletebyid(int id);
 
-    int getid(TourLog tourLog);
+    int getid(TourLog tourLog, String tourname);
 
  ObservableList<T> getlogs(String selectedtournamne);
 

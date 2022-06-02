@@ -79,12 +79,12 @@ public class TourLogDao implements Dao<TourLog> {
     }
 
     public void update(TourLog oldTourLog, TourLog newTourLog) {
-        int tourid = getid(oldTourLog);
+        int tourid = getid(oldTourLog, oldTourLog.getTourname());
 
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 UPDATE tourlogs
                 SET tourname=?,  date=?,  duration=?, distance=?, comment=?, rating=?
-                WHERE tourid=? ;
+                WHERE tour_id=? ;
                 """)) {
             statement.setString(1, newTourLog.getTourname());
             statement.setString(2, newTourLog.getDate());
@@ -123,13 +123,13 @@ public class TourLogDao implements Dao<TourLog> {
     }
 
     @Override
-    public int getid(TourLog tourLog) {
+    public int getid(TourLog tourLog, String tourname) {
         int id = -1;
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 SELECT tour_id
                 FROM tourlogs WHERE tourname =? AND date=? AND  duration =? AND distance =? AND comment =? AND rating = ?
                 """)) {
-            statement.setString(1, tourLog.getTourname());
+            statement.setString(1, tourname);
             statement.setString(2, tourLog.getDate());
             statement.setString(3, tourLog.getDuration());
             statement.setInt(4, tourLog.getDistance());

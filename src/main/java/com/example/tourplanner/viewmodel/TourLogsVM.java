@@ -1,7 +1,6 @@
 package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
-import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
@@ -12,7 +11,6 @@ import javafx.collections.ObservableList;
 
 public class TourLogsVM implements EventListener {
     private ObservableList<TourLog> tourlogs = FXCollections.observableArrayList();
-    private Property<ObservableList<TourLog>> tourListProperty = new SimpleObjectProperty<>(tourlogs);
 
     public TourLogsVM() {
         TourManager.SelectTourEventInstance().addListener(this);
@@ -29,8 +27,8 @@ public class TourLogsVM implements EventListener {
         this.tourlogs = DAL.getInstance().tourLogsDao().getlogs(name);
     }
 
-    public int getIdOfTour(TourLog tourLog) {
-        return DAL.getInstance().tourLogsDao.getid(tourLog);
+    public int getIdOfTour(TourLog tourLog, String tourName) {
+        return DAL.getInstance().tourLogsDao.getid(tourLog,tourName);
     }
 
     @Override
@@ -46,12 +44,13 @@ public class TourLogsVM implements EventListener {
     }
 
     @Override
-    public void onclickedTourLog() {
-
+    public void onSearch() {
     }
 
     @Override
-    public void onSearch() {
+    public void updateTourLog() {
+        tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
+
     }
 
     public void deleteTourLog() {
@@ -59,8 +58,5 @@ public class TourLogsVM implements EventListener {
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
     }
 
-    public void updateTourLog() {
 
-
-    }
 }

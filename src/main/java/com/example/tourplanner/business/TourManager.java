@@ -21,16 +21,17 @@ public class TourManager {
         }
     }
 
-
     public void fireAddedLogEvent(){
         for(EventListener eventListener : eventListenerList){
             eventListener.onAddedTourLogEvent();
         }
     }
 
-    public void fireClickedLogEvent(){
+    public void onUpdateTourLog(){}
+
+    public void fireUpdateLogEvent(){
         for(EventListener eventListener : eventListenerList){
-            eventListener.onclickedTourLog();
+            eventListener.updateTourLog();
         }
     }
 

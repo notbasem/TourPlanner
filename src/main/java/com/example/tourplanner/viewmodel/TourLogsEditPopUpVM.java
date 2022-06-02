@@ -1,6 +1,7 @@
 package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
+import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.SimpleStringProperty;
@@ -40,5 +41,17 @@ public class TourLogsEditPopUpVM {
         distanceInput.setValue(String.valueOf(tourLog.getDistance()));
         commentInput.setValue(tourLog.getComment());
         ratingInput.setValue(String.valueOf(tourLog.getRating()));
+    }
+
+    public void updateLog() {
+        System.out.println("UpdateLog");
+       TourLog oldTourLog = DAL.getInstance().tourLogsDao.getLogById(TourManager.SelectTourEventInstance().getSelectedTourLog());
+       String duration = String.valueOf(getTourDurationInput());
+
+        TourLog newTourLog = new TourLog(oldTourLog.getTourname(), getDateInput().get(), getTourDurationInput().get(), Integer. parseInt(getDistanceInput().get()) ,getCommentInput().get(), Integer. parseInt(getRatingInput().get()));
+
+        DAL.getInstance().tourLogsDao.update(oldTourLog,newTourLog);
+        TourManager.SelectTourEventInstance().fireUpdateLogEvent();
+
     }
 }
