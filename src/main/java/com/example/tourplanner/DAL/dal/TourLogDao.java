@@ -16,25 +16,14 @@ public class TourLogDao implements Dao<TourLog> {
         ObservableList<TourLog> tourLogs = FXCollections.observableArrayList();
 
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                SELECT  date, duration,distance,comment, rating
+                SELECT tour_id, date, duration,distance,comment, rating
                 FROM tourlogs WHERE tourname =?
-                """)
-        ) {
+                """)) {
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-
-                tourLogs.add(
-                        new TourLog(
-                                name,
-                                resultSet.getString(1),
-                                resultSet.getString(2),
-                                resultSet.getInt(3),
-                                resultSet.getString(4),
-                                resultSet.getInt(5)
-                        )
-                );
+                tourLogs.add(new TourLog(resultSet.getInt(1),name, resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5), resultSet.getInt(6)));
             }
             System.out.println(tourLogs);
         } catch (SQLException e) {
@@ -51,22 +40,12 @@ public class TourLogDao implements Dao<TourLog> {
     public ObservableList<TourLog> getAll() {
         ObservableList<TourLog> tourLogs = FXCollections.observableArrayList();
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                SELECT tourname, date, duration, distance, comment, rating From tourlogs
-                """)
-        ) {
+                SELECT tour_id, tourname, date, duration, distance, comment, rating From tourlogs
+                """)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                tourLogs.add(new TourLog(
-                                resultSet.getString(1),
-                                resultSet.getString(2),
-                                resultSet.getString(3),
-                                resultSet.getInt(4),
-                                resultSet.getString(5),
-                                resultSet.getInt(6)
-
-
-                        )
-                );
+                tourLogs.add(new TourLog(resultSet.getInt(1),resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6), resultSet.getInt(7)
+                ));
             }
 
         } catch (SQLException throwables) {
@@ -83,8 +62,7 @@ public class TourLogDao implements Dao<TourLog> {
                 INSERT INTO tourlogs
                 (tourname, date, duration, distance, comment, rating)
                 VALUES (?, ?, ?, ?, ?, ?);
-                """)
-        ) {
+                """)) {
             statement.setString(1, tourLog.getTourname());
             statement.setString(2, tourLog.getDate());
             statement.setString(3, tourLog.getDuration());
@@ -107,8 +85,7 @@ public class TourLogDao implements Dao<TourLog> {
                 UPDATE tourlogs
                 SET tourname=?,  date=?,  duration=?, distance=?, comment=?, rating=?
                 WHERE tourid=? ;
-                """)
-        ) {
+                """)) {
             statement.setString(1, newTourLog.getTourname());
             statement.setString(2, newTourLog.getDate());
             statement.setString(3, newTourLog.getDuration());
@@ -128,6 +105,7 @@ public class TourLogDao implements Dao<TourLog> {
     @Override
     public void delete(String name) {
     }
+
     @Override
 
     public void deletebyid(int id) {
@@ -142,8 +120,6 @@ public class TourLogDao implements Dao<TourLog> {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
     }
 
     @Override
@@ -152,8 +128,7 @@ public class TourLogDao implements Dao<TourLog> {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 SELECT tour_id
                 FROM tourlogs WHERE tourname =? AND date=? AND  duration =? AND distance =? AND comment =? AND rating = ?
-                """)
-        ) {
+                """)) {
             statement.setString(1, tourLog.getTourname());
             statement.setString(2, tourLog.getDate());
             statement.setString(3, tourLog.getDuration());
@@ -173,28 +148,21 @@ public class TourLogDao implements Dao<TourLog> {
 
         return id;
     }
+
     @Override
-    public TourLog getLogById(int id){
+    public TourLog getLogById(int id) {
         TourLog tourLog = new TourLog();
 
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-              SELECT tourname, date, duration, distance, comment, rating From tourlogs 
-             WHERE tour_id=?       """
-        )){
+                 SELECT tourname, date, duration, distance, comment, rating From tourlogs 
+                WHERE tour_id=?       """)) {
             statement.setInt(1, id);
 
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
 
-                     tourLog = new TourLog(
-                                resultSet.getString(1),
-                                resultSet.getString(2),
-                                resultSet.getString(3),
-                                resultSet.getInt(4),
-                                resultSet.getString(5),
-                                resultSet.getInt(6)
-                        );
+                tourLog = new TourLog(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5), resultSet.getInt(6));
             }
 
 

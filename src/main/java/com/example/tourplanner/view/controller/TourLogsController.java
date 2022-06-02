@@ -21,23 +21,23 @@ import java.util.ResourceBundle;
 
 public class TourLogsController implements Initializable {
     @FXML
-    public  TableView <TourLog>tableView;
+    public TableView<TourLog> tableView;
     @FXML
-    public TableColumn <TourLog, String> logDate;
+    public TableColumn<TourLog, String> logDate;
     @FXML
-    public TableColumn <TourLog, String> logDuration;
+    public TableColumn<TourLog, String> logDuration;
     @FXML
-    public TableColumn <TourLog, String> logDistance;
+    public TableColumn<TourLog, String> logDistance;
     @FXML
-    public TableColumn <TourLog, String> logComment;
+    public TableColumn<TourLog, String> logComment;
     @FXML
-    public TableColumn <TourLog, String> logRating;
+    public TableColumn<TourLog, String> logRating;
 
 
     private final TourLogsVM tourLogsViewModel;
 
-    public TourLogsController(TourLogsVM tourLogsViewModel){
-        this.tourLogsViewModel =  new TourLogsVM();
+    public TourLogsController(TourLogsVM tourLogsViewModel) {
+        this.tourLogsViewModel = new TourLogsVM();
     }
 
     @FXML
@@ -72,24 +72,27 @@ public class TourLogsController implements Initializable {
         }
 
     }
+
     @FXML
-    public void onSelectedTourLog()  {
-        TourLog selectedTourLog = tableView.getSelectionModel().getSelectedItem() ;
-
-     int id = tourLogsViewModel.getIdOfTour(selectedTourLog);
+    public void onSelectedTourLog() {
+        TourLog selectedTourLog = tableView.getSelectionModel().getSelectedItem();
+        int id = tourLogsViewModel.getIdOfTour(selectedTourLog);
         TourManager.SelectTourEventInstance().selectTourLog(id);
-
-        System.out.println(selectedTourLog.toString());;
+        System.out.println(selectedTourLog.toString());
+    }
+    @FXML
+    public void updateTourLog() {
+        tourLogsViewModel.updateTourLog();
     }
 
     @FXML
-    public void deleteTourLog(){
+    public void deleteTourLog() {
         tourLogsViewModel.deleteTourLog();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tableView.itemsProperty().bindBidirectional( tourLogsViewModel.getObservableTours());
+        tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTours());
 
         logDate.setCellValueFactory(new PropertyValueFactory("date"));
         logDuration.setCellValueFactory(new PropertyValueFactory("duration"));

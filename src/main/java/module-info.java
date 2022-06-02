@@ -5,10 +5,11 @@ module com.example.tourplanner {
     requires layout;
     requires java.net.http;
     requires json;
-    requires javafx.base;
+
+    requires io;
+    requires javafx.graphics;
     requires javafx.fxml;
     requires javafx.controls;
-    requires io;
 
 
     opens com.example.tourplanner to javafx.fxml;

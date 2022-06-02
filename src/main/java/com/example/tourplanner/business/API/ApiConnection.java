@@ -20,7 +20,7 @@ public class ApiConnection {
 
     public ApiConnection(String from, String to) {
         System.out.println("NEUE API CONNECTION");
-        this.key = "Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV";
+        this.key = "MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf";
         sendAsync(from, to);
     }
 
@@ -56,6 +56,6 @@ public class ApiConnection {
 
         System.out.println("Time: "+this.time);
         System.out.println("Distance: "+this.distance);
-        return new Map(session,boundingBox);
+        return new Map(this.key, session,boundingBox);
     }
 }

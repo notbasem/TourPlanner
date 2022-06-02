@@ -11,9 +11,6 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
-
 public class TourLogsPopUpController implements Initializable {
     @FXML
     Button closeButton;
@@ -44,8 +41,6 @@ public class TourLogsPopUpController implements Initializable {
             Stage stage = (Stage) closeButton.getScene().getWindow();
             tourLogsPopUpVM.addTourLog();
             stage.close();
-
-
     }
 
     @Override

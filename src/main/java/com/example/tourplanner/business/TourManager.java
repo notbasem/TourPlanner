@@ -1,6 +1,5 @@
 package com.example.tourplanner.business;
-import com.example.tourplanner.DAL.model.Tour;
-import com.example.tourplanner.DAL.model.TourLog;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,6 @@ public class TourManager {
 
     public void selectTourLog(int id){
         this.selectedTourLog = id;
-        this.fireAddedLogEvent();
     }
 
 

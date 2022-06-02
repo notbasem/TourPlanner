@@ -9,14 +9,16 @@ import lombok.Setter;
 public class Map {
     private String session;
     private String boundingBox;
+    private String key;
 
-    public Map(String session, String boundingBox) {
+    public Map(String key,String session, String boundingBox) {
+        this.key = key;
         this.session = session;
         this.boundingBox = boundingBox;
 
     }
 
     public String getMapString(){
-        return ("https://www.mapquestapi.com/staticmap/v5/map?key=Y4xILB7lh36v0IqkJc2kEAmqa6T52OoV&session="+this.getSession()+"&boudingBox="+this.getBoundingBox()).replaceAll(" ", "%20");
+        return ("https://www.mapquestapi.com/staticmap/v5/map?key="+this.key+"&session="+this.getSession()+"&boudingBox="+this.getBoundingBox()).replaceAll(" ", "%20");
     }
 }

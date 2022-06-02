@@ -12,33 +12,30 @@ import javafx.collections.ObservableList;
 
 public class TourLogsVM implements EventListener {
     private ObservableList<TourLog> tourlogs = FXCollections.observableArrayList();
-   private Property<ObservableList<TourLog>> tourListProperty = new SimpleObjectProperty<>(tourlogs);
+    private Property<ObservableList<TourLog>> tourListProperty = new SimpleObjectProperty<>(tourlogs);
 
-    public TourLogsVM(){
+    public TourLogsVM() {
         TourManager.SelectTourEventInstance().addListener(this);
     }
 
-   public Property<ObservableList<TourLog>> getObservableTours()
-    {
+    public Property<ObservableList<TourLog>> getObservableTours() {
         setTourlogs(TourManager.SelectTourEventInstance().getSelectedTour());
-         Property<ObservableList<TourLog>> tourListProperty = new SimpleObjectProperty<>(tourlogs);
+        Property<ObservableList<TourLog>> tourListProperty = new SimpleObjectProperty<>(tourlogs);
 
         return tourListProperty;
     }
 
-    public void setTourlogs(String name){
-      this.tourlogs=DAL.getInstance().tourLogsDao().getlogs(name);
-
+    public void setTourlogs(String name) {
+        this.tourlogs = DAL.getInstance().tourLogsDao().getlogs(name);
     }
 
-    public int getIdOfTour(TourLog tourLog){
-
-   return DAL.getInstance().tourLogsDao.getid(tourLog);
+    public int getIdOfTour(TourLog tourLog) {
+        return DAL.getInstance().tourLogsDao.getid(tourLog);
     }
 
     @Override
     public void onEvent() {
-        System.out.println("SELECTED TOURRRRRRRRRRRRRR :"+TourManager.SelectTourEventInstance().getSelectedTour());
+        System.out.println("SELECTED TOURRRRRRRRRRRRRR :" + TourManager.SelectTourEventInstance().getSelectedTour());
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
 
     }
@@ -58,7 +55,12 @@ public class TourLogsVM implements EventListener {
     }
 
     public void deleteTourLog() {
-        DAL.getInstance().tourLogsDao.deletebyid( TourManager.SelectTourEventInstance().getSelectedTourLog());
+        DAL.getInstance().tourLogsDao.deletebyid(TourManager.SelectTourEventInstance().getSelectedTourLog());
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
+    }
+
+    public void updateTourLog() {
+
+
     }
 }

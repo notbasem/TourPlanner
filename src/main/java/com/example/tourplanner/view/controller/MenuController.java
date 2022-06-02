@@ -121,7 +121,6 @@ public class MenuController {
             Cell cell5 = new Cell().add(time);
             table.addCell(cell5);
 
-
             document.add(table.setMarginLeft(55).setMarginRight(60));
         }
 

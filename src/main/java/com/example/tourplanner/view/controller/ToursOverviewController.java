@@ -75,8 +75,6 @@ public class ToursOverviewController implements Initializable, AddedTourEventLis
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
-
-        //Automatically choose first Tour
         tourlist.getSelectionModel().select(0);
         TourManager.SelectTourEventInstance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
     }
