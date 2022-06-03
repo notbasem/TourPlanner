@@ -2,8 +2,6 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
-import com.example.tourplanner.business.API.AddedTourEventListener;
-import com.example.tourplanner.business.API.AddedTourManager;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
@@ -17,7 +15,7 @@ import lombok.Getter;
 import java.util.Optional;
 
 @Getter
-public class TourDescriptionVM implements AddedTourEventListener, EventListener {
+public class TourDescriptionVM implements EventListener {
     private Optional<Tour> tour;
     private boolean update = true;
     private final StringProperty title = new SimpleStringProperty();
@@ -32,7 +30,7 @@ public class TourDescriptionVM implements AddedTourEventListener, EventListener 
 
     public TourDescriptionVM() {
         TourManager.SelectTourEventInstance().addListener(this);
-        AddedTourManager.getAddedTourManager().addListener(this);
+        //  AddedTourManager.getAddedTourManager().addListener(this);
     }
 
     public ObjectProperty<Image> getImageProperty() {
@@ -80,25 +78,6 @@ public class TourDescriptionVM implements AddedTourEventListener, EventListener 
         update = false;
     }
 
-    @Override
-    public void onSearch() {
-
-    }
-
-    @Override
-    public void updateTourLog() {
-
-    }
-
-    @Override
-    public void onAddedTour() {
-
-    }
-
-    @Override
-    public void onAddedTourLogEvent() {}
-
-
     public Optional<Tour> getTour() {
         return tour;
     }
@@ -112,8 +91,25 @@ public class TourDescriptionVM implements AddedTourEventListener, EventListener 
         newTour.setEstimatedTime(apiConnection.getTime());
         updateImageProperty(apiConnection.getMap().getMapString());
         DAL.getInstance().tourDao().update(tour.get(), newTour);
+
         System.out.println("URL: " + imageProperty.get().getUrl());
-        AddedTourManager.getAddedTourManager().fireEvent();
+        TourManager.SelectTourEventInstance().fireAddedTourEvent();
+    }
+
+    @Override
+    public void onSearch() {
+    }
+
+    @Override
+    public void updateTourLog() {
+    }
+
+    @Override
+    public void onAddedTour() {
+    }
+
+    @Override
+    public void onAddedTourLogEvent() {
     }
 
     public String updateLink(String from, String to) {

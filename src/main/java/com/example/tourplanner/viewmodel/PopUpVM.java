@@ -7,9 +7,9 @@ import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
 
 
-public class PopUpVM  {
+public class PopUpVM {
 
-    public  PopUpVM(){
+    public PopUpVM() {
     }
 
     private final StringProperty tourNameInput = new SimpleStringProperty();
@@ -42,7 +42,7 @@ public class PopUpVM  {
         ApiConnection apiConnection = new ApiConnection(fromInput.get(), toInput.get());
         System.out.println("ADDED TOUR " + tourNameInput.get());
 
-        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(),apiConnection.getDistance(), apiConnection.getTime());
+        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), apiConnection.getDistance(), apiConnection.getTime());
         DAL.getInstance().tourDao().create(tour);
 
         TourManager.SelectTourEventInstance().fireAddedTourEvent();

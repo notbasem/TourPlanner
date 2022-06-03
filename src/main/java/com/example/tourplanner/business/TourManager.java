@@ -10,6 +10,7 @@ public class TourManager {
     int selectedTourLog;
 
     private static TourManager selectClickedTourEventInstance;
+    private String searchText;
 
     public void addListener(EventListener listener){
         this.eventListenerList.add(listener);
@@ -68,6 +69,20 @@ public void fireAddedTourEvent(){
         }
         return selectClickedTourEventInstance;
     }
+    public void onSearch(String searchText){
+        this.searchText = searchText;
+        this.fireOnSearch();
+    }
+
+    public String getSearch(){
+        return this.searchText;
+    }
+    public void fireOnSearch(){
+        for(EventListener eventListener : eventListenerList){
+            eventListener.onSearch();
+        }
+    }
+
 
     private void init() {
         this.eventListenerList = new ArrayList<>();

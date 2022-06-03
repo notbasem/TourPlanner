@@ -7,7 +7,6 @@ import javafx.beans.property.*;
 
 public class TourLogsPopUpVM {
 
-
     private final StringProperty dateInput = new SimpleStringProperty();
     private final StringProperty durationInput = new SimpleStringProperty();
     private final StringProperty  distanceInput = new SimpleStringProperty();
@@ -38,6 +37,5 @@ public class TourLogsPopUpVM {
         TourManager.SelectTourEventInstance().fireAddedLogEvent();
 
     }
-
 
 }

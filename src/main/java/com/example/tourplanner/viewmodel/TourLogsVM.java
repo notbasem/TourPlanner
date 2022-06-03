@@ -1,5 +1,4 @@
 package com.example.tourplanner.viewmodel;
-
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.EventListener;
@@ -35,7 +34,6 @@ public class TourLogsVM implements EventListener {
     public void onEvent() {
         System.out.println("SELECTED TOURRRRRRRRRRRRRR :" + TourManager.SelectTourEventInstance().getSelectedTour());
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
-
     }
 
     @Override
@@ -44,17 +42,8 @@ public class TourLogsVM implements EventListener {
     }
 
     @Override
-    public void onSearch() {
-    }
-
-    @Override
     public void updateTourLog() {
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
-
-    }
-
-    @Override
-    public void onAddedTour() {
 
     }
 
@@ -63,5 +52,9 @@ public class TourLogsVM implements EventListener {
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));
     }
 
+    @Override
+    public void onAddedTour() {}
 
+    @Override
+    public void onSearch() {}
 }
