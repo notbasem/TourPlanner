@@ -131,10 +131,7 @@ public class TourDao implements Dao<Tour> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
-
 
     @Override
     public int getid(TourLog tourLog, String tourname) {

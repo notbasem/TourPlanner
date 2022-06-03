@@ -27,7 +27,13 @@ public class TourManager {
         }
     }
 
-    public void onUpdateTourLog(){}
+
+public void fireAddedTourEvent(){
+    for(EventListener eventListener : eventListenerList){
+        eventListener.onAddedTour();
+    }
+}
+
 
     public void fireUpdateLogEvent(){
         for(EventListener eventListener : eventListenerList){
@@ -54,7 +60,6 @@ public class TourManager {
     public int getSelectedTourLog(){
         return this.selectedTourLog;
     }
-
 
     public static TourManager SelectTourEventInstance() {
         if (selectClickedTourEventInstance == null) {

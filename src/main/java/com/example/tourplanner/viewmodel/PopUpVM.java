@@ -2,8 +2,8 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
-import com.example.tourplanner.business.API.AddedTourManager;
 import com.example.tourplanner.business.API.ApiConnection;
+import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
 
 
@@ -45,8 +45,7 @@ public class PopUpVM  {
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(),apiConnection.getDistance(), apiConnection.getTime());
         DAL.getInstance().tourDao().create(tour);
 
-       // SelectedTourManager.ToursViewManager().fireEvent();
-        AddedTourManager.getAddedTourManager().fireEvent();
+        TourManager.SelectTourEventInstance().fireAddedTourEvent();
 
     }
 

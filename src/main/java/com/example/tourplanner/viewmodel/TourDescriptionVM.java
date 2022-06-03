@@ -91,6 +91,11 @@ public class TourDescriptionVM implements AddedTourEventListener, EventListener 
     }
 
     @Override
+    public void onAddedTour() {
+
+    }
+
+    @Override
     public void onAddedTourLogEvent() {}
 
 

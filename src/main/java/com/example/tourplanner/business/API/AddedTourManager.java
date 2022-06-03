@@ -15,11 +15,6 @@ public class AddedTourManager {
         this.eventListenerList.add(listener);
     }
 
-    public void fireEvent() {
-        for ( AddedTourEventListener eventListener : eventListenerList) {
-            eventListener.onEvent();
-        }
-    }
 
 
     public static AddedTourManager getAddedTourManager() {
@@ -48,5 +43,12 @@ public class AddedTourManager {
         for(AddedTourEventListener eventListener : eventListenerList){
             eventListener.onSearch();
         }
+    }
+
+    public void fireEvent() {
+        for(AddedTourEventListener eventListener : eventListenerList){
+            eventListener.onEvent();
+        }
+
     }
 }

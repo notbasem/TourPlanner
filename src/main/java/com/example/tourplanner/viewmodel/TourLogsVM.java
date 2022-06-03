@@ -53,6 +53,11 @@ public class TourLogsVM implements EventListener {
 
     }
 
+    @Override
+    public void onAddedTour() {
+
+    }
+
     public void deleteTourLog() {
         DAL.getInstance().tourLogsDao.deletebyid(TourManager.SelectTourEventInstance().getSelectedTourLog());
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.SelectTourEventInstance().getSelectedTour()));

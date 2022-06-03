@@ -5,4 +5,5 @@ public interface EventListener {
     void onAddedTourLogEvent();
     void onSearch();
     void updateTourLog();
+    void onAddedTour();
 }

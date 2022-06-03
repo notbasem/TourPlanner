@@ -41,4 +41,9 @@ public class MenuVM implements EventListener {
     public void updateTourLog() {
 
     }
+
+    @Override
+    public void onAddedTour() {
+
+    }
 }
