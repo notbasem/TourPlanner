@@ -159,7 +159,5 @@ public class TourDao implements Dao<Tour> {
     public TourLog getLogById(int id) {
         return null;
     }
-
-
 }
 

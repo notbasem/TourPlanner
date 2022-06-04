@@ -6,12 +6,11 @@ import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
 
 public class TourLogsPopUpVM {
-
-    private final StringProperty dateInput = new SimpleStringProperty("");
-    private final StringProperty durationInput = new SimpleStringProperty("");
-    private final StringProperty distanceInput = new SimpleStringProperty("");
-    private final StringProperty commentInput = new SimpleStringProperty("");
-    private final StringProperty ratingInput = new SimpleStringProperty("");
+    private final StringProperty dateInput = new SimpleStringProperty();
+    private final StringProperty durationInput = new SimpleStringProperty();
+    private final StringProperty distanceInput = new SimpleStringProperty();
+    private final StringProperty commentInput = new SimpleStringProperty();
+    private final StringProperty ratingInput = new SimpleStringProperty();
 
     public StringProperty getDateInput() {
         return dateInput;

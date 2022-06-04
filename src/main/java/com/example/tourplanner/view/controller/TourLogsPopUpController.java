@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 
 public class TourLogsPopUpController implements Initializable {
     private static final Logger logger = LogManager.getLogger(TourLogsPopUpController.class.getSimpleName());
-
     @FXML Button closeButton;
     @FXML public TextField date;
     @FXML public TextField duration;
@@ -28,12 +27,10 @@ public class TourLogsPopUpController implements Initializable {
     @FXML public TextField comment;
     @FXML public TextField rating;
     @FXML public Label error;
-
-
-    TourLogsPopUpVM tourLogsPopUpVM;
+    private TourLogsPopUpVM tourLogsPopUpVM;
 
     public TourLogsPopUpController(TourLogsPopUpVM tourLogsPopUpVM) {
-        this.tourLogsPopUpVM = tourLogsPopUpVM;
+        this.tourLogsPopUpVM = new TourLogsPopUpVM();
     }
 
     public void addTourLog(ActionEvent event) {

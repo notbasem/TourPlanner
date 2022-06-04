@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.io.IOException;
@@ -21,12 +23,11 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ToursOverviewController implements Initializable{
+    private static final Logger logger = LogManager.getLogger(ToursOverviewController.class.getSimpleName());
     @FXML public ListView<Tour> tourlist;
     @FXML public VBox vBox;
     @FXML public Button importButton;
-
     private final ToursOverviewVM toursOverviewViewModel;
-
 
     public ToursOverviewController(ToursOverviewVM toursOverviewViewModel) {
         this.toursOverviewViewModel = new ToursOverviewVM();
@@ -47,20 +48,17 @@ public class ToursOverviewController implements Initializable{
             stage.setTitle("PopupWindow");
             stage.setScene(scene);
             stage.show();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     public void onSelectedTour() throws IOException {
         String tourName = String.valueOf(tourlist.getSelectionModel().getSelectedItem());
         TourManager.Instance().selectTour(tourName);
-
     }
+
     @FXML
     public void delTour()  {
        toursOverviewViewModel.deleteTour();
@@ -69,12 +67,15 @@ public class ToursOverviewController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-      tourlist.itemsProperty().bindBidirectional(this.toursOverviewViewModel.getObservableToursProperty());
+        tourlist.itemsProperty().bindBidirectional(this.toursOverviewViewModel.getObservableToursProperty());
 
-        tourlist.getSelectionModel().select(0);
-        TourManager.Instance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
+        if (tourlist.getItems().isEmpty()) {
+            logger.error("Tourlist is empty");
+        } else {
+            tourlist.getSelectionModel().select(0);
+            TourManager.Instance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
+        }
     }
-
 
     @FXML
     public void importTours() {

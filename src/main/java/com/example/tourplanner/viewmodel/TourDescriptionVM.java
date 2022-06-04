@@ -6,10 +6,7 @@ import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.scene.image.Image;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
@@ -37,18 +34,22 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public ObjectProperty<Image> getImageProperty() {
-        logger.info("Retrieve image from");
-        String link = updateLink(from.get(), to.get());
-        logger.info("New image-link: " + link);
-        // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
-        Image image = new Image(link,
-                640,     // width
-                680,    // height
-                true,   // preserve ratio
-                true,  // smooth rescaling
-                true   // load in background
-        );
-        imageProperty.setValue(image);
+        if (this.title.get() == null){
+            imageProperty.setValue(null);
+        } else {
+            logger.info("Retrieve image from");
+            String link = updateLink(from.get(), to.get());
+            logger.info("New image-link: " + link);
+            // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
+            Image image = new Image(link,
+                    640,     // width
+                    680,    // height
+                    true,   // preserve ratio
+                    true,  // smooth rescaling
+                    true   // load in background
+            );
+            imageProperty.setValue(image);
+        }
         return imageProperty;
     }
 
@@ -67,9 +68,6 @@ public class TourDescriptionVM implements EventListener {
     @Override
     public void onEvent() {
         this.tour = DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
-        if (!tour.isPresent()) {
-            logger.error("Tour could not be selected");
-        }
         logger.info("Selected tour: " + tour.get().getName());
         title.setValue(tour.get().getName());
         description.setValue(tour.get().getTourDescription());
@@ -118,6 +116,16 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public BooleanBinding getDisableButton() {
+        if (title.get() == null) {
+            logger.error("Tour is not set");
+            return title.isEmpty()
+                    .or(from.isEmpty())
+                    .or(to.isEmpty())
+                    .or(transportType.isEmpty())
+                    .or(distance.isEmpty())
+                    .or(transportType.isEmpty())
+                    .or(description.isEmpty());
+        }
         return (title.isEmpty()
                 .or(from.isEmpty())
                 .or(to.isEmpty())
