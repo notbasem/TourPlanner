@@ -7,11 +7,11 @@ import javafx.beans.property.*;
 
 public class TourLogsPopUpVM {
 
-    private final StringProperty dateInput = new SimpleStringProperty();
-    private final StringProperty durationInput = new SimpleStringProperty();
-    private final StringProperty distanceInput = new SimpleStringProperty();
-    private final StringProperty commentInput = new SimpleStringProperty();
-    private final StringProperty ratingInput = new SimpleStringProperty();
+    private final StringProperty dateInput = new SimpleStringProperty("");
+    private final StringProperty durationInput = new SimpleStringProperty("");
+    private final StringProperty distanceInput = new SimpleStringProperty("");
+    private final StringProperty commentInput = new SimpleStringProperty("");
+    private final StringProperty ratingInput = new SimpleStringProperty("");
 
     public StringProperty getDateInput() {
         return dateInput;
@@ -32,11 +32,16 @@ public class TourLogsPopUpVM {
     }
 
     public void addTourLog() {
-        TourLog tourLog = new TourLog(TourManager.Instance().getSelectedTour(), getDateInput().get(), getTourDurationInput().get(), Integer.parseInt(getDistanceInput().get()), getCommentInput().get(), Integer.parseInt(getRatingInput().get()));
-
+        TourLog tourLog = new TourLog(
+                TourManager.Instance().getSelectedTour(),
+                getDateInput().get(),
+                getTourDurationInput().get(),
+                Integer.parseInt(getDistanceInput().get()),
+                getCommentInput().get(),
+                Integer.parseInt(getRatingInput().get())
+        );
         DAL.getInstance().tourLogsDao().create(tourLog);
         TourManager.Instance().fireAddedLogEvent();
-
     }
 
 }

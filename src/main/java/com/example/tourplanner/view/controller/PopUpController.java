@@ -60,7 +60,7 @@ public class PopUpController implements Initializable{
         );
     }
 
-    // returns true if input is valid for example "   " as title
+    // returns true if input is valid
     private boolean validateInput() {
         List<TextInputControl> textFields = Arrays.asList(tourname, tourDescription, from, to, transportType);
         for (TextInputControl textField : textFields) {
