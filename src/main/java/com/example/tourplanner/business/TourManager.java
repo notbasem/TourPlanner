@@ -1,63 +1,83 @@
 package com.example.tourplanner.business;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TourManager {
     List<EventListener> eventListenerList;
     String selectedTour;
-    String searchText;
+    int selectedTourLog;
 
-    private static TourManager selectClickedTourEventInstance;
-    private static TourManager toursViewManager;
+    private static TourManager Instance;
+    private String searchText;
 
-    public void addListener(EventListener listener){
+    public void addListener(EventListener listener) {
         this.eventListenerList.add(listener);
     }
 
-    public void fireEvent(){
-        for(EventListener eventListener : eventListenerList){
+    public void fireEvent() {
+        for (EventListener eventListener : eventListenerList) {
             eventListener.onEvent();
         }
     }
 
-    public void fireOnSearch(){
-        for(EventListener eventListener : eventListenerList){
-            eventListener.onSearch();
+    public void fireAddedLogEvent() {
+        for (EventListener eventListener : eventListenerList) {
+            eventListener.onAddedTourLogEvent();
         }
     }
 
-    public void selectTour(String name){
+    public void fireAddedTourEvent() {
+        for (EventListener eventListener : eventListenerList) {
+            eventListener.onAddedTour();
+        }
+    }
+
+    public void fireUpdateLogEvent() {
+        for (EventListener eventListener : eventListenerList) {
+            eventListener.updateTourLog();
+        }
+    }
+
+    public void selectTourLog(int id) {
+        this.selectedTourLog = id;
+    }
+
+    public void selectTour(String name) {
         this.selectedTour = name;
         this.fireEvent();
     }
 
-    public void onSearch(String searchText){
+    public String getSelectedTour() {
+        return this.selectedTour;
+    }
+
+    public int getSelectedTourLog() {
+        return this.selectedTourLog;
+    }
+
+    public static TourManager Instance() {
+        if (Instance == null) {
+            Instance = new TourManager();
+            Instance.init();
+        }
+        return Instance;
+    }
+
+    public void onSearch(String searchText) {
         this.searchText = searchText;
         this.fireOnSearch();
     }
 
-    public String getSelectedTour(){
-        return this.selectedTour;
-    }
-
-    public String getSearch(){
+    public String getSearch() {
         return this.searchText;
     }
 
-    public static TourManager SelectTourEventInstance() {
-        if (selectClickedTourEventInstance == null) {
-            selectClickedTourEventInstance = new TourManager();
-            selectClickedTourEventInstance.init();
+    public void fireOnSearch() {
+        for (EventListener eventListener : eventListenerList) {
+            eventListener.onSearch();
         }
-        return selectClickedTourEventInstance;
-    }
-
-    public static TourManager ToursViewManager() {
-        if (toursViewManager == null) {
-            toursViewManager = new TourManager();
-            toursViewManager.init();
-        }
-        return toursViewManager;
     }
 
 

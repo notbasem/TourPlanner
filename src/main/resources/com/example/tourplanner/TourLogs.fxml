@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tourplanner.view.controller.TourLogsController">
     <children>
         <HBox maxWidth="1.7976931348623157E308">
             <children>
                 <Label maxWidth="1.7976931348623157E308" text="Logs:" HBox.hgrow="ALWAYS">
                     <padding>
-                        <Insets bottom="4.3" left="8.7" right="8.7" top="4.3"/>
+                        <Insets bottom="4.3" left="8.7" right="8.7" top="4.3" />
                     </padding>
                 </Label>
-                <Label maxWidth="1.7976931348623157E308" text="+ - []">
-                    <padding>
-                        <Insets bottom="4.3" left="8.7" right="8.7" top="4.3"/>
-                    </padding>
-                </Label>
+            <Button mnemonicParsing="false" onAction="#openTourLogsPopUp" text="+" />
+            <Button layoutX="381.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteTourLog" text="-" />
+            <Button layoutX="380.0" layoutY="10.0" mnemonicParsing="false" onAction="#openTourLogsEditPopUp" text=" []" />
             </children>
         </HBox>
-        <TableView>
+        <TableView fx:id="tableView" onMouseClicked="#onSelectedTourLog">
             <columns>
-                <TableColumn prefWidth="75.0" text="Date"/>
-                <TableColumn prefWidth="75.0" text="Duration"/>
-                <TableColumn prefWidth="75.0" text="Distance"/>
-                <TableColumn prefWidth="75.0" text="..."/>
+                <TableColumn fx:id="logDate" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="logDistance" prefWidth="75.0" text="Duration" />
+                <TableColumn fx:id="logDuration" prefWidth="75.0" text="Distance" />
+            <TableColumn fx:id="logComment" prefWidth="75.0" text="Comment" />
+            <TableColumn fx:id="logRating" prefWidth="75.0" text="Rating" />
             </columns>
             <VBox.margin>
-                <Insets bottom="4.3" left="8.7" right="8.7"/>
+                <Insets bottom="4.3" left="8.7" right="8.7" />
             </VBox.margin>
         </TableView>
     </children>

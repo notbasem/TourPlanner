@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
-public class PopUpController implements Initializable {
+public class PopUpController implements Initializable{
     private PopUpVM popUpViewModel;
 
     public PopUpController() {

@@ -6,7 +6,10 @@ import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import lombok.Getter;
 
@@ -26,8 +29,8 @@ public class TourDescriptionVM implements EventListener {
     private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
 
     public TourDescriptionVM() {
-        TourManager.SelectTourEventInstance().addListener(this);
-        TourManager.ToursViewManager().addListener(this);
+        TourManager.Instance().addListener(this);
+        //  AddedTourManager.getAddedTourManager().addListener(this);
     }
 
     public ObjectProperty<Image> getImageProperty() {
@@ -60,7 +63,7 @@ public class TourDescriptionVM implements EventListener {
 
     @Override
     public void onEvent() {
-        this.tour = DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
+        this.tour = DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
         System.out.println("event fired: Tour selected " + tour.get().tourToString());
         if (tour.isPresent()) {
             title.setValue(tour.get().getName());
@@ -74,33 +77,38 @@ public class TourDescriptionVM implements EventListener {
         }
     }
 
-    @Override
-    public void onSearch() {
-
-    }
-
     public Optional<Tour> getTour() {
         return tour;
     }
 
     public void updateTour() {
-        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get(), tour.get().getRouteInformation());
-        if (!tour.get().getFrom().equals(newTour.getFrom()) || !tour.get().getTo().equals(newTour.getTo())) {
-            System.out.println("Tour: " +tour + " New Tour: "+ newTour);
-            ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
-            System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
+        Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get());
+        ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
+        System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
 
-            newTour.setTourDistance(apiConnection.getDistance());
-            newTour.setEstimatedTime(apiConnection.getTime());
-            updateImageProperty(apiConnection.getMap().getMapString());
-        }
-        DAL.getInstance().tourDao().updateTour(tour.get(), newTour);
+        newTour.setTourDistance(apiConnection.getDistance());
+        newTour.setEstimatedTime(apiConnection.getTime());
+        updateImageProperty(apiConnection.getMap().getMapString());
+        DAL.getInstance().tourDao().update(tour.get(), newTour);
 
-        // Tour mit neuem namen selecten
-        TourManager.SelectTourEventInstance().selectTour(newTour.getName());
+        System.out.println("URL: " + imageProperty.get().getUrl());
+        TourManager.Instance().fireAddedTourEvent();
+    }
 
-        // View updaten damit neue tour im ToursOverview angezeigt wird
-        TourManager.ToursViewManager().fireEvent();
+    @Override
+    public void onSearch() {
+    }
+
+    @Override
+    public void updateTourLog() {
+    }
+
+    @Override
+    public void onAddedTour() {
+    }
+
+    @Override
+    public void onAddedTourLogEvent() {
     }
 
     public String updateLink(String from, String to) {

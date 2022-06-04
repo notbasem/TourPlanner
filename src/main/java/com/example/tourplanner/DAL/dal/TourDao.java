@@ -2,6 +2,7 @@ package com.example.tourplanner.DAL.dal;
 
 import com.example.tourplanner.DAL.dal.config.DbConnection;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.DAL.model.TourLog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,19 +11,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class TourDao implements Dao <Tour>{
+public class TourDao implements Dao<Tour> {
 
     @Override
     public Optional<Tour> get(String name) {
         Tour tour = null;
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation
+                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime
                 FROM tours WHERE tourname =?
                 """)
         ) {
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
-            if( resultSet.next() ) {
+            if (resultSet.next()) {
 
                 tour = new Tour(
                         resultSet.getString(1),
@@ -31,8 +32,7 @@ public class TourDao implements Dao <Tour>{
                         resultSet.getString(4),
                         resultSet.getString(5),
                         resultSet.getFloat(6),
-                        resultSet.getString(7),
-                        resultSet.getString(8)
+                        resultSet.getString(7)
                 );
             }
         } catch (SQLException e) {
@@ -41,15 +41,15 @@ public class TourDao implements Dao <Tour>{
         return Optional.ofNullable(tour);
     }
 
-    public ObservableList<Tour> getAll(){
-        ObservableList<Tour> tours = FXCollections.observableArrayList();;
-        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation
+    public ObservableList<Tour> getAll() {
+        ObservableList<Tour> tours = FXCollections.observableArrayList();
+        try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
+                SELECT tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime
                 FROM tours ORDER BY tourid
                 """)
-        ){
+        ) {
             ResultSet resultSet = statement.executeQuery();
-            while( resultSet.next() ) {
+            while (resultSet.next()) {
                 tours.add(new Tour(
                                 resultSet.getString(1),
                                 resultSet.getString(2),
@@ -57,14 +57,14 @@ public class TourDao implements Dao <Tour>{
                                 resultSet.getString(4),
                                 resultSet.getString(5),
                                 resultSet.getFloat(6),
-                                resultSet.getString(7),
-                                resultSet.getString(8)
+                                resultSet.getString(7)
                         )
                 );
             }
 
         } catch (SQLException throwables) {
-            throwables.printStackTrace();}
+            throwables.printStackTrace();
+        }
 
         return tours;
     }
@@ -73,28 +73,25 @@ public class TourDao implements Dao <Tour>{
     public void create(Tour tour) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 INSERT INTO tours
-                (tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime, routeinformation)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+                (tourname, description, fromdistance, todistance, transporttype, distance, estimatedtime)
+                VALUES (?, ?, ?, ?, ?, ?, ?);
                 """)
         ) {
             statement.setString(1, tour.getName());
             statement.setString(2, tour.getTourDescription());
-            statement.setString(3, tour.getTo());
-            statement.setString(4, tour.getFrom());
+            statement.setString(3, tour.getFrom());
+            statement.setString(4, tour.getTo());
             statement.setString(5, tour.getTransportType());
             statement.setFloat(6, tour.getTourDistance());
             statement.setString(7, tour.getEstimatedTime());
-            statement.setString(8, tour.getRouteInformation());
             statement.execute();
 
-            //return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            //   return false;
         }
     }
 
-    public void delete(String tourname){
+    public void delete(String tourname) {
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 DELETE FROM tours
                 WHERE tourname= ?;
@@ -109,29 +106,15 @@ public class TourDao implements Dao <Tour>{
 
     }
 
-    public void update(Tour tour, String newname){
-        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
-                UPDATE tours
-                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?, routeinformation=?
-                WHERE tourname=? ;
-                """)
-        ) {
-            statement.setString(1, newname);
-            setter(tour, statement);
-            statement.setString(9, tour.getName());
-
-            statement.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    @Override
+    public void deletebyid(int id) {
 
     }
 
-    public void updateTour(Tour oldT, Tour newT){
-        try ( PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
+    public void update(Tour oldT, Tour newT) {
+        try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 UPDATE tours
-                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?, routeinformation=?
+                SET tourname=?, description=?, fromdistance=?, todistance=?, transporttype=?, distance=?, estimatedtime=?
                 WHERE tourname=? ;
                 """)
         ) {
@@ -142,27 +125,29 @@ public class TourDao implements Dao <Tour>{
             statement.setString(5, newT.getTransportType());
             statement.setFloat(6, newT.getTourDistance());
             statement.setString(7, newT.getEstimatedTime());
-            statement.setString(8, newT.getRouteInformation());
-            statement.setString(9, oldT.getName());
+            statement.setString(8, oldT.getName());
 
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
-    private void setter(Tour tour, PreparedStatement statement) throws SQLException {
-        statement.setString(2, tour.getTourDescription());
-        statement.setString(3, tour.getFrom());
-        statement.setString(4, tour.getTo());
-        statement.setString(5, tour.getTransportType());
-        statement.setFloat(6, tour.getTourDistance());
-        statement.setString(7, tour.getEstimatedTime());
-        statement.setString(8, tour.getRouteInformation());
+    @Override
+    public int getLogId(TourLog tourLog, String tourname) {
+        return 0;
+    }
+
+    @Override
+    public ObservableList<Tour> getlogs(String selectedtournamne) {
+        return null;
+    }
+
+    @Override
+    public TourLog getLogById(int id) {
+        return null;
     }
 
 
 }
-
 

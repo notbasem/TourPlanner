@@ -1,6 +1,7 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
+
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
