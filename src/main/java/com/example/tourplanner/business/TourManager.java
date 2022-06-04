@@ -1,14 +1,16 @@
 package com.example.tourplanner.business;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TourManager {
     List<EventListener> eventListenerList;
     String selectedTour;
-    String searchText;
+    int selectedTourLog;
 
     private static TourManager selectClickedTourEventInstance;
-    private static TourManager toursViewManager;
+    private String searchText;
 
     public void addListener(EventListener listener){
         this.eventListenerList.add(listener);
@@ -20,28 +22,44 @@ public class TourManager {
         }
     }
 
-    public void fireOnSearch(){
+    public void fireAddedLogEvent(){
         for(EventListener eventListener : eventListenerList){
-            eventListener.onSearch();
+            eventListener.onAddedTourLogEvent();
         }
     }
+
+
+public void fireAddedTourEvent(){
+    for(EventListener eventListener : eventListenerList){
+        eventListener.onAddedTour();
+    }
+}
+
+
+    public void fireUpdateLogEvent(){
+        for(EventListener eventListener : eventListenerList){
+            eventListener.updateTourLog();
+        }
+    }
+
+
+    public void selectTourLog(int id){
+        this.selectedTourLog = id;
+    }
+
+
 
     public void selectTour(String name){
         this.selectedTour = name;
         this.fireEvent();
     }
 
-    public void onSearch(String searchText){
-        this.searchText = searchText;
-        this.fireOnSearch();
-    }
-
     public String getSelectedTour(){
         return this.selectedTour;
     }
 
-    public String getSearch(){
-        return this.searchText;
+    public int getSelectedTourLog(){
+        return this.selectedTourLog;
     }
 
     public static TourManager SelectTourEventInstance() {
@@ -51,13 +69,18 @@ public class TourManager {
         }
         return selectClickedTourEventInstance;
     }
+    public void onSearch(String searchText){
+        this.searchText = searchText;
+        this.fireOnSearch();
+    }
 
-    public static TourManager ToursViewManager() {
-        if (toursViewManager == null) {
-            toursViewManager = new TourManager();
-            toursViewManager.init();
+    public String getSearch(){
+        return this.searchText;
+    }
+    public void fireOnSearch(){
+        for(EventListener eventListener : eventListenerList){
+            eventListener.onSearch();
         }
-        return toursViewManager;
     }
 
 

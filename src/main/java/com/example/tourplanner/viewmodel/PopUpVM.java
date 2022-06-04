@@ -6,8 +6,9 @@ import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.*;
 import lombok.Getter;
-
 @Getter
+
+
 public class PopUpVM {
 
     public PopUpVM() {
@@ -19,15 +20,34 @@ public class PopUpVM {
     private final StringProperty toInput = new SimpleStringProperty();
     private final StringProperty transportTypeInput = new SimpleStringProperty();
 
+    public StringProperty gettourNameInput() {
+        return tourNameInput;
+    }
+
+    public StringProperty getTourDescriptionInput() {
+        return tourDescriptionInput;
+    }
+
+    public StringProperty getfromInput() {
+        return fromInput;
+    }
+
+    public StringProperty gettoInput() {
+        return toInput;
+    }
+
+    public StringProperty gettransportTypeInput() {
+        return transportTypeInput;
+    }
+
     public void addTour() {
         System.out.println("VALID INPUT");
         ApiConnection apiConnection = new ApiConnection(fromInput.get(), toInput.get());
         System.out.println("ADDED TOUR " + tourNameInput.get());
-        String link = apiConnection.sendRequest(fromInput.get(), toInput.get()).replaceAll(" ", "%20");
 
-        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), apiConnection.getDistance(), apiConnection.getTime(), link);
+        Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), apiConnection.getDistance(), apiConnection.getTime());
         DAL.getInstance().tourDao().create(tour);
 
-        TourManager.ToursViewManager().fireEvent();
+        TourManager.SelectTourEventInstance().fireAddedTourEvent();
     }
 }

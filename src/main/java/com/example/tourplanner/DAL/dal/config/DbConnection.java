@@ -38,6 +38,7 @@ public class DbConnection implements Closeable {
                 properties.getProperty("user"),
                 properties.getProperty("password")
         );
+
     }
 
     public Connection getConnection() {
