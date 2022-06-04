@@ -25,6 +25,7 @@ public class TourDescriptionController implements Initializable {
     @FXML public TextField timeInput;
     @FXML public ImageView imageView;
     @FXML public Button update;
+    @FXML public Button export;
     Optional<Tour> tour;
 
     private TourDescriptionVM tourDescriptionViewModel;
@@ -35,6 +36,15 @@ public class TourDescriptionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /* Image exportimage = new Image("https://www.flaticon.com/free-icons/export");
+        ImageView imageViewbutton = new ImageView(exportimage);
+        export.setGraphic(imageViewbutton);
+        export.setContentDisplay(ContentDisplay.TOP);
+        imageViewbutton.fitWidthProperty().bind(export.widthProperty().divide(10));
+        imageViewbutton.setPreserveRatio(true);
+        //Important otherwise button will wrap to text + graphic size (no resizing on scaling).
+        export.setMaxWidth(Double.MAX_VALUE);*/
+
         titleInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTitle());
         descriptionInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDescription());
         fromInput.textProperty().bindBidirectional(tourDescriptionViewModel.getFrom());
@@ -58,5 +68,9 @@ public class TourDescriptionController implements Initializable {
 
     public void updateTour() {
         tourDescriptionViewModel.updateTour();
+    }
+
+    public void exportTour(){
+        tourDescriptionViewModel.exportTour();
     }
 }

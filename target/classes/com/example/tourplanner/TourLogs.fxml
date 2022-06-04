@@ -25,8 +25,8 @@
         <TableView fx:id="tableView" onMouseClicked="#onSelectedTourLog">
             <columns>
                 <TableColumn fx:id="logDate" prefWidth="75.0" text="Date" />
-                <TableColumn fx:id="logDistance" prefWidth="75.0" text="Duration" />
-                <TableColumn fx:id="logDuration" prefWidth="75.0" text="Distance" />
+                <TableColumn fx:id="logDuration" prefWidth="75.0" text="Duration" />
+                <TableColumn fx:id="logDistance" prefWidth="75.0" text="Distance" />
             <TableColumn fx:id="logComment" prefWidth="75.0" text="Comment" />
             <TableColumn fx:id="logRating" prefWidth="75.0" text="Rating" />
             </columns>

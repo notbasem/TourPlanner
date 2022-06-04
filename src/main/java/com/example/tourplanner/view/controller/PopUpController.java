@@ -1,7 +1,6 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.viewmodel.PopUpVM;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,8 +11,6 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 
 public class PopUpController implements Initializable{
     private PopUpVM popUpViewModel;
