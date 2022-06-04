@@ -37,7 +37,7 @@ public class TourLogsEditPopUpVM {
 
 
     public void setData() {
-        int tourLogId = TourManager.SelectTourEventInstance().getSelectedTourLog();
+        int tourLogId = TourManager.Instance().getSelectedTourLog();
         TourLog tourLog = DAL.getInstance().tourLogsDao.getLogById(tourLogId);
         dateInput.setValue(tourLog.getDate());
         durationInput.setValue(tourLog.getDuration());
@@ -48,12 +48,12 @@ public class TourLogsEditPopUpVM {
 
     public void updateLog() {
         System.out.println("UpdateLog");
-        TourLog oldTourLog = DAL.getInstance().tourLogsDao.getLogById(TourManager.SelectTourEventInstance().getSelectedTourLog());
+        TourLog oldTourLog = DAL.getInstance().tourLogsDao.getLogById(TourManager.Instance().getSelectedTourLog());
 
         TourLog newTourLog = new TourLog(oldTourLog.getTourname(), getDateInput().get(), getTourDurationInput().get(), Integer.parseInt(getDistanceInput().get()), getCommentInput().get(), Integer.parseInt(getRatingInput().get()));
 
         DAL.getInstance().tourLogsDao.update(oldTourLog, newTourLog);
-        TourManager.SelectTourEventInstance().fireUpdateLogEvent();
+        TourManager.Instance().fireUpdateLogEvent();
 
     }
 }

@@ -58,7 +58,7 @@ public class ToursOverviewController implements Initializable{
     @FXML
     public void onSelectedTour() throws IOException {
         String tourName = String.valueOf(tourlist.getSelectionModel().getSelectedItem());
-        TourManager.SelectTourEventInstance().selectTour(tourName);
+        TourManager.Instance().selectTour(tourName);
 
     }
     @FXML
@@ -72,7 +72,7 @@ public class ToursOverviewController implements Initializable{
       tourlist.itemsProperty().bindBidirectional(this.toursOverviewViewModel.getObservableToursProperty());
 
         tourlist.getSelectionModel().select(0);
-        TourManager.SelectTourEventInstance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
+        TourManager.Instance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
     }
 
 

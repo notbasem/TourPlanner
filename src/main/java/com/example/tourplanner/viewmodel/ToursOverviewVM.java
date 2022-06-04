@@ -8,7 +8,6 @@ import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.json.JSONArray;
@@ -17,14 +16,13 @@ import org.json.JSONObject;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 public class ToursOverviewVM implements EventListener {
 
     public ToursOverviewVM() {
-        TourManager.SelectTourEventInstance().addListener(this);
+        TourManager.Instance().addListener(this);
     }
 
     private ObservableList<Tour> tours = FXCollections.observableArrayList();
@@ -51,7 +49,7 @@ public class ToursOverviewVM implements EventListener {
 
 
     public void deleteTour() {
-        DAL.getInstance().tourDao().delete(TourManager.SelectTourEventInstance().getSelectedTour());
+        DAL.getInstance().tourDao().delete(TourManager.Instance().getSelectedTour());
     }
 
     public void exportTours(Stage stage) {
@@ -95,7 +93,7 @@ public class ToursOverviewVM implements EventListener {
             System.out.println(tour.tourToString());
             DAL.getInstance().tourDao().create(tour);
         }
-        TourManager.SelectTourEventInstance().fireAddedTourEvent();
+        TourManager.Instance().fireAddedTourEvent();
     }
 
     private List<Tour> jsonToTours(String file) {
@@ -148,7 +146,7 @@ public class ToursOverviewVM implements EventListener {
     @Override
     public void onSearch() {
         List<Tour> tempTourList = this.getObservableTours();
-        String searchText = TourManager.SelectTourEventInstance().getSearch();
+        String searchText = TourManager.Instance().getSearch();
 
         System.out.println("SearchText: " + searchText);
         if (searchText.isEmpty()) {

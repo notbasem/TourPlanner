@@ -6,7 +6,6 @@ import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.*;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -30,7 +29,7 @@ public class TourDescriptionVM implements EventListener {
     private ObjectProperty<javafx.scene.image.Image> imageProperty = new SimpleObjectProperty<>();
 
     public TourDescriptionVM() {
-        TourManager.SelectTourEventInstance().addListener(this);
+        TourManager.Instance().addListener(this);
         //  AddedTourManager.getAddedTourManager().addListener(this);
     }
 
@@ -64,7 +63,7 @@ public class TourDescriptionVM implements EventListener {
 
     @Override
     public void onEvent() {
-        this.tour = DAL.getInstance().tourDao().get(TourManager.SelectTourEventInstance().getSelectedTour());
+        this.tour = DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
         System.out.println("event fired: Tour selected " + tour.get().tourToString());
         if (tour.isPresent()) {
             title.setValue(tour.get().getName());
@@ -93,7 +92,7 @@ public class TourDescriptionVM implements EventListener {
         DAL.getInstance().tourDao().update(tour.get(), newTour);
 
         System.out.println("URL: " + imageProperty.get().getUrl());
-        TourManager.SelectTourEventInstance().fireAddedTourEvent();
+        TourManager.Instance().fireAddedTourEvent();
     }
 
     @Override

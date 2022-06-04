@@ -28,7 +28,7 @@ public class MenuVM implements EventListener {
 
     @Override
     public void onSearch() {
-        TourManager.SelectTourEventInstance().onSearch(searchString.get());
+        TourManager.Instance().onSearch(searchString.get());
     }
 
     @Override

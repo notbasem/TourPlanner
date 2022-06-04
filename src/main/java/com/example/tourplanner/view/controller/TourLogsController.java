@@ -80,7 +80,7 @@ public class TourLogsController implements Initializable {
             selectedTourLog= tableView.getItems().get(0);
         }*/
         int id = tourLogsViewModel.getIdOfTour(selectedTourLog, selectedTourLog.getTourname());
-        TourManager.SelectTourEventInstance().selectTourLog(id);
+        TourManager.Instance().selectTourLog(id);
         System.out.println(selectedTourLog);
     }
 

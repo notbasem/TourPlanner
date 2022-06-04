@@ -48,6 +48,6 @@ public class PopUpVM {
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), apiConnection.getDistance(), apiConnection.getTime());
         DAL.getInstance().tourDao().create(tour);
 
-        TourManager.SelectTourEventInstance().fireAddedTourEvent();
+        TourManager.Instance().fireAddedTourEvent();
     }
 }

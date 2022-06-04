@@ -32,10 +32,10 @@ public class TourLogsPopUpVM {
     }
 
     public void addTourLog() {
-        TourLog tourLog = new TourLog(TourManager.SelectTourEventInstance().getSelectedTour(), getDateInput().get(), getTourDurationInput().get(), Integer.parseInt(getDistanceInput().get()), getCommentInput().get(), Integer.parseInt(getRatingInput().get()));
+        TourLog tourLog = new TourLog(TourManager.Instance().getSelectedTour(), getDateInput().get(), getTourDurationInput().get(), Integer.parseInt(getDistanceInput().get()), getCommentInput().get(), Integer.parseInt(getRatingInput().get()));
 
         DAL.getInstance().tourLogsDao().create(tourLog);
-        TourManager.SelectTourEventInstance().fireAddedLogEvent();
+        TourManager.Instance().fireAddedLogEvent();
 
     }
 

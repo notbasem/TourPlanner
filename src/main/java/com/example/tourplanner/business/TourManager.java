@@ -9,7 +9,7 @@ public class TourManager {
     String selectedTour;
     int selectedTourLog;
 
-    private static TourManager selectClickedTourEventInstance;
+    private static TourManager Instance;
     private String searchText;
 
     public void addListener(EventListener listener) {
@@ -57,12 +57,12 @@ public class TourManager {
         return this.selectedTourLog;
     }
 
-    public static TourManager SelectTourEventInstance() {
-        if (selectClickedTourEventInstance == null) {
-            selectClickedTourEventInstance = new TourManager();
-            selectClickedTourEventInstance.init();
+    public static TourManager Instance() {
+        if (Instance == null) {
+            Instance = new TourManager();
+            Instance.init();
         }
-        return selectClickedTourEventInstance;
+        return Instance;
     }
 
     public void onSearch(String searchText) {
