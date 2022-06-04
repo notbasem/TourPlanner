@@ -10,6 +10,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,6 +22,7 @@ import java.util.List;
 
 
 public class ToursOverviewVM implements EventListener {
+    private static final Logger logger = LogManager.getLogger(ToursOverviewVM.class.getSimpleName());
 
     public ToursOverviewVM() {
         TourManager.Instance().addListener(this);
@@ -58,7 +61,6 @@ public class ToursOverviewVM implements EventListener {
         fileChooser.setTitle("Wähle eine Datei");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON", "*.json"));
         File file = fileChooser.showSaveDialog(stage);
-        System.out.println(file);
 
         // Write File
         try {
@@ -66,9 +68,10 @@ public class ToursOverviewVM implements EventListener {
             // Get JSONArray through getObservableTours()
             w.write(toursToJson().toString(4));
             w.close();
-            System.out.println("Successfully created export.json");
+
+            logger.info("Successfully exported tours to PDF: " + file.getAbsolutePath());
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            logger.error("Could not export to PDF");
             e.printStackTrace();
         }
     }
@@ -79,18 +82,17 @@ public class ToursOverviewVM implements EventListener {
         fileChooser.setTitle("Wähle eine Datei");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON", "*.json"));
         File file = fileChooser.showOpenDialog(stage);
-        System.out.println(file);
+        logger.info("Importing tours from: " + file.getAbsolutePath());
 
         // Parse JSON-File and save to database
         List<Tour> tours = jsonToTours(file.getAbsolutePath());
         if (tours.isEmpty()) {
-            System.out.println("Error while parsing JSON-data");
+            logger.error("Error while parsing JSON-Data");
             return;
         }
 
         // Save tours to database and update view
         for (Tour tour : tours) {
-            System.out.println(tour.tourToString());
             DAL.getInstance().tourDao().create(tour);
         }
         TourManager.Instance().fireAddedTourEvent();
@@ -148,12 +150,10 @@ public class ToursOverviewVM implements EventListener {
         List<Tour> tempTourList = this.getObservableTours();
         String searchText = TourManager.Instance().getSearch();
 
-        System.out.println("SearchText: " + searchText);
         if (searchText.isEmpty()) {
             tours.setAll(this.getObservableTours());
         } else {
             tempTourList.removeAll(tempTourList.stream().filter(tour -> !tour.getName().contains(searchText)).toList());
-            System.out.println(tempTourList);
             tours.setAll(tempTourList);
         }
     }

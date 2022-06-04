@@ -1,6 +1,9 @@
 package com.example.tourplanner.business.API;
+import com.example.tourplanner.TourPlannerApplication;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -13,18 +16,20 @@ import java.util.concurrent.CompletableFuture;
 @Setter
 
 public class ApiConnection {
+    private static final Logger logger = LogManager.getLogger(ApiConnection.class.getSimpleName());
     private String key;
     private String time;
     private Float distance;
     private Map map;
 
     public ApiConnection(String from, String to) {
-        System.out.println("NEUE API CONNECTION");
+        logger.info("Open new API-connection");
         this.key = "MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf";
         sendAsync(from, to);
     }
 
     public void sendAsync(String from, String to ) {
+        logger.info("Sending async Request");
         URI url = URI.create(("http://www.mapquestapi.com/directions/v2/route?key="+key+"&from="+from+"&to="+to).replaceAll(" ", "%20"));
         HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder(url).GET().build();
@@ -40,6 +45,7 @@ public class ApiConnection {
     }
 
     private Map parseHttpRequest(String response) {
+        logger.info("Parsing HTTP request");
         JSONObject json = new JSONObject(response);
         JSONObject route = json.getJSONObject("route");
         JSONObject boundingBoxObj = route.getJSONObject("boundingBox");
@@ -53,9 +59,6 @@ public class ApiConnection {
 
         this.distance = route.getFloat("distance");
         this.time = route.getString("formattedTime");
-
-        System.out.println("Time: "+this.time);
-        System.out.println("Distance: "+this.distance);
         return new Map(this.key, session,boundingBox);
     }
 }

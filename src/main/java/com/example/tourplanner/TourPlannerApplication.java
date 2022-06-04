@@ -1,7 +1,5 @@
 package com.example.tourplanner;
 
-import com.example.tourplanner.logger.ILoggerWrapper;
-import com.example.tourplanner.logger.LoggerFactory;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,11 +12,11 @@ import java.util.Locale;
 
 
 public class TourPlannerApplication extends Application {
-    //private static final Logger logger = LogManager.getLogger(TourPlannerApplication.class);
+    private static final Logger logger = LogManager.getLogger(TourPlannerApplication.class.getSimpleName());
 
     @Override
     public void start(Stage stage) throws IOException {
-        //logger.info("Started Application ...");
+        logger.info("Started Application ...");
         Parent root = FXMLDI.load("MainWindow.fxml", Locale.ENGLISH);
         Scene scene = new Scene(root, 1000, 700);
         stage.setTitle("Tour Planner");
@@ -27,7 +25,6 @@ public class TourPlannerApplication extends Application {
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }

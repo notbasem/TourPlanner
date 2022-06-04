@@ -32,7 +32,6 @@ public class TourLogsVM implements EventListener {
 
     @Override
     public void onEvent() {
-        System.out.println("SELECTED TOURRRRRRRRRRRRRR :" + TourManager.Instance().getSelectedTour());
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.Instance().getSelectedTour()));
     }
 

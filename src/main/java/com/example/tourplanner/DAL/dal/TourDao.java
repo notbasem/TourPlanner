@@ -5,6 +5,8 @@ import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.DAL.model.TourLog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +14,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class TourDao implements Dao<Tour> {
+    private static final Logger logger = LogManager.getLogger(TourDao.class.getSimpleName());
 
     @Override
     public Optional<Tour> get(String name) {
@@ -35,7 +38,9 @@ public class TourDao implements Dao<Tour> {
                         resultSet.getString(7)
                 );
             }
+            logger.info("Successfully read tour: " + name);
         } catch (SQLException e) {
+            logger.error("Could not read tour: " + name);
             e.printStackTrace();
         }
         return Optional.ofNullable(tour);
@@ -61,8 +66,9 @@ public class TourDao implements Dao<Tour> {
                         )
                 );
             }
-
-        } catch (SQLException throwables) {
+            logger.info("Successfully read tours");
+        }catch (SQLException throwables) {
+            logger.error("Could not read tours");
             throwables.printStackTrace();
         }
 
@@ -86,7 +92,9 @@ public class TourDao implements Dao<Tour> {
             statement.setString(7, tour.getEstimatedTime());
             statement.execute();
 
+            logger.info("Successfully created tour " + tour.getName());
         } catch (SQLException throwables) {
+            logger.error("Could not create tour: " + tour.getName());
             throwables.printStackTrace();
         }
     }
@@ -100,7 +108,9 @@ public class TourDao implements Dao<Tour> {
         ) {
             statement.setString(1, tourname);
             statement.execute();
+            logger.info("Successfully deleted tour: " + tourname);
         } catch (SQLException throwables) {
+            logger.error("Could not delete tour: " + tourname);
             throwables.printStackTrace();
         }
 
@@ -128,7 +138,9 @@ public class TourDao implements Dao<Tour> {
             statement.setString(8, oldT.getName());
 
             statement.execute();
+            logger.info("Successfully updated tour " + oldT.getName() +  " to " + newT.getName());
         } catch (SQLException e) {
+            logger.error("Could not update tour");
             e.printStackTrace();
         }
     }

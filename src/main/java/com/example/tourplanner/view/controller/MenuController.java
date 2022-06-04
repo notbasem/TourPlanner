@@ -22,12 +22,15 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
 public class MenuController {
+    private static final Logger logger = LogManager.getLogger(MenuController.class.getSimpleName());
     private final MenuVM menuViewModel;
     @FXML
     MenuBar menuBar;
@@ -49,87 +52,86 @@ public class MenuController {
     }
 
     @FXML
-    public void onExport() throws IOException, InterruptedException {
-        System.out.println("File export button was clicked");
+    public void onExport() throws IOException {
         ObservableList<Tour> tourList = this.menuViewModel.exportallTours();
-        PdfWriter writer = null;
         try {
-            writer = new PdfWriter("tours.pdf");
+            PdfWriter writer = new PdfWriter("tours.pdf");
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf);
+
+
+            for (Tour tour : tourList) {
+
+                if (tour != tourList.get(0)) {
+                    document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+                }
+
+                Paragraph titleHeader = new Paragraph(tour.getName())
+                        .setFont(PdfFontFactory.createFont(StandardFonts.HELVETICA))
+                        .setFontSize(20)
+                        .setBold();
+
+                document.add(titleHeader.setMarginLeft(55).setMarginBottom(10));
+                ApiConnection apiConnection = new ApiConnection(tour.getFrom(), tour.getTo());
+                String url = apiConnection.getMap().getMapString();
+
+                ImageData imageData = ImageDataFactory.create(url.replace(" ", "%20"));
+                Image pdfImg = new Image(imageData);
+                document.add(pdfImg.setMarginLeft(55));
+
+                Table table = new Table(UnitValue.createPercentArray(1)).useAllAvailableWidth();
+
+
+                Paragraph from = new Paragraph("From");
+                from.add(new Tab());
+                from.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+                from.add(tour.getFrom());
+
+                Cell cell = new Cell().add(from);
+                table.addCell(cell);
+
+                Paragraph to = new Paragraph("To");
+                to.add(new Tab());
+                to.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+                to.add(tour.getTo());
+
+                Cell cell2 = new Cell().add(to);
+                table.addCell(cell2);
+
+                Paragraph desc = new Paragraph("Tourdescription");
+                desc.add(new Tab());
+                desc.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+                desc.add(tour.getTourDescription());
+
+                Cell cell3 = new Cell().add(desc);
+                table.addCell(cell3);
+
+                Paragraph distance = new Paragraph("Distance");
+                distance.add(new Tab());
+                distance.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+                distance.add(tour.getTourDistance().toString());
+
+                Cell cell4 = new Cell().add(distance);
+                table.addCell(cell4);
+
+                Paragraph time = new Paragraph("Time");
+                time.add(new Tab());
+                time.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
+                time.add(tour.getEstimatedTime());
+
+                Cell cell5 = new Cell().add(time);
+                table.addCell(cell5);
+
+                document.add(table.setMarginLeft(55).setMarginRight(60).setMarginTop(10).setMarginBottom(10));
+
+                document.add(createLogTable(tour.getName()).setMarginLeft(55).setMarginRight(60));
+            }
+            document.close();
+            logger.info("PDF: tours.pdf created successfully");
         } catch (FileNotFoundException e) {
+            logger.error("PDF could not be created");
             e.printStackTrace();
         }
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
-
-
-        for (Tour tour : tourList) {
-
-            if (tour != tourList.get(0)) {
-                document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
-            }
-
-            Paragraph titleHeader = new Paragraph(tour.getName())
-                    .setFont(PdfFontFactory.createFont(StandardFonts.HELVETICA))
-                    .setFontSize(20)
-                    .setBold();
-
-            document.add(titleHeader.setMarginLeft(55).setMarginBottom(10));
-            ApiConnection apiConnection = new ApiConnection(tour.getFrom(), tour.getTo());
-            String url = apiConnection.getMap().getMapString();
-
-            ImageData imageData = ImageDataFactory.create(url.replace(" ", "%20"));
-            Image pdfImg = new Image(imageData);
-            document.add(pdfImg.setMarginLeft(55));
-
-            Table table = new Table(UnitValue.createPercentArray(1)).useAllAvailableWidth();
-
-
-            Paragraph from = new Paragraph("From");
-            from.add(new Tab());
-            from.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-            from.add(tour.getFrom());
-
-            Cell cell = new Cell().add(from);
-            table.addCell(cell);
-
-            Paragraph to = new Paragraph("To");
-            to.add(new Tab());
-            to.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-            to.add(tour.getTo());
-
-            Cell cell2 = new Cell().add(to);
-            table.addCell(cell2);
-
-            Paragraph desc = new Paragraph("Tourdescription");
-            desc.add(new Tab());
-            desc.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-            desc.add(tour.getTourDescription());
-
-            Cell cell3 = new Cell().add(desc);
-            table.addCell(cell3);
-
-            Paragraph distance = new Paragraph("Distance");
-            distance.add(new Tab());
-            distance.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-            distance.add(tour.getTourDistance().toString());
-
-            Cell cell4 = new Cell().add(distance);
-            table.addCell(cell4);
-
-            Paragraph time = new Paragraph("Time");
-            time.add(new Tab());
-            time.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-            time.add(tour.getEstimatedTime());
-
-            Cell cell5 = new Cell().add(time);
-            table.addCell(cell5);
-
-            document.add(table.setMarginLeft(55).setMarginRight(60).setMarginTop(10).setMarginBottom(10));
-
-            document.add(createLogTable(tour.getName()).setMarginLeft(55).setMarginRight(60));
-        }
-
-        document.close();
     }
 
     public void onClose() {

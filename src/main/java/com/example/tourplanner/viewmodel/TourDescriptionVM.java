@@ -12,11 +12,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import lombok.Getter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 
 @Getter
 public class TourDescriptionVM implements EventListener {
+    private static final Logger logger = LogManager.getLogger(TourDescriptionVM.class.getSimpleName());
     private Optional<Tour> tour;
     private final StringProperty title = new SimpleStringProperty();
     private final StringProperty description = new SimpleStringProperty();
@@ -34,9 +37,9 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public ObjectProperty<Image> getImageProperty() {
-        System.out.println("should get image of clicked tour");
+        logger.info("Retrieve image from");
         String link = updateLink(from.get(), to.get());
-        System.out.println("LINK: " + link);
+        logger.info("New image-link: " + link);
         // Image kann bilder schon automatisch im Backgroundthread laden/anzeigen
         Image image = new Image(link,
                 640,     // width
@@ -64,17 +67,18 @@ public class TourDescriptionVM implements EventListener {
     @Override
     public void onEvent() {
         this.tour = DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
-        System.out.println("event fired: Tour selected " + tour.get().tourToString());
-        if (tour.isPresent()) {
-            title.setValue(tour.get().getName());
-            description.setValue(tour.get().getTourDescription());
-            from.setValue(tour.get().getFrom());
-            to.setValue(tour.get().getTo());
-            transportType.setValue(tour.get().getTransportType());
-            distance.setValue(tour.get().getTourDistance().toString());
-            time.setValue(tour.get().getEstimatedTime());
-            imageProperty.setValue(getImageProperty().get());
+        if (!tour.isPresent()) {
+            logger.error("Tour could not be selected");
         }
+        logger.info("Selected tour: " + tour.get().getName());
+        title.setValue(tour.get().getName());
+        description.setValue(tour.get().getTourDescription());
+        from.setValue(tour.get().getFrom());
+        to.setValue(tour.get().getTo());
+        transportType.setValue(tour.get().getTransportType());
+        distance.setValue(tour.get().getTourDistance().toString());
+        time.setValue(tour.get().getEstimatedTime());
+        imageProperty.setValue(getImageProperty().get());
     }
 
     public Optional<Tour> getTour() {
@@ -84,14 +88,11 @@ public class TourDescriptionVM implements EventListener {
     public void updateTour() {
         Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get());
         ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
-        System.out.println("Old Distance: " + newTour.getTourDistance() + " | New Distance: " + apiConnection.getDistance());
-
+        logger.info("Updated distance from: " + newTour.getTourDistance() + " to: " + apiConnection.getDistance());
         newTour.setTourDistance(apiConnection.getDistance());
         newTour.setEstimatedTime(apiConnection.getTime());
         updateImageProperty(apiConnection.getMap().getMapString());
         DAL.getInstance().tourDao().update(tour.get(), newTour);
-
-        System.out.println("URL: " + imageProperty.get().getUrl());
         TourManager.Instance().fireAddedTourEvent();
     }
 
@@ -117,7 +118,6 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public BooleanBinding getDisableButton() {
-        System.out.println("TITLE: " + title.get() + "; TOUR-TITLE: " + tour.get().getName());
         return (title.isEmpty()
                 .or(from.isEmpty())
                 .or(to.isEmpty())

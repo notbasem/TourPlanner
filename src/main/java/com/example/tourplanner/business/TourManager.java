@@ -1,18 +1,24 @@
 package com.example.tourplanner.business;
 
 
+import com.example.tourplanner.TourPlannerApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TourManager {
-    List<EventListener> eventListenerList;
-    String selectedTour;
-    int selectedTourLog;
+    private static final Logger logger = LogManager.getLogger(TourManager.class.getSimpleName());
+    private List<EventListener> eventListenerList;
+    private String selectedTour;
+    private int selectedTourLog;
 
     private static TourManager Instance;
     private String searchText;
 
     public void addListener(EventListener listener) {
+        logger.info("Adding listener " + listener.getClass().getSimpleName() + " to eventListenerList");
         this.eventListenerList.add(listener);
     }
 
@@ -41,10 +47,12 @@ public class TourManager {
     }
 
     public void selectTourLog(int id) {
+        logger.info("Selected TourLog with id = " + id);
         this.selectedTourLog = id;
     }
 
     public void selectTour(String name) {
+        logger.info("Selected Tour " + name);
         this.selectedTour = name;
         this.fireEvent();
     }
@@ -66,6 +74,7 @@ public class TourManager {
     }
 
     public void onSearch(String searchText) {
+        logger.info("Searched for tours containing: " + searchText);
         this.searchText = searchText;
         this.fireOnSearch();
     }

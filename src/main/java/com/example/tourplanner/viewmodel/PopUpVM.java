@@ -4,13 +4,16 @@ import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.view.controller.MenuController;
 import javafx.beans.property.*;
 import lombok.Getter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Getter
 
 
 public class PopUpVM {
-
     public PopUpVM() {
     }
 
@@ -41,10 +44,7 @@ public class PopUpVM {
     }
 
     public void addTour() {
-        System.out.println("VALID INPUT");
         ApiConnection apiConnection = new ApiConnection(fromInput.get(), toInput.get());
-        System.out.println("ADDED TOUR " + tourNameInput.get());
-
         Tour tour = new Tour(tourNameInput.get(), tourDescriptionInput.get(), fromInput.get(), toInput.get(), transportTypeInput.get(), apiConnection.getDistance(), apiConnection.getTime());
         DAL.getInstance().tourDao().create(tour);
 

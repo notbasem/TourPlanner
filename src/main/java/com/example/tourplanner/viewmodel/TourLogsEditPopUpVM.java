@@ -5,9 +5,11 @@ import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TourLogsEditPopUpVM {
-
+    private static final Logger logger = LogManager.getLogger(TourDescriptionVM.class.getSimpleName());
     private final StringProperty dateInput = new SimpleStringProperty();
     private final StringProperty durationInput = new SimpleStringProperty();
     private final StringProperty distanceInput = new SimpleStringProperty();
@@ -47,13 +49,11 @@ public class TourLogsEditPopUpVM {
     }
 
     public void updateLog() {
-        System.out.println("UpdateLog");
         TourLog oldTourLog = DAL.getInstance().tourLogsDao.getLogById(TourManager.Instance().getSelectedTourLog());
 
         TourLog newTourLog = new TourLog(oldTourLog.getTourname(), getDateInput().get(), getTourDurationInput().get(), Integer.parseInt(getDistanceInput().get()), getCommentInput().get(), Integer.parseInt(getRatingInput().get()));
 
         DAL.getInstance().tourLogsDao.update(oldTourLog, newTourLog);
         TourManager.Instance().fireUpdateLogEvent();
-
     }
 }

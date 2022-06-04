@@ -2,8 +2,11 @@ package com.example.tourplanner.DAL.dal;
 
 import com.example.tourplanner.DAL.dal.config.DbConnection;
 import com.example.tourplanner.DAL.model.TourLog;
+import com.example.tourplanner.business.TourManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +14,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class TourLogDao implements Dao<TourLog> {
+    private static final Logger logger = LogManager.getLogger(TourLogDao.class.getSimpleName());
 
     public ObservableList<TourLog> getlogs(String name) {
         ObservableList<TourLog> tourLogs = FXCollections.observableArrayList();
@@ -25,8 +29,9 @@ public class TourLogDao implements Dao<TourLog> {
             while (resultSet.next()) {
                 tourLogs.add(new TourLog(resultSet.getInt(1),name, resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5), resultSet.getInt(6)));
             }
-            System.out.println(tourLogs);
+            logger.info("TourLog read successfully");
         } catch (SQLException e) {
+            logger.error("TourLog read successfully");
             e.printStackTrace();
         }
         return tourLogs;
@@ -47,7 +52,6 @@ public class TourLogDao implements Dao<TourLog> {
                 tourLogs.add(new TourLog(resultSet.getInt(1),resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6), resultSet.getInt(7)
                 ));
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -70,8 +74,9 @@ public class TourLogDao implements Dao<TourLog> {
             statement.setString(5, tourLog.getComment());
             statement.setInt(6, tourLog.getRating());
             statement.execute();
-
+            logger.info("TourLog created successfully");
         } catch (SQLException throwables) {
+            logger.error("TourLog could not be created");
             throwables.printStackTrace();
         }
 
@@ -93,9 +98,10 @@ public class TourLogDao implements Dao<TourLog> {
             statement.setString(5, newTourLog.getComment());
             statement.setFloat(6, newTourLog.getRating());
             statement.setInt(7, tourid);
-
             statement.execute();
+            logger.info("Updated TourLog " + oldTourLog.getId() + " successfully");
         } catch (SQLException e) {
+            logger.error("TourLog could not be updated");
             e.printStackTrace();
         }
 
@@ -117,7 +123,9 @@ public class TourLogDao implements Dao<TourLog> {
         ) {
             statement.setInt(1, id);
             statement.execute();
+            logger.info("TourLog deleted successfully");
         } catch (SQLException throwables) {
+            logger.error("TourLog could not be deleted");
             throwables.printStackTrace();
         }
     }

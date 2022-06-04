@@ -1,0 +1,743 @@
+2022-06-04 17:40:39.692 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:41:21.328 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:41:21.331 [JavaFX Application Thread] WARN  com.example.tourplanner.TourPlannerApplication - PROBLEM
+2022-06-04 17:42:57.719 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:43:16.915 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:45:35.893 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:51:51.101 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:51:51.125 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:51:51.126 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:51:51.129 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:51:51.442 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:51:51.598 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Open new API-connection
+2022-06-04 17:51:51.598 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Sending async Request
+2022-06-04 17:51:52.748 [ForkJoinPool.commonPool-worker-1] INFO  com.example.tourplanner.business.API.ApiConnection - Parsing HTTP request
+2022-06-04 17:51:52.803 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Open new API-connection
+2022-06-04 17:51:52.804 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Sending async Request
+2022-06-04 17:51:53.606 [ForkJoinPool.commonPool-worker-1] INFO  com.example.tourplanner.business.API.ApiConnection - Parsing HTTP request
+2022-06-04 17:51:53.625 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:51:56.501 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Open new API-connection
+2022-06-04 17:51:56.502 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Sending async Request
+2022-06-04 17:51:57.724 [ForkJoinPool.commonPool-worker-1] INFO  com.example.tourplanner.business.API.ApiConnection - Parsing HTTP request
+2022-06-04 17:54:02.838 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:54:02.896 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:54:02.919 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:54:02.921 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:54:03.153 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:54:03.292 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:54:03.306 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Open new API-connection
+2022-06-04 17:54:03.306 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Sending async Request
+2022-06-04 17:54:04.268 [ForkJoinPool.commonPool-worker-1] INFO  com.example.tourplanner.business.API.ApiConnection - Parsing HTTP request
+2022-06-04 17:54:04.323 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Open new API-connection
+2022-06-04 17:54:04.323 [JavaFX Application Thread] INFO  com.example.tourplanner.business.API.ApiConnection - Sending async Request
+2022-06-04 17:54:05.097 [ForkJoinPool.commonPool-worker-1] INFO  com.example.tourplanner.business.API.ApiConnection - Parsing HTTP request
+2022-06-04 17:54:05.116 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
+2022-06-04 17:54:54.934 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:54:54.969 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:54.971 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:54.972 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:55.239 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:55.397 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:54:55.409 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:54:55.409 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:54:56.457 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:54:56.508 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:54:56.508 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:54:57.253 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:54:57.276 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.595 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
+2022-06-04 17:55:25.622 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.624 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.626 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.930 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:26.091 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:55:26.106 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:55:26.106 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:55:27.239 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:55:27.341 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:55:27.341 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:55:28.273 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:55:28.295 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:40.923 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 17:55:40.948 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:40.950 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:40.951 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:41.214 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:41.357 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:55:41.367 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:55:41.367 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:55:42.376 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:55:42.430 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:55:42.430 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:55:43.145 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:55:43.164 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:57:11.011 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 17:57:11.037 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVMto eventListenerList
+2022-06-04 17:57:11.039 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVMto eventListenerList
+2022-06-04 17:57:11.040 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVMto eventListenerList
+2022-06-04 17:57:11.242 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVMto eventListenerList
+2022-06-04 17:57:11.359 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:57:11.371 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:57:11.372 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:57:12.508 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:57:12.565 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:57:12.565 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:57:13.606 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:57:13.626 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVMto eventListenerList
+2022-06-04 17:57:31.641 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 17:57:31.671 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 17:57:31.672 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 17:57:31.673 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 17:57:31.966 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 17:57:32.125 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:57:32.141 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:57:32.142 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:57:33.171 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:57:33.229 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 17:57:33.230 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 17:57:33.975 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 17:57:33.994 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:19:11.964 [JavaFX Application Thread] INFO  TourPlannerApplication.start - Started Application ...
+2022-06-04 18:19:12.002 [JavaFX Application Thread] INFO  TourManager.addListener - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:19:12.004 [JavaFX Application Thread] INFO  TourManager.addListener - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:19:12.006 [JavaFX Application Thread] INFO  TourManager.addListener - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:19:12.354 [JavaFX Application Thread] INFO  TourManager.addListener - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:19:12.376 [JavaFX Application Thread] INFO  TourManager.getProperties - Properties successfully read
+2022-06-04 18:19:12.440 [JavaFX Application Thread] INFO  TourManager.getConnection - Connection to database successfully
+2022-06-04 18:19:12.456 [JavaFX Application Thread] INFO  TourManager.selectTour - Selected TourLog with name = Paris-Vienna
+2022-06-04 18:19:12.466 [JavaFX Application Thread] INFO  ApiConnection.<init> - Open new API-connection
+2022-06-04 18:19:12.467 [JavaFX Application Thread] INFO  ApiConnection.sendAsync - Sending async Request
+2022-06-04 18:19:13.464 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection.parseHttpRequest - Parsing HTTP request
+2022-06-04 18:19:13.514 [JavaFX Application Thread] INFO  ApiConnection.<init> - Open new API-connection
+2022-06-04 18:19:13.514 [JavaFX Application Thread] INFO  ApiConnection.sendAsync - Sending async Request
+2022-06-04 18:19:14.295 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection.parseHttpRequest - Parsing HTTP request
+2022-06-04 18:19:14.316 [JavaFX Application Thread] INFO  TourManager.addListener - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:20:49.502 [JavaFX Application Thread] INFO  TourPlannerApplication start - Started Application ...
+2022-06-04 18:20:49.529 [JavaFX Application Thread] INFO  TourManager addListener - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:20:49.531 [JavaFX Application Thread] INFO  TourManager addListener - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:20:49.532 [JavaFX Application Thread] INFO  TourManager addListener - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:20:49.788 [JavaFX Application Thread] INFO  TourManager addListener - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:20:49.826 [JavaFX Application Thread] INFO  TourManager getProperties - Properties successfully read
+2022-06-04 18:20:49.946 [JavaFX Application Thread] INFO  TourManager getConnection - Connection to database successfully
+2022-06-04 18:20:49.962 [JavaFX Application Thread] INFO  TourManager selectTour - Selected TourLog with name = Paris-Vienna
+2022-06-04 18:20:49.977 [JavaFX Application Thread] INFO  ApiConnection <init> - Open new API-connection
+2022-06-04 18:20:49.977 [JavaFX Application Thread] INFO  ApiConnection sendAsync - Sending async Request
+2022-06-04 18:20:51.034 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection parseHttpRequest - Parsing HTTP request
+2022-06-04 18:20:51.089 [JavaFX Application Thread] INFO  ApiConnection <init> - Open new API-connection
+2022-06-04 18:20:51.089 [JavaFX Application Thread] INFO  ApiConnection sendAsync - Sending async Request
+2022-06-04 18:20:51.795 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection parseHttpRequest - Parsing HTTP request
+2022-06-04 18:20:51.814 [JavaFX Application Thread] INFO  TourManager addListener - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:24:59.592 [JavaFX Application Thread] INFO  TourPlannerApplication start - start Started Application ...
+2022-06-04 18:24:59.623 [JavaFX Application Thread] INFO  TourManager addListener - addListener Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:24:59.625 [JavaFX Application Thread] INFO  TourManager addListener - addListener Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:24:59.627 [JavaFX Application Thread] INFO  TourManager addListener - addListener Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:24:59.910 [JavaFX Application Thread] INFO  TourManager addListener - addListener Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:24:59.957 [JavaFX Application Thread] INFO  TourManager getProperties - getProperties Properties successfully read
+2022-06-04 18:25:00.149 [JavaFX Application Thread] INFO  TourManager getConnection - getConnection Connection to database successfully
+2022-06-04 18:25:00.172 [JavaFX Application Thread] INFO  TourManager selectTour - selectTour Selected TourLog with name = Paris-Vienna
+2022-06-04 18:25:00.190 [JavaFX Application Thread] INFO  ApiConnection <init> - <init> Open new API-connection
+2022-06-04 18:25:00.190 [JavaFX Application Thread] INFO  ApiConnection sendAsync - sendAsync Sending async Request
+2022-06-04 18:25:01.448 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection parseHttpRequest - parseHttpRequest Parsing HTTP request
+2022-06-04 18:25:01.515 [JavaFX Application Thread] INFO  ApiConnection <init> - <init> Open new API-connection
+2022-06-04 18:25:01.516 [JavaFX Application Thread] INFO  ApiConnection sendAsync - sendAsync Sending async Request
+2022-06-04 18:25:02.272 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection parseHttpRequest - parseHttpRequest Parsing HTTP request
+2022-06-04 18:25:02.292 [JavaFX Application Thread] INFO  TourManager addListener - addListener Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:26:10.774 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 18:26:10.801 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:26:10.803 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:26:10.805 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:26:11.043 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:26:11.068 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 18:26:11.148 [JavaFX Application Thread] INFO  TourManager - Connection to database successfully
+2022-06-04 18:26:11.175 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 18:26:11.233 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:26:11.234 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:26:12.232 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:26:12.296 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:26:12.297 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:26:13.058 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:26:13.077 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:27:47.112 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 18:27:47.144 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:27:47.145 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:27:47.147 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:27:47.410 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:27:47.437 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 18:27:47.522 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 18:27:47.545 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 18:27:47.567 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:27:47.568 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:27:48.749 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:27:48.811 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:27:48.811 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:27:49.579 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:27:49.597 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:28:07.541 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 18:28:07.542 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:07.542 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:08.330 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:09.930 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:28:09.935 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:09.935 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:11.209 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:12.942 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = dsdasd
+2022-06-04 18:28:12.946 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:12.946 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:14.225 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:14.843 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:28:14.848 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:14.848 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:15.837 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:16.569 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 18:28:16.573 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:16.573 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:17.324 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:19.889 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:19.889 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:20.637 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:24.440 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:24.440 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:25.240 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:28.137 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:28.138 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:28.874 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:32.855 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:28:32.858 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:32.859 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:33.954 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:34.671 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vien
+2022-06-04 18:28:34.674 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:34.675 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:35.454 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:38.537 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:28:38.540 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:38.540 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:39.459 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:41.012 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vien
+2022-06-04 18:28:41.014 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:41.014 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:41.792 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:46.579 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:46.579 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:47.292 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:48.619 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vienn
+2022-06-04 18:28:48.621 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:48.621 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:49.385 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:52.099 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:52.099 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:52.840 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:28:53.357 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vien
+2022-06-04 18:28:53.358 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:28:53.358 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:28:54.078 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:38:05.722 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 18:38:05.772 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:38:05.774 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:38:05.776 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:38:06.097 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:38:06.127 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 18:38:06.217 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 18:38:06.239 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Paris-Vien
+2022-06-04 18:38:06.256 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:38:06.256 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:38:07.483 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:38:07.506 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:38:07.559 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:38:07.559 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:38:08.398 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:38:08.419 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:38:08.448 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:38:23.710 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with id = 2
+2022-06-04 18:38:27.981 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with id = 3
+2022-06-04 18:40:05.433 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 18:40:05.469 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:40:05.471 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:40:05.472 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:40:05.672 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:40:05.703 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 18:40:05.800 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 18:40:05.814 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:40:05.828 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:40:05.828 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:40:07.637 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:40:07.658 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:40:07.694 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:40:07.694 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:40:08.915 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:40:08.937 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:40:08.971 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:40:11.867 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with id = 4
+2022-06-04 18:55:21.350 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 18:55:21.403 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:55:21.404 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:55:21.405 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:55:21.637 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:55:21.661 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 18:55:21.745 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 18:55:21.758 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 18:55:21.759 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:55:21.761 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 18:55:21.772 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 18:55:21.773 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:55:21.773 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:55:23.174 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:55:23.187 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8e7a-01fa-993a-02b4-3831-12aa6917042d&boudingBox=2.350625,%2048.972202
+2022-06-04 18:55:23.193 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:55:23.231 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 18:55:23.232 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:55:23.232 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:55:24.180 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:55:24.184 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8e7b-0260-993a-02b4-3831-12aa6917042d&boudingBox=2.350625,%2048.972202
+2022-06-04 18:55:24.199 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:55:24.234 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:55:41.692 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:55:41.693 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 18:55:41.694 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 18:55:41.694 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:55:41.694 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:55:42.748 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:55:42.751 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8e8e-0054-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 18:55:42.754 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:55:42.755 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:57:51.131 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 18:57:51.163 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:57:51.164 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:57:51.166 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:57:51.414 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:57:51.436 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 18:57:51.501 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 18:57:51.514 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 18:57:51.515 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:57:51.517 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 18:57:51.517 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 18:57:51.517 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 18:57:51.518 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:57:51.519 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:57:52.859 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:57:52.873 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8f10-0093-993a-02b4-3831-12aa6917042d&boudingBox=2.350625,%2048.972202
+2022-06-04 18:57:52.880 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:57:52.913 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 18:57:52.914 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:57:52.914 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:57:53.985 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:57:53.991 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8f11-014c-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 18:57:54.007 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:57:54.041 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:57:59.226 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:57:59.227 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 18:57:59.227 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 18:57:59.228 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 18:57:59.228 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 18:57:59.228 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 18:58:00.191 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 18:58:00.193 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8f17-0270-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 18:58:00.195 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:58:00.197 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 18:59:08.156 [JavaFX Application Thread] INFO  TourPlannerApplication [JavaFX Application Thread] - Started Application ...
+2022-06-04 18:59:08.201 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:59:08.202 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 18:59:08.204 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:59:08.509 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 18:59:08.535 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Properties successfully read
+2022-06-04 18:59:08.617 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Connection to database successful
+2022-06-04 18:59:08.629 [JavaFX Application Thread] INFO  TourDao [JavaFX Application Thread] - Successfully read tours
+2022-06-04 18:59:08.631 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Selected TourLog with name = Vienna-Paris
+2022-06-04 18:59:08.632 [JavaFX Application Thread] INFO  TourDao [JavaFX Application Thread] - Successfully read tour: Vienna-Paris
+2022-06-04 18:59:08.633 [JavaFX Application Thread] INFO  TourDescriptionVM [JavaFX Application Thread] - Selected tour: Vienna-Paris
+2022-06-04 18:59:08.633 [JavaFX Application Thread] INFO  TourDescriptionVM [JavaFX Application Thread] - Retrieve image from
+2022-06-04 18:59:08.634 [JavaFX Application Thread] INFO  ApiConnection [JavaFX Application Thread] - Open new API-connection
+2022-06-04 18:59:08.634 [JavaFX Application Thread] INFO  ApiConnection [JavaFX Application Thread] - Sending async Request
+2022-06-04 18:59:10.125 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection [ForkJoinPool.commonPool-worker-1] - Parsing HTTP request
+2022-06-04 18:59:10.139 [JavaFX Application Thread] INFO  TourDescriptionVM [JavaFX Application Thread] - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8f5d-014f-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 18:59:10.145 [JavaFX Application Thread] INFO  TourLogDao [JavaFX Application Thread] - TourLog read successfully
+2022-06-04 18:59:10.176 [JavaFX Application Thread] INFO  TourDescriptionVM [JavaFX Application Thread] - Retrieve image from
+2022-06-04 18:59:10.177 [JavaFX Application Thread] INFO  ApiConnection [JavaFX Application Thread] - Open new API-connection
+2022-06-04 18:59:10.177 [JavaFX Application Thread] INFO  ApiConnection [JavaFX Application Thread] - Sending async Request
+2022-06-04 18:59:11.117 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection [ForkJoinPool.commonPool-worker-1] - Parsing HTTP request
+2022-06-04 18:59:11.122 [JavaFX Application Thread] INFO  TourDescriptionVM [JavaFX Application Thread] - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8f5e-0230-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 18:59:11.138 [JavaFX Application Thread] INFO  TourManager [JavaFX Application Thread] - Adding listener TourLogsVM to eventListenerList
+2022-06-04 18:59:11.170 [JavaFX Application Thread] INFO  TourLogDao [JavaFX Application Thread] - TourLog read successfully
+2022-06-04 19:00:24.720 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:00:24.776 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:24.779 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:00:24.781 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:00:25.160 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:25.222 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:00:25.326 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:00:25.346 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:00:25.348 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:00:25.351 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:00:25.351 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:00:25.351 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:00:25.352 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:00:25.352 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:00:26.611 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:00:26.622 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fa9-03b1-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 19:00:26.629 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:00:26.668 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:00:26.668 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:00:26.668 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:00:27.614 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:00:27.619 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8faa-03b6-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:00:27.636 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:00:27.683 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:00:34.143 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:00:34.167 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:34.169 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:00:34.171 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:00:34.379 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:34.400 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:00:34.457 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:00:34.472 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:00:34.473 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:00:34.475 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:00:34.476 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:00:34.476 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:00:34.477 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:00:34.478 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:00:35.674 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:00:35.688 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fb2-03d5-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 19:00:35.694 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:00:35.731 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:00:35.731 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:00:35.732 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:00:36.685 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:00:36.690 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fb4-0002-993a-02b4-38c9-0a16af55f047&boudingBox=2.350625,%2048.972202
+2022-06-04 19:00:36.730 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:00:36.806 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:00:49.815 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:00:49.843 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:49.846 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:00:49.850 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:00:50.308 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:50.362 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:00:50.475 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:00:50.496 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:00:50.498 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:00:50.503 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:00:50.504 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:00:50.504 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:00:50.506 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:00:50.506 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:00:51.925 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:00:51.944 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fc3-00ec-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:00:51.951 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:00:51.998 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:00:51.999 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:00:51.999 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:00:52.937 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:00:52.942 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fc4-0116-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:00:52.956 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:00:52.992 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:00:59.964 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:00:59.992 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:00:59.993 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:00:59.995 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:01:00.241 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:01:00.276 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:01:00.354 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:01:00.368 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:01:00.370 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:01:00.372 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:01:00.373 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:01:00.373 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:01:00.374 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:01:00.375 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:01:01.665 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:01:01.682 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fcc-03c2-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:01:01.688 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:01:01.718 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:01:01.719 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:01:01.719 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:01:02.660 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:01:02.663 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fcd-03dc-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:01:02.677 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:01:02.702 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:01:33.255 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:01:33.282 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:01:33.284 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:01:33.285 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:01:33.662 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:01:33.691 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:01:33.768 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:01:33.787 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:01:33.788 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:01:33.791 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:01:33.793 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:01:33.793 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:01:33.794 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:01:33.794 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:01:35.024 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:01:35.041 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fee-0154-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:01:35.053 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:01:35.086 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:01:35.086 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:01:35.086 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:01:36.047 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:01:36.052 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b8fef-0169-993a-02b4-38b8-0ed316427c49&boudingBox=2.350625,%2048.972202
+2022-06-04 19:01:36.066 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:01:36.098 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:02:01.142 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:02:01.143 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:02:02.065 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:02:02.078 [JavaFX Application Thread] INFO  TourDao - Successfully updated tour Vienna-Paris to Vienna-Paris
+2022-06-04 19:02:02.079 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:02:02.081 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:03:21.630 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:03:21.655 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:03:21.657 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:03:21.658 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:03:21.910 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:03:21.940 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:03:22.019 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:03:22.034 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:03:22.036 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:03:22.040 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:03:22.041 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:03:22.041 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:03:22.042 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:03:22.043 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:03:23.407 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:03:23.416 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b905a-025d-993a-02b4-38b8-0ed316427c49&boudingBox=11.577607,%2048.30685
+2022-06-04 19:03:23.427 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:03:23.470 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:03:23.471 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:03:23.471 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:03:24.622 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:03:24.626 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b905b-02f3-993a-02b4-38c9-0a16af55f047&boudingBox=11.577607,%2048.30685
+2022-06-04 19:03:24.646 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:03:24.726 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:03:32.856 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:03:32.856 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:03:33.698 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:03:33.701 [JavaFX Application Thread] INFO  TourDescriptionVM - Updated distance from: 169.258 to: 269.659
+2022-06-04 19:03:33.719 [JavaFX Application Thread] INFO  TourDao - Successfully updated tour Vienna-Paris to Vienna-Paris
+2022-06-04 19:03:33.720 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:03:33.722 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:03:45.439 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = dsdasd
+2022-06-04 19:03:45.440 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: dsdasd
+2022-06-04 19:03:45.441 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: dsdasd
+2022-06-04 19:03:45.443 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:03:45.444 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:03:45.444 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:03:46.582 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:03:46.585 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9071-02e2-993a-02b4-38c9-0a16af55f047&boudingBox=2.348934,%2049.55372
+2022-06-04 19:03:46.586 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:03:46.587 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:03:47.479 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:03:47.480 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:03:47.481 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:03:47.483 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:03:47.483 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:03:47.484 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:03:48.296 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:03:48.297 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9073-02fa-993a-02b4-38b8-0ed316427c49&boudingBox=11.577607,%2048.202885
+2022-06-04 19:03:48.300 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:03:48.301 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:05:38.784 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:05:38.809 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:05:38.811 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:05:38.812 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:05:39.103 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:05:39.129 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:05:39.200 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:05:39.215 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:05:39.216 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:05:39.219 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:05:39.219 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:05:39.220 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:05:39.221 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:05:39.221 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:05:40.273 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:05:40.299 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b90e3-0301-993a-02b4-38c9-0a16af55f047&boudingBox=11.577607,%2048.202885
+2022-06-04 19:05:40.306 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:05:40.336 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:05:40.336 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:05:40.336 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:05:41.241 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:05:41.244 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b90e4-027a-993a-02b4-38b8-0ed316427c49&boudingBox=11.577607,%2048.202885
+2022-06-04 19:05:41.259 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:05:41.293 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:08:16.149 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:08:16.181 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:08:16.182 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:08:16.184 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:08:16.516 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:08:16.543 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:08:16.646 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:08:16.663 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:08:16.664 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with name = Vienna-Paris
+2022-06-04 19:08:16.667 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:08:16.667 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:08:16.667 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:08:16.669 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:08:16.669 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:08:18.081 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:08:18.103 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9181-01ba-993a-02b4-3831-12aa6917042d&boudingBox=11.577607,%2048.202885
+2022-06-04 19:08:18.112 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:08:18.152 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:08:18.153 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:08:18.153 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:08:18.961 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:08:18.965 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9182-01b6-993a-02b4-3831-12aa6917042d&boudingBox=11.577607,%2048.202885
+2022-06-04 19:08:18.984 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:08:19.017 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:08:24.291 [JavaFX Application Thread] INFO  TourManager - Selected TourLog with id = 4
+2022-06-04 19:08:28.777 [JavaFX Application Thread] INFO  TourLogDao - Updated TourLog 0 successfully
+2022-06-04 19:08:28.779 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:08:28.780 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:10:07.916 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:10:07.940 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:10:07.941 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:10:07.943 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:10:08.172 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:10:08.197 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:10:08.268 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:10:08.283 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:10:08.284 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Paris
+2022-06-04 19:10:08.287 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:10:08.287 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:10:08.287 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:10:08.289 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:10:08.289 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:10:09.435 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:10:09.446 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b91f0-0339-993a-02b4-3831-12aa6917042d&boudingBox=11.577607,%2048.202885
+2022-06-04 19:10:09.452 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:10:09.491 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:10:09.491 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:10:09.492 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:10:10.471 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:10:10.475 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b91f1-02fc-993a-02b4-38b8-0ed316427c49&boudingBox=11.577607,%2048.202885
+2022-06-04 19:10:10.491 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:10:10.525 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:10:12.887 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Paris
+2022-06-04 19:10:12.888 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Paris
+2022-06-04 19:10:12.888 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Paris
+2022-06-04 19:10:12.889 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:10:12.889 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:10:12.889 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:10:13.689 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:10:13.691 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b91f5-00a4-993a-02b4-38c9-0a16af55f047&boudingBox=11.577607,%2048.202885
+2022-06-04 19:10:13.695 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:10:13.696 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:10:21.496 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:10:21.496 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:10:22.269 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:10:22.271 [JavaFX Application Thread] INFO  TourDescriptionVM - Updated distance from: 269.659 to: 269.659
+2022-06-04 19:10:22.277 [JavaFX Application Thread] INFO  TourDao - Successfully updated tour Vienna-Paris to Vienna-Pari
+2022-06-04 19:10:22.278 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:10:22.280 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:10:45.094 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Pari
+2022-06-04 19:10:45.095 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Pari
+2022-06-04 19:10:45.095 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Pari
+2022-06-04 19:10:45.095 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:10:45.095 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:10:45.095 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:10:45.853 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:10:45.855 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9215-016b-993a-02b4-3831-12aa6917042d&boudingBox=11.577607,%2048.202885
+2022-06-04 19:10:45.860 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:10:45.861 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:15:04.922 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:15:04.947 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:15:04.949 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:15:04.950 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:15:05.186 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:15:05.212 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:15:05.297 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:15:05.310 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:15:05.312 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Pari
+2022-06-04 19:15:05.314 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Pari
+2022-06-04 19:15:05.314 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Pari
+2022-06-04 19:15:05.314 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:15:05.316 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:15:05.316 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:15:06.432 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:15:06.444 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9319-0364-993a-02b4-38b8-0ed316427c49&boudingBox=11.577607,%2048.202885
+2022-06-04 19:15:06.449 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:15:06.484 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:15:06.484 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:15:06.484 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:15:07.409 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:15:07.415 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b931a-02fe-993a-02b4-3831-12aa6917042d&boudingBox=11.577607,%2048.202885
+2022-06-04 19:15:07.429 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:15:07.472 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:15:15.696 [JavaFX Application Thread] INFO  TourDao - Successfully created tour Tour1
+2022-06-04 19:15:15.697 [JavaFX Application Thread] INFO  TourDao - Successfully created tour Tour2
+2022-06-04 19:15:15.698 [JavaFX Application Thread] INFO  TourDao - Successfully created tour Tour3
+2022-06-04 19:15:15.699 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:15:15.701 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:15:19.064 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:15:19.086 [JavaFX Application Thread] INFO  ToursOverviewVM - Successfully exported tours to PDF: /Users/basem/Desktop/Untitled.json
+2022-06-04 19:16:46.988 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
+2022-06-04 19:16:47.013 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:16:47.015 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVM to eventListenerList
+2022-06-04 19:16:47.017 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:16:47.345 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVM to eventListenerList
+2022-06-04 19:16:47.378 [JavaFX Application Thread] INFO  TourManager - Properties successfully read
+2022-06-04 19:16:47.475 [JavaFX Application Thread] INFO  TourManager - Connection to database successful
+2022-06-04 19:16:47.521 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:16:47.524 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Pari
+2022-06-04 19:16:47.531 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Pari
+2022-06-04 19:16:47.531 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Pari
+2022-06-04 19:16:47.531 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:16:47.559 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:16:47.559 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:16:48.716 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:16:48.725 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9380-00c4-993a-02b4-38b8-0ed316427c49&boudingBox=11.577607,%2048.202885
+2022-06-04 19:16:48.732 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:16:48.761 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:16:48.761 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:16:48.761 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:16:49.783 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:16:49.787 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b9381-0030-993a-02b4-38c9-0a16af55f047&boudingBox=11.577607,%2048.202885
+2022-06-04 19:16:49.799 [JavaFX Application Thread] INFO  TourManager - Adding listener TourLogsVM to eventListenerList
+2022-06-04 19:16:49.830 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:16:58.336 [JavaFX Application Thread] INFO  ToursOverviewVM - Importing tours from: /Users/basem/Desktop/export.json
+2022-06-04 19:16:58.341 [JavaFX Application Thread] INFO  TourDao - Successfully created tour Tour1
+2022-06-04 19:16:58.342 [JavaFX Application Thread] INFO  TourDao - Successfully created tour Tour2
+2022-06-04 19:16:58.343 [JavaFX Application Thread] INFO  TourDao - Successfully created tour Tour3
+2022-06-04 19:16:58.345 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:16:58.347 [JavaFX Application Thread] INFO  TourDao - Successfully read tours
+2022-06-04 19:17:15.057 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Pari
+2022-06-04 19:17:15.058 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Pari
+2022-06-04 19:17:15.059 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Pari
+2022-06-04 19:17:15.059 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:17:15.059 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:17:15.059 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:17:15.861 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:17:15.863 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b939b-014c-993a-02b4-38c9-0a16af55f047&boudingBox=11.577607,%2048.202885
+2022-06-04 19:17:15.866 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:17:15.867 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:12.628 [JavaFX Application Thread] INFO  TourManager - Selected Tour dsdasd
+2022-06-04 19:18:12.629 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: dsdasd
+2022-06-04 19:18:12.629 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: dsdasd
+2022-06-04 19:18:12.633 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:18:12.634 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:18:12.634 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:18:13.950 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:18:13.953 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b93d4-03a1-993a-02b4-3831-12aa6917042d&boudingBox=2.348934,%2049.55372
+2022-06-04 19:18:13.955 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:13.956 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:15.921 [JavaFX Application Thread] INFO  TourManager - Selected Tour asdasdas
+2022-06-04 19:18:15.922 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: asdasdas
+2022-06-04 19:18:15.922 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: asdasdas
+2022-06-04 19:18:15.924 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:18:15.924 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:18:15.924 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:18:17.226 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:18:17.229 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b93d8-00bd-993a-02b4-38b8-0ed316427c49&boudingBox=2.348934,%2049.55372
+2022-06-04 19:18:17.231 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:17.232 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:18.424 [JavaFX Application Thread] INFO  TourManager - Selected Tour Vienna-Pari
+2022-06-04 19:18:18.425 [JavaFX Application Thread] INFO  TourDao - Successfully read tour: Vienna-Pari
+2022-06-04 19:18:18.425 [JavaFX Application Thread] INFO  TourDescriptionVM - Selected tour: Vienna-Pari
+2022-06-04 19:18:18.426 [JavaFX Application Thread] INFO  TourDescriptionVM - Retrieve image from
+2022-06-04 19:18:18.426 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:18:18.427 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
+2022-06-04 19:18:19.432 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
+2022-06-04 19:18:19.434 [JavaFX Application Thread] INFO  TourDescriptionVM - New image-link: https://www.mapquestapi.com/staticmap/v5/map?key=MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf&session=629b93da-02c4-993a-02b4-3831-12aa6917042d&boudingBox=11.577607,%2048.202885
+2022-06-04 19:18:19.441 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:19.442 [JavaFX Application Thread] INFO  TourLogDao - TourLog read successfully
+2022-06-04 19:18:21.477 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
+2022-06-04 19:18:21.478 [JavaFX Application Thread] INF
