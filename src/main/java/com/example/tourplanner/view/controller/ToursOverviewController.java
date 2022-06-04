@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ToursOverviewController implements Initializable, EventListener {
+public class ToursOverviewController implements Initializable{
     @FXML public ListView<Tour> tourlist;
     @FXML public VBox vBox;
     @FXML public Button importButton;
@@ -75,21 +75,6 @@ public class ToursOverviewController implements Initializable, EventListener {
         TourManager.SelectTourEventInstance().selectTour(tourlist.getSelectionModel().getSelectedItem().getName());
     }
 
-
-
-    @Override
-    public void onSearch() {
-        List<Tour> tempTourList = this.toursOverviewViewModel.getObservableTours();
-        String searchText = TourManager.ToursViewManager().getSearch();
-        System.out.println("SearchText: " + searchText);
-        if (searchText.isEmpty()) {
-            this.tourlist.setItems(this.toursOverviewViewModel.getObservableTours());
-        } else {
-            tempTourList.removeAll(tempTourList.stream().filter(tour -> !tour.getName().contains(searchText)).toList());
-            System.out.println(tempTourList);
-            this.tourlist.setItems((ObservableList<Tour>) tempTourList);
-        }
-    }
 
     @FXML
     public void importTours() {

@@ -20,7 +20,7 @@ public class PopUpVM {
     private final StringProperty toInput = new SimpleStringProperty();
     private final StringProperty transportTypeInput = new SimpleStringProperty();
 
-    public StringProperty gettourNameInput() {
+    public StringProperty getTourNameInput() {
         return tourNameInput;
     }
 
@@ -28,15 +28,15 @@ public class PopUpVM {
         return tourDescriptionInput;
     }
 
-    public StringProperty getfromInput() {
+    public StringProperty getFromInput() {
         return fromInput;
     }
 
-    public StringProperty gettoInput() {
+    public StringProperty getToInput() {
         return toInput;
     }
 
-    public StringProperty gettransportTypeInput() {
+    public StringProperty getTransportTypeInput() {
         return transportTypeInput;
     }
 

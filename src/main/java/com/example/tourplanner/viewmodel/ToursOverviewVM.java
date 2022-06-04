@@ -89,7 +89,8 @@ public class ToursOverviewVM implements EventListener {
         for (Tour tour: tours) {
             DAL.getInstance().tourDao().create(tour);
         }
-        TourManager.ToursViewManager().fireEvent();
+       // TourManager.ToursViewManager().fireEvent();
+
     }
 
     private List<Tour> jsonToTours() {
@@ -115,8 +116,7 @@ public class ToursOverviewVM implements EventListener {
                         j.getString("To"),
                         j.getString("Transport"),
                         j.getFloat("Distance"),
-                        j.getString("Time"),
-                        null);
+                        j.getString("Time"));
                 tours.add(t);
             }
         } catch (IOException e) {
