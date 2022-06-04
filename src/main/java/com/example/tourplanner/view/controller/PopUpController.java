@@ -60,7 +60,7 @@ public class PopUpController implements Initializable{
         );
     }
 
-    // returns true if input is valid
+    // also checks for blank input, not just empty
     private boolean validateInput() {
         List<TextInputControl> textFields = Arrays.asList(tourname, tourDescription, from, to, transportType);
         for (TextInputControl textField : textFields) {

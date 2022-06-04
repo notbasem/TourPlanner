@@ -63,6 +63,7 @@ public class TourLogsPopUpController implements Initializable {
         );
     }
 
+    // also checks for blank input, not just empty
     private boolean validateInput() {
         List<TextInputControl> textFields = Arrays.asList(date, duration, distance, comment, rating);
         for (TextInputControl textField : textFields) {
