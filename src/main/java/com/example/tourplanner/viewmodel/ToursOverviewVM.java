@@ -1,4 +1,5 @@
 package com.example.tourplanner.viewmodel;
+
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.EventListener;
@@ -22,18 +23,21 @@ import java.util.List;
 
 public class ToursOverviewVM implements EventListener {
 
-    public ToursOverviewVM(){TourManager.SelectTourEventInstance().addListener(this);}
+    public ToursOverviewVM() {
+        TourManager.SelectTourEventInstance().addListener(this);
+    }
+
     private ObservableList<Tour> tours = FXCollections.observableArrayList();
 
 
-    public Property<ObservableList<Tour>>getObservableToursProperty() {
+    public Property<ObservableList<Tour>> getObservableToursProperty() {
         setToursList();
         Property<ObservableList<Tour>> tourslistProperty = new SimpleObjectProperty<>(tours);
         return tourslistProperty;
     }
 
     public void setToursList() {
-        this.tours= (ObservableList<Tour>) DAL.getInstance().tourDao().getAll();
+        this.tours = (ObservableList<Tour>) DAL.getInstance().tourDao().getAll();
     }
 
     public ObservableList<Tour> getObservableTours() {
@@ -42,14 +46,15 @@ public class ToursOverviewVM implements EventListener {
 
     @Override
     public void onAddedTour() {
-        tours.setAll( DAL.getInstance().tourDao().getAll());
+        tours.setAll(DAL.getInstance().tourDao().getAll());
     }
 
 
-    public void deleteTour(){
+    public void deleteTour() {
         DAL.getInstance().tourDao().delete(TourManager.SelectTourEventInstance().getSelectedTour());
     }
-        public void exportTours(Stage stage) {
+
+    public void exportTours(Stage stage) {
         // Open Filechooser
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Wähle eine Datei");
@@ -79,35 +84,33 @@ public class ToursOverviewVM implements EventListener {
         System.out.println(file);
 
         // Parse JSON-File and save to database
-        List<Tour> tours = jsonToTours();
+        List<Tour> tours = jsonToTours(file.getAbsolutePath());
         if (tours.isEmpty()) {
             System.out.println("Error while parsing JSON-data");
             return;
         }
 
         // Save tours to database and update view
-        for (Tour tour: tours) {
+        for (Tour tour : tours) {
+            System.out.println(tour.tourToString());
             DAL.getInstance().tourDao().create(tour);
         }
-       // TourManager.ToursViewManager().fireEvent();
-
+        TourManager.SelectTourEventInstance().fireAddedTourEvent();
     }
 
-    private List<Tour> jsonToTours() {
+    private List<Tour> jsonToTours(String file) {
         List<Tour> tours = new ArrayList<>();
-        try( BufferedReader br =
-                     new BufferedReader( new InputStreamReader(new FileInputStream("/Users/basem/export.json"), StandardCharsets.UTF_8 )))
-        {
+        try (BufferedReader br =
+                     new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
             StringBuilder json = new StringBuilder();
             String line;
-            while(( line = br.readLine()) != null ) {
-                json.append( line );
-                json.append( '\n' );
+            while ((line = br.readLine()) != null) {
+                json.append(line);
+                json.append('\n');
             }
-            System.out.println(json);
 
             JSONArray jsonArray = new JSONArray(json.toString());
-            for (int i=0; i<jsonArray.length(); i++) {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject j = jsonArray.getJSONObject(i);
                 Tour t = new Tour(
                         j.getString("Name"),
@@ -145,7 +148,7 @@ public class ToursOverviewVM implements EventListener {
     @Override
     public void onSearch() {
         List<Tour> tempTourList = this.getObservableTours();
-        String searchText =TourManager.SelectTourEventInstance().getSearch();
+        String searchText = TourManager.SelectTourEventInstance().getSearch();
 
         System.out.println("SearchText: " + searchText);
         if (searchText.isEmpty()) {
@@ -153,18 +156,19 @@ public class ToursOverviewVM implements EventListener {
         } else {
             tempTourList.removeAll(tempTourList.stream().filter(tour -> !tour.getName().contains(searchText)).toList());
             System.out.println(tempTourList);
-            tours.setAll((ObservableList<Tour>) tempTourList);
+            tours.setAll(tempTourList);
         }
     }
 
     @Override
-    public void updateTourLog() {}
+    public void updateTourLog() {
+    }
 
     @Override
-    public void onEvent() {}
+    public void onEvent() {
+    }
 
     @Override
-    public void onAddedTourLogEvent() {}
-
-
+    public void onAddedTourLogEvent() {
+    }
 }
