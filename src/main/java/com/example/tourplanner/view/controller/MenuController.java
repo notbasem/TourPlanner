@@ -1,11 +1,13 @@
 package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.API.ApiConnection;
 import com.example.tourplanner.viewmodel.MenuVM;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -49,7 +51,7 @@ public class MenuController {
     @FXML
     public void onExport() throws IOException, InterruptedException {
         System.out.println("File export button was clicked");
-        ObservableList<Tour> tourlist = this.menuViewModel.exportallTours();
+        ObservableList<Tour> tourList = this.menuViewModel.exportallTours();
         PdfWriter writer = null;
         try {
             writer = new PdfWriter("tours.pdf");
@@ -60,8 +62,9 @@ public class MenuController {
         Document document = new Document(pdf);
 
 
-        for (Tour tour : tourlist) {
-            if (tour != tourlist.get(0)) {
+        for (Tour tour : tourList) {
+
+            if (tour != tourList.get(0)) {
                 document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
             }
 
@@ -70,13 +73,13 @@ public class MenuController {
                     .setFontSize(20)
                     .setBold();
 
-            document.add(titleHeader.setMarginLeft(55).setMarginBottom(40));
+            document.add(titleHeader.setMarginLeft(55).setMarginBottom(10));
             ApiConnection apiConnection = new ApiConnection(tour.getFrom(), tour.getTo());
             String url = apiConnection.getMap().getMapString();
 
             ImageData imageData = ImageDataFactory.create(url.replace(" ", "%20"));
             Image pdfImg = new Image(imageData);
-            document.add(pdfImg.setMarginLeft(55).setMarginBottom(50));
+            document.add(pdfImg.setMarginLeft(55));
 
             Table table = new Table(UnitValue.createPercentArray(1)).useAllAvailableWidth();
 
@@ -121,7 +124,9 @@ public class MenuController {
             Cell cell5 = new Cell().add(time);
             table.addCell(cell5);
 
-            document.add(table.setMarginLeft(55).setMarginRight(60));
+            document.add(table.setMarginLeft(55).setMarginRight(60).setMarginTop(10).setMarginBottom(10));
+
+            document.add(createLogTable(tour.getName()).setMarginLeft(55).setMarginRight(60));
         }
 
         document.close();
@@ -129,5 +134,34 @@ public class MenuController {
 
     public void onClose() {
         ((Stage) menuBar.getScene().getWindow()).close();
+    }
+
+    public Table createLogTable(String tourname) {
+        ObservableList<TourLog> tourLogsList = this.menuViewModel.exportallTourLogs(tourname);
+
+        Table table = new Table(UnitValue.createPercentArray(5)).useAllAvailableWidth().setFixedLayout();
+
+        table.addCell(getHeaderCell("Date"));
+        table.addCell(getHeaderCell("Duration"));
+        table.addCell(getHeaderCell("Distance"));
+        table.addCell(getHeaderCell("Comment"));
+        table.addCell(getHeaderCell("Rating"));
+
+
+        for (TourLog tourlog : tourLogsList) {
+            table.setFontSize(10).setBackgroundColor(ColorConstants.WHITE);
+            table.addCell(tourlog.getDate());
+            table.addCell(tourlog.getDuration());
+            table.addCell(String.valueOf(tourlog.getDistance()));
+            table.addCell(tourlog.getComment());
+            table.addCell(String.valueOf(tourlog.getRating()));
+
+        }
+
+        return table;
+    }
+
+    private static Cell getHeaderCell(String s) {
+        return new Cell().add(new Paragraph(s)).setFontSize(11).setBold().setBackgroundColor(ColorConstants.GRAY);
     }
 }

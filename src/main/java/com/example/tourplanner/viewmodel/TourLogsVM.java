@@ -27,7 +27,7 @@ public class TourLogsVM implements EventListener {
     }
 
     public int getIdOfTour(TourLog tourLog, String tourName) {
-        return DAL.getInstance().tourLogsDao.getid(tourLog,tourName);
+        return DAL.getInstance().tourLogsDao.getLogId(tourLog,tourName);
     }
 
     @Override

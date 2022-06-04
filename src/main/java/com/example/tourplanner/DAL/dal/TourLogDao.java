@@ -79,7 +79,7 @@ public class TourLogDao implements Dao<TourLog> {
     }
 
     public void update(TourLog oldTourLog, TourLog newTourLog) {
-        int tourid = getid(oldTourLog, oldTourLog.getTourname());
+        int tourid = getLogId(oldTourLog, oldTourLog.getTourname());
 
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 UPDATE tourlogs
@@ -123,7 +123,7 @@ public class TourLogDao implements Dao<TourLog> {
     }
 
     @Override
-    public int getid(TourLog tourLog, String tourname) {
+    public int getLogId(TourLog tourLog, String tourname) {
         int id = -1;
         try (PreparedStatement statement = DbConnection.getInstance().prepareStatement("""
                 SELECT tour_id
