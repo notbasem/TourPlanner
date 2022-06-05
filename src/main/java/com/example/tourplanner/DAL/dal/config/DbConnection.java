@@ -1,6 +1,7 @@
 package com.example.tourplanner.DAL.dal.config;
 
 import com.example.tourplanner.business.Managers.TourManager;
+import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,7 +19,7 @@ public class DbConnection implements Closeable {
 
     public DbConnection() {
         try {
-            getProperties();
+            this.properties = getProperties("src/main/java/com/example/tourplanner/DAL/dal/config/connection.properties");
             Class.forName(properties.getProperty("driver"));
         } catch (ClassNotFoundException e) {
             logger.error("PostgreSQL JDBC driver not found");
@@ -26,15 +27,18 @@ public class DbConnection implements Closeable {
         }
     }
 
-    private void getProperties() {
+    protected Properties getProperties(String path) {
+        Properties prop = new Properties();
         try {
-            FileInputStream fis = new FileInputStream("src/main/java/com/example/tourplanner/DAL/dal/config/connection.properties");
-            properties.load(fis);
+            FileInputStream fis = new FileInputStream(path);
+            prop.load(fis);
             logger.info("Properties successfully read");
         } catch (IOException e) {
             logger.error("Properties could not be read");
             e.printStackTrace();
+            return null;
         }
+        return prop;
     }
 
     public Connection connect() throws SQLException {
