@@ -19,6 +19,7 @@ public class PopUpVM {
     private final StringProperty fromInput = new SimpleStringProperty();
     private final StringProperty toInput = new SimpleStringProperty();
     private final StringProperty transportTypeInput = new SimpleStringProperty();
+    private final StringProperty date = new SimpleStringProperty();
 
     public StringProperty getTourNameInput() {
         return tourNameInput;
@@ -38,6 +39,10 @@ public class PopUpVM {
 
     public StringProperty getTransportTypeInput() {
         return transportTypeInput;
+    }
+
+    public StringProperty getDateInput() {
+        return date;
     }
 
     public void addTour() {

@@ -10,6 +10,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
 public class TourLogsVM implements EventListener {
     private ObservableList<TourLog> tourlogs = FXCollections.observableArrayList();
     private final StringProperty searchString = new SimpleStringProperty();
@@ -61,6 +62,7 @@ public class TourLogsVM implements EventListener {
     public void onAddedTourLogEvent() {
         tourlogs.setAll(DAL.getInstance().tourLogsDao.getlogs(TourManager.Instance().getSelectedTour()));
     }
+
 
     @Override
     public void updateTourLog() {

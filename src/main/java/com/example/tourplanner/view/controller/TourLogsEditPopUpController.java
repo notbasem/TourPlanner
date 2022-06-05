@@ -24,6 +24,7 @@ public class TourLogsEditPopUpController implements Initializable {
     @FXML public TextField distance;
     @FXML public TextField comment;
     @FXML public TextField rating;
+    @FXML public TextField difficulty;
     @FXML public Label error;
 
     private final TourLogsEditPopUpVM tourLogsEditPopUpVM;
@@ -45,27 +46,31 @@ public class TourLogsEditPopUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        date.textProperty().bindBidirectional( tourLogsEditPopUpVM.getDateInput());
+        date.textProperty().bindBidirectional(tourLogsEditPopUpVM.getDateInput());
         duration.textProperty().bindBidirectional( tourLogsEditPopUpVM.getTourDurationInput());
         distance.textProperty().bindBidirectional(tourLogsEditPopUpVM.getDistanceInput());
         comment.textProperty().bindBidirectional( tourLogsEditPopUpVM.getCommentInput());
         rating.textProperty().bindBidirectional(tourLogsEditPopUpVM.getRatingInput());
+        difficulty.textProperty().bindBidirectional(tourLogsEditPopUpVM.getDifficultyInput());
 
         tourLogsEditPopUpVM.setData();
+        date.setEditable(false);
 
         // Disable Button if Textfields not set
-        closeButton.disableProperty().bind(date.textProperty().isEmpty()
-                .or(duration.textProperty().isEmpty())
+        closeButton.disableProperty().bind(
+                duration.textProperty().isEmpty()
                 .or(distance.textProperty().isEmpty())
                 .or(comment.textProperty().isEmpty())
                 .or(rating.textProperty().isEmpty())
         );
+
+
+
     }
 
     // also checks for blank input, not just empty
     private boolean validateInput() {
-        List<TextInputControl> textFields = Arrays.asList(date, duration, distance, comment, rating);
+        List<TextInputControl> textFields = Arrays.asList(date, duration, distance, comment, rating, difficulty);
         for (TextInputControl textField : textFields) {
             if (textField.getText() == null || textField.getText().isBlank()) {
                 error.setText("Required field(s) is/are empty");

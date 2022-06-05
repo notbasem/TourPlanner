@@ -21,13 +21,23 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class TourLogsController implements Initializable {
-    @FXML public TableView<TourLog> tableView;
-    @FXML public TableColumn<TourLog, String> logDate;
-    @FXML public TableColumn<TourLog, String> logDuration;
-    @FXML public TableColumn<TourLog, String> logDistance;
-    @FXML public TableColumn<TourLog, String> logComment;
-    @FXML public TableColumn<TourLog, String> logRating;
+    @FXML
+    public TableView<TourLog> tableView;
+    @FXML
+    public TableColumn<TourLog, String> logDate;
+    @FXML
+    public TableColumn<TourLog, String> logDuration;
+    @FXML
+    public TableColumn<TourLog, String> logDistance;
+    @FXML
+    public TableColumn<TourLog, String> logComment;
+    @FXML
+    public TableColumn<TourLog, String> logRating;
+    @FXML
+    public TableColumn<TourLog, String> logDifficulty;
     @FXML public TextField searchTextField;
+
+
     private final TourLogsVM tourLogsViewModel;
 
     public TourLogsController(TourLogsVM tourLogsViewModel) {
@@ -81,13 +91,14 @@ public class TourLogsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTours());
 
+        tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTours());
         logDate.setCellValueFactory(new PropertyValueFactory("date"));
         logDuration.setCellValueFactory(new PropertyValueFactory("duration"));
         logDistance.setCellValueFactory(new PropertyValueFactory("distance"));
         logComment.setCellValueFactory(new PropertyValueFactory("comment"));
         logRating.setCellValueFactory(new PropertyValueFactory("rating"));
+        logDifficulty.setCellValueFactory(new PropertyValueFactory("difficulty"));
         tableView.getSelectionModel().select(0);
         tableView.focusModelProperty().get().focus(0);
 
