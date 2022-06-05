@@ -10,27 +10,49 @@ public class TourLog {
     private String tourname;
     private String date;
     private String duration;
-    private int distance;
+    private String distance;
     private String comment;
     private int rating;
+    private int difficulty;
 
-    public TourLog(String tourname, String date, String duration, int distance, String comment, int rating) {
+    public TourLog(String tourname, String duration, String distance,String comment, int rating, int difficulty) {
         this.tourname = tourname;
-        this.date = date;
         this.duration = duration;
         this.distance = distance;
         this.comment = comment;
         this.rating = rating;
+        this.difficulty = difficulty;
     }
 
-    public TourLog(int id, String tourname, String date, String duration, int distance, String comment, int rating) {
-        this.id = id;
+  public TourLog(String tourname,String date, String duration, String distance,String comment, int rating, int difficulty) {
         this.tourname = tourname;
         this.date = date;
         this.duration = duration;
         this.distance = distance;
         this.comment = comment;
         this.rating = rating;
+        this.difficulty = difficulty;
+    }
+
+    public TourLog(int id,String tourname, String duration, String distance, String comment, int rating, int difficulty) {
+        this.id = id;
+        this.tourname = tourname;
+      //  this.date = date;
+        this.duration = duration;
+        this.distance = distance;
+        this.comment = comment;
+        this.rating = rating;
+        this.difficulty = difficulty;
+    }
+   public TourLog(int id,String tourname, String date, String duration, String distance, String comment, int rating, int difficulty) {
+        this.id = id;
+        this.tourname = tourname;
+         this.date = date;
+        this.duration = duration;
+        this.distance = distance;
+        this.comment = comment;
+        this.rating = rating;
+        this.difficulty = difficulty;
     }
 
     public TourLog() {
@@ -46,7 +68,8 @@ public class TourLog {
                 ", duration='" + duration + '\'' +
                 ", distance=" + distance +
                 ", comment='" + comment + '\'' +
-                ", rating=" + rating +
+                ", rating=" + rating + '\'' +
+                ", difficulty=" + difficulty+
                 '}';
     }
 

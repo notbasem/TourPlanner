@@ -134,13 +134,14 @@ public class PdfManager {
 
 
     private Table createLogTable(List<TourLog> tourLogsList) {
-        Table table = new Table(UnitValue.createPercentArray(5)).useAllAvailableWidth().setFixedLayout();
+        Table table = new Table(UnitValue.createPercentArray(6)).useAllAvailableWidth().setFixedLayout();
 
-        table.addCell(getHeaderCell("Date"));
+        table.addCell(getHeaderCell("Date and Time"));
         table.addCell(getHeaderCell("Duration"));
         table.addCell(getHeaderCell("Distance"));
         table.addCell(getHeaderCell("Comment"));
         table.addCell(getHeaderCell("Rating"));
+        table.addCell(getHeaderCell("Difficulty "));
 
 
         return table;
@@ -154,6 +155,7 @@ public class PdfManager {
             table.addCell(String.valueOf(tourlog.getDistance()));
             table.addCell(tourlog.getComment());
             table.addCell(String.valueOf(tourlog.getRating()));
+            table.addCell(String.valueOf(tourlog.getDifficulty()));
 
         }
     }

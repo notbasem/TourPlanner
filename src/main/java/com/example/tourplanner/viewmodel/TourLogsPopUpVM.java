@@ -11,6 +11,7 @@ public class TourLogsPopUpVM {
     private final StringProperty distanceInput = new SimpleStringProperty();
     private final StringProperty commentInput = new SimpleStringProperty();
     private final StringProperty ratingInput = new SimpleStringProperty();
+    private final StringProperty difficultyInput = new SimpleStringProperty();
 
     public StringProperty getDateInput() {
         return dateInput;
@@ -29,18 +30,23 @@ public class TourLogsPopUpVM {
     public StringProperty getRatingInput() {
         return ratingInput;
     }
+    public StringProperty getDifficultyInput() {
+        return difficultyInput;
+    }
+
 
     public void addTourLog() {
         TourLog tourLog = new TourLog(
                 TourManager.Instance().getSelectedTour(),
-                getDateInput().get(),
                 getTourDurationInput().get(),
-                Integer.parseInt(getDistanceInput().get()),
+                getDistanceInput().get(),
                 getCommentInput().get(),
-                Integer.parseInt(getRatingInput().get())
+                Integer.parseInt(getRatingInput().get()),
+                Integer.parseInt(getDifficultyInput().get())
         );
         DAL.getInstance().tourLogsDao().create(tourLog);
         TourManager.Instance().fireAddedLogEvent();
     }
+
 
 }

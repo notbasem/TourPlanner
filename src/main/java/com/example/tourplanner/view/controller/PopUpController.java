@@ -28,6 +28,7 @@ public class PopUpController implements Initializable{
     @FXML public TextField from;
     @FXML public TextField to;
     @FXML public TextField transportType;
+  //  @FXML public TextField date;
     @FXML public Label error;
     @FXML Button closeButton;
 
@@ -47,6 +48,7 @@ public class PopUpController implements Initializable{
         from.textProperty().bindBidirectional(popUpViewModel.getFromInput());
         to.textProperty().bindBidirectional(popUpViewModel.getToInput());
         transportType.textProperty().bindBidirectional(popUpViewModel.getTransportTypeInput());
+      //  date.textProperty().bindBidirectional(popUpViewModel.getDateInput());
 
         // Disable Button if Textfields not set
         closeButton.disableProperty().bind(tourname.textProperty().isEmpty()
