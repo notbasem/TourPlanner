@@ -1,6 +1,6 @@
 package com.example.tourplanner.DAL.dal.config;
 
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.Managers.TourManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

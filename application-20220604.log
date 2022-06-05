@@ -33,44 +33,44 @@
 2022-06-04 17:54:05.097 [ForkJoinPool.commonPool-worker-1] INFO  com.example.tourplanner.business.API.ApiConnection - Parsing HTTP request
 2022-06-04 17:54:05.116 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Adding listener to eventListenerList
 2022-06-04 17:54:54.934 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
-2022-06-04 17:54:54.969 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:54:54.971 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:54:54.972 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:54:55.239 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:54:55.397 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:54:54.969 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:54.971 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:54.972 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:55.239 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:55.397 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Selected TourLog with name = Paris-Vienna
 2022-06-04 17:54:55.409 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
 2022-06-04 17:54:55.409 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
 2022-06-04 17:54:56.457 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
 2022-06-04 17:54:56.508 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
 2022-06-04 17:54:56.508 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
 2022-06-04 17:54:57.253 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
-2022-06-04 17:54:57.276 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:54:57.276 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
 2022-06-04 17:55:25.595 [JavaFX Application Thread] INFO  com.example.tourplanner.TourPlannerApplication - Started Application ...
-2022-06-04 17:55:25.622 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:25.624 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:25.626 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:25.930 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:26.091 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:55:25.622 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.624 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.626 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:25.930 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:26.091 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Selected TourLog with name = Paris-Vienna
 2022-06-04 17:55:26.106 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
 2022-06-04 17:55:26.106 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
 2022-06-04 17:55:27.239 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
 2022-06-04 17:55:27.341 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
 2022-06-04 17:55:27.341 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
 2022-06-04 17:55:28.273 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
-2022-06-04 17:55:28.295 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:28.295 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
 2022-06-04 17:55:40.923 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
-2022-06-04 17:55:40.948 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:40.950 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:40.951 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:41.214 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
-2022-06-04 17:55:41.357 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Selected TourLog with name = Paris-Vienna
+2022-06-04 17:55:40.948 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:40.950 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:40.951 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:41.214 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:41.357 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Selected TourLog with name = Paris-Vienna
 2022-06-04 17:55:41.367 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
 2022-06-04 17:55:41.367 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
 2022-06-04 17:55:42.376 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
 2022-06-04 17:55:42.430 [JavaFX Application Thread] INFO  ApiConnection - Open new API-connection
 2022-06-04 17:55:42.430 [JavaFX Application Thread] INFO  ApiConnection - Sending async Request
 2022-06-04 17:55:43.145 [ForkJoinPool.commonPool-worker-1] INFO  ApiConnection - Parsing HTTP request
-2022-06-04 17:55:43.164 [JavaFX Application Thread] INFO  com.example.tourplanner.business.TourManager - Adding listener to eventListenerList
+2022-06-04 17:55:43.164 [JavaFX Application Thread] INFO  com.example.tourplanner.business.Managers.TourManager - Adding listener to eventListenerList
 2022-06-04 17:57:11.011 [JavaFX Application Thread] INFO  TourPlannerApplication - Started Application ...
 2022-06-04 17:57:11.037 [JavaFX Application Thread] INFO  TourManager - Adding listener ToursOverviewVMto eventListenerList
 2022-06-04 17:57:11.039 [JavaFX Application Thread] INFO  TourManager - Adding listener TourDescriptionVMto eventListenerList

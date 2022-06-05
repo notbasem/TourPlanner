@@ -3,11 +3,13 @@ package com.example.tourplanner.viewmodel;
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.DAL.model.TourLog;
-import com.example.tourplanner.business.EventListener;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.Managers.EventListener;
+import com.example.tourplanner.business.Managers.PdfManager;
+import com.example.tourplanner.business.Managers.TourManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+
 
 public class MenuVM implements EventListener {
     private final StringProperty searchString = new SimpleStringProperty();
@@ -18,8 +20,12 @@ public class MenuVM implements EventListener {
         return (ObservableList<Tour>) DAL.getInstance().tourDao().getAll();
     }
 
-    public ObservableList<TourLog> exportallTourLogs(String tourname) {
-        return (ObservableList<TourLog>)DAL.getInstance().tourLogsDao.getlogs(tourname);
+    public void exportAllToursAndLogs() {
+
+        ObservableList<Tour> tourList = (ObservableList<Tour>) DAL.getInstance().tourDao().getAll();
+        ObservableList <TourLog> tourLogsList = (ObservableList<TourLog>) DAL.getInstance().tourLogsDao.getAll();
+
+        PdfManager.getInstance().exportAlltours(tourList,tourLogsList);
     }
 
     public StringProperty searchStringProperty() {

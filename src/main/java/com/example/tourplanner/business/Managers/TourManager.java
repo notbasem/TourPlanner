@@ -1,4 +1,4 @@
-package com.example.tourplanner.business;
+package com.example.tourplanner.business.Managers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -86,9 +86,7 @@ public class TourManager {
         }
     }
 
-
     private void init() {
         this.eventListenerList = new ArrayList<>();
     }
-
 }

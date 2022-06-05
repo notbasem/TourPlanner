@@ -2,7 +2,7 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.TourLog;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.Managers.TourManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import org.apache.logging.log4j.LogManager;

@@ -2,7 +2,7 @@ package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.FXMLDI;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.Managers.TourManager;
 import com.example.tourplanner.viewmodel.TourLogsVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,9 +47,7 @@ public class TourLogsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 
     @FXML
     public void openTourLogsEditPopUp(ActionEvent event) {
@@ -64,7 +62,6 @@ public class TourLogsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -91,6 +88,8 @@ public class TourLogsController implements Initializable {
         logDistance.setCellValueFactory(new PropertyValueFactory("distance"));
         logComment.setCellValueFactory(new PropertyValueFactory("comment"));
         logRating.setCellValueFactory(new PropertyValueFactory("rating"));
+        tableView.getSelectionModel().select(0);
+        tableView.focusModelProperty().get().focus(0);
 
         searchTextField.textProperty().bindBidirectional(tourLogsViewModel.searchStringProperty());
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> tourLogsViewModel.searchTourLog());

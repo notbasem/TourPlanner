@@ -2,16 +2,22 @@ package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
+import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.API.ApiConnection;
-import com.example.tourplanner.business.EventListener;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.Managers.EventListener;
+import com.example.tourplanner.business.Managers.PdfManager;
+import com.example.tourplanner.business.Managers.TourManager;
 import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
 import java.util.Optional;
 
 @Getter
@@ -139,4 +145,13 @@ public class TourDescriptionVM implements EventListener {
                 ).not());
     }
 
+    public void exportTour() {
+        Optional<Tour> selectedTour = DAL.getInstance().tourDao().get(TourManager.Instance().getSelectedTour());
+
+       List<TourLog> tourLogsList = DAL.getInstance().tourLogsDao.getlogs(TourManager.Instance().getSelectedTour());
+        System.out.println(tourLogsList);
+
+        PdfManager.getInstance().exportSelectedTour(selectedTour, tourLogsList);
+
+    }
 }
