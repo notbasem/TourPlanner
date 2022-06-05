@@ -35,7 +35,6 @@ public class DbConnection implements Closeable {
             logger.info("Properties successfully read");
         } catch (IOException e) {
             logger.error("Properties could not be read");
-            e.printStackTrace();
             return null;
         }
         return prop;
