@@ -2,7 +2,6 @@ package com.example.tourplanner.DAL.dal;
 
 import com.example.tourplanner.DAL.dal.config.DbConnection;
 import com.example.tourplanner.DAL.model.TourLog;
-import com.example.tourplanner.business.TourManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.logging.log4j.LogManager;

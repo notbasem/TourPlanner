@@ -1,7 +1,6 @@
-package com.example.tourplanner.business;
+package com.example.tourplanner.business.Managers;
 
 
-import com.example.tourplanner.TourPlannerApplication;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

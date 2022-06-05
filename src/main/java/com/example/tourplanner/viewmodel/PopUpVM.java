@@ -3,12 +3,9 @@ package com.example.tourplanner.viewmodel;
 import com.example.tourplanner.DAL.dal.DAL;
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.business.API.ApiConnection;
-import com.example.tourplanner.business.TourManager;
-import com.example.tourplanner.view.controller.MenuController;
+import com.example.tourplanner.business.Managers.TourManager;
 import javafx.beans.property.*;
 import lombok.Getter;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Getter
 

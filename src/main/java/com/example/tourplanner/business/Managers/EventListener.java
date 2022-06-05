@@ -1,4 +1,4 @@
-package com.example.tourplanner.business;
+package com.example.tourplanner.business.Managers;
 
 public interface EventListener {
     void onEvent();

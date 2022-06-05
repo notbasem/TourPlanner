@@ -2,7 +2,7 @@ package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.FXMLDI;
-import com.example.tourplanner.business.TourManager;
+import com.example.tourplanner.business.Managers.TourManager;
 import com.example.tourplanner.viewmodel.TourLogsVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package com.example.tourplanner.business;
+package com.example.tourplanner.business.Managers;
 
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.DAL.model.TourLog;
@@ -260,7 +260,7 @@ public class PdfManager {
         }
 
         document.close();
-        logger.info("PDF: tours.pdf created successfully");
+        logger.info("PDF: allTours.pdf created successfully");
 
         } catch (FileNotFoundException e) {
             logger.error("PDF could not be created");
