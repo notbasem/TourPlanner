@@ -23,7 +23,7 @@ public class TourLog {
         this.rating = rating;
     }
 
-    public TourLog(int id,String tourname, String date, String duration, int distance, String comment, int rating) {
+    public TourLog(int id, String tourname, String date, String duration, int distance, String comment, int rating) {
         this.id = id;
         this.tourname = tourname;
         this.date = date;
@@ -36,12 +36,23 @@ public class TourLog {
     public TourLog() {
 
     }
-   @Override
+
+    @Override
     public String toString() {
         return "TourLog{" +
                 "id=" + id +
                 ", tourname='" + tourname + '\'' +
                 ", date='" + date + '\'' +
+                ", duration='" + duration + '\'' +
+                ", distance=" + distance +
+                ", comment='" + comment + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
+
+    public String toSearchString() {
+        return "TourLog{" +
+                "date='" + date + '\'' +
                 ", duration='" + duration + '\'' +
                 ", distance=" + distance +
                 ", comment='" + comment + '\'' +

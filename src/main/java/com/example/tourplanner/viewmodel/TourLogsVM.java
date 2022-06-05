@@ -5,11 +5,14 @@ import com.example.tourplanner.business.EventListener;
 import com.example.tourplanner.business.TourManager;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class TourLogsVM implements EventListener {
     private ObservableList<TourLog> tourlogs = FXCollections.observableArrayList();
+    private final StringProperty searchString = new SimpleStringProperty();
 
     public TourLogsVM() {
         TourManager.Instance().addListener(this);
@@ -28,6 +31,25 @@ public class TourLogsVM implements EventListener {
 
     public int getIdOfTour(TourLog tourLog, String tourName) {
         return DAL.getInstance().tourLogsDao.getLogId(tourLog,tourName);
+    }
+
+    public String getSearchString() {
+        return searchString.get();
+    }
+
+    public StringProperty searchStringProperty() {
+        return searchString;
+    }
+
+    public void searchTourLog() {
+        ObservableList<TourLog> tempLogs = FXCollections.observableArrayList();
+        tempLogs.addAll(DAL.getInstance().tourLogsDao().getlogs(TourManager.Instance().getSelectedTour()));
+
+        if (searchString.get() == null) {
+            tourlogs.setAll((TourLog) this.getObservableTours());
+        } else {
+            tourlogs.setAll(tempLogs.stream().filter(log -> log.toSearchString().contains(searchString.get())).toList());
+        }
     }
 
     @Override

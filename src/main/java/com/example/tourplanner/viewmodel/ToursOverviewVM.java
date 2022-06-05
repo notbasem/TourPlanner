@@ -153,8 +153,7 @@ public class ToursOverviewVM implements EventListener {
         if (searchText.isEmpty()) {
             tours.setAll(this.getObservableTours());
         } else {
-            tempTourList.removeAll(tempTourList.stream().filter(tour -> !tour.getName().contains(searchText)).toList());
-            tours.setAll(tempTourList);
+            tours.setAll(tempTourList.stream().filter(tour -> tour.getName().contains(searchText)).toList());
         }
     }
 

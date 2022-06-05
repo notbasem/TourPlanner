@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -20,20 +21,13 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class TourLogsController implements Initializable {
-    @FXML
-    public TableView<TourLog> tableView;
-    @FXML
-    public TableColumn<TourLog, String> logDate;
-    @FXML
-    public TableColumn<TourLog, String> logDuration;
-    @FXML
-    public TableColumn<TourLog, String> logDistance;
-    @FXML
-    public TableColumn<TourLog, String> logComment;
-    @FXML
-    public TableColumn<TourLog, String> logRating;
-
-
+    @FXML public TableView<TourLog> tableView;
+    @FXML public TableColumn<TourLog, String> logDate;
+    @FXML public TableColumn<TourLog, String> logDuration;
+    @FXML public TableColumn<TourLog, String> logDistance;
+    @FXML public TableColumn<TourLog, String> logComment;
+    @FXML public TableColumn<TourLog, String> logRating;
+    @FXML public TextField searchTextField;
     private final TourLogsVM tourLogsViewModel;
 
     public TourLogsController(TourLogsVM tourLogsViewModel) {
@@ -98,5 +92,7 @@ public class TourLogsController implements Initializable {
         logComment.setCellValueFactory(new PropertyValueFactory("comment"));
         logRating.setCellValueFactory(new PropertyValueFactory("rating"));
 
+        searchTextField.textProperty().bindBidirectional(tourLogsViewModel.searchStringProperty());
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> tourLogsViewModel.searchTourLog());
     }
 }

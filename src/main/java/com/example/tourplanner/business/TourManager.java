@@ -1,7 +1,5 @@
 package com.example.tourplanner.business;
 
-
-import com.example.tourplanner.TourPlannerApplication;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,7 +11,6 @@ public class TourManager {
     private List<EventListener> eventListenerList;
     private String selectedTour;
     private int selectedTourLog;
-
     private static TourManager Instance;
     private String searchText;
 
