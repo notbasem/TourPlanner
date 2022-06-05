@@ -19,7 +19,7 @@ public class TourLogsVM implements EventListener {
         TourManager.Instance().addListener(this);
     }
 
-    public Property<ObservableList<TourLog>> getObservableTours() {
+    public Property<ObservableList<TourLog>> getObservableTourLogs() {
         setTourlogs(TourManager.Instance().getSelectedTour());
         Property<ObservableList<TourLog>> tourListProperty = new SimpleObjectProperty<>(tourlogs);
 
@@ -47,7 +47,7 @@ public class TourLogsVM implements EventListener {
         tempLogs.addAll(DAL.getInstance().tourLogsDao().getlogs(TourManager.Instance().getSelectedTour()));
 
         if (searchString.get() == null) {
-            tourlogs.setAll((TourLog) this.getObservableTours());
+            tourlogs.setAll((TourLog) this.getObservableTourLogs());
         } else {
             tourlogs.setAll(tempLogs.stream().filter(log -> log.toSearchString().contains(searchString.get())).toList());
         }

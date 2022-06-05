@@ -92,7 +92,7 @@ public class TourLogsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTours());
+        tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTourLogs());
         logDate.setCellValueFactory(new PropertyValueFactory("date"));
         logDuration.setCellValueFactory(new PropertyValueFactory("duration"));
         logDistance.setCellValueFactory(new PropertyValueFactory("distance"));
