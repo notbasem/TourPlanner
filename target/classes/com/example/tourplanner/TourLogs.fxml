@@ -29,6 +29,8 @@
                 <TableColumn fx:id="logDistance" prefWidth="75.0" text="Distance" />
             <TableColumn fx:id="logComment" prefWidth="75.0" text="Comment" />
             <TableColumn fx:id="logRating" prefWidth="75.0" text="Rating" />
+            <TableColumn fx:id="logDifficulty" prefWidth="75.0" text="Difficulty" />
+
             </columns>
             <VBox.margin>
                 <Insets bottom="4.3" left="8.7" right="8.7" />

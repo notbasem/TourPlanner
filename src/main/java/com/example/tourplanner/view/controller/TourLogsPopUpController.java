@@ -1,6 +1,5 @@
 package com.example.tourplanner.view.controller;
 
-import com.example.tourplanner.TourPlannerApplication;
 import com.example.tourplanner.viewmodel.TourLogsPopUpVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +25,7 @@ public class TourLogsPopUpController implements Initializable {
     @FXML public TextField distance;
     @FXML public TextField comment;
     @FXML public TextField rating;
+    @FXML public TextField difficulty;
     @FXML public Label error;
     private TourLogsPopUpVM tourLogsPopUpVM;
 
@@ -45,24 +45,26 @@ public class TourLogsPopUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        date.textProperty().bindBidirectional(tourLogsPopUpVM.getDateInput());
+        //date.textProperty().bindBidirectional(tourLogsPopUpVM.getDateInput());
         duration.textProperty().bindBidirectional(tourLogsPopUpVM.getTourDurationInput());
         distance.textProperty().bindBidirectional(tourLogsPopUpVM.getDistanceInput());
         comment.textProperty().bindBidirectional(tourLogsPopUpVM.getCommentInput());
         rating.textProperty().bindBidirectional(tourLogsPopUpVM.getRatingInput());
+        difficulty.textProperty().bindBidirectional(tourLogsPopUpVM.getDifficultyInput());
 
         // Disable Button if Textfields not set
-        closeButton.disableProperty().bind(date.textProperty().isEmpty()
-                .or(duration.textProperty().isEmpty())
+        closeButton.disableProperty().bind(duration.textProperty().isEmpty()
                 .or(distance.textProperty().isEmpty())
                 .or(comment.textProperty().isEmpty())
                 .or(rating.textProperty().isEmpty())
+                .or(difficulty.textProperty().isEmpty())
+
         );
     }
 
     // also checks for blank input, not just empty
     private boolean validateInput() {
-        List<TextInputControl> textFields = Arrays.asList(date, duration, distance, comment, rating);
+        List<TextInputControl> textFields = Arrays.asList(duration, distance, comment, rating);
         for (TextInputControl textField : textFields) {
             if (textField.getText() == null || textField.getText().isBlank()) {
                 error.setText("Required field(s) is/are empty");

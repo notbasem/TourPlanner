@@ -32,6 +32,8 @@ public class TourLogsController implements Initializable {
     public TableColumn<TourLog, String> logComment;
     @FXML
     public TableColumn<TourLog, String> logRating;
+    @FXML
+    public TableColumn<TourLog, String> logDifficulty;
 
 
     private final TourLogsVM tourLogsViewModel;
@@ -92,14 +94,13 @@ public class TourLogsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
         tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTours());
-
         logDate.setCellValueFactory(new PropertyValueFactory("date"));
         logDuration.setCellValueFactory(new PropertyValueFactory("duration"));
         logDistance.setCellValueFactory(new PropertyValueFactory("distance"));
         logComment.setCellValueFactory(new PropertyValueFactory("comment"));
         logRating.setCellValueFactory(new PropertyValueFactory("rating"));
+        logDifficulty.setCellValueFactory(new PropertyValueFactory("difficulty"));
         tableView.getSelectionModel().select(0);
         tableView.focusModelProperty().get().focus(0);
 
