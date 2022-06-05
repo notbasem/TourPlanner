@@ -156,6 +156,11 @@ public class TourDao implements Dao<Tour> {
     }
 
     @Override
+    public String getLogDate(TourLog tourLog, String tourname) {
+        return null;
+    }
+
+    @Override
     public TourLog getLogById(int id) {
         return null;
     }

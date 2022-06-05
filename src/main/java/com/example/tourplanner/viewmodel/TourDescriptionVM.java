@@ -90,12 +90,14 @@ public class TourDescriptionVM implements EventListener {
     }
 
     public void updateTour() {
+        System.out.println("in update");
         Tour newTour = new Tour(title.get(), description.get(), from.get(), to.get(), transportType.get(), Float.parseFloat(distance.get()), time.get());
         ApiConnection apiConnection = new ApiConnection(from.get(), to.get());
         logger.info("Updated distance from: " + newTour.getTourDistance() + " to: " + apiConnection.getDistance());
         newTour.setTourDistance(apiConnection.getDistance());
         newTour.setEstimatedTime(apiConnection.getTime());
         updateImageProperty(apiConnection.getMap().getMapString());
+        System.out.println("afterupdateimage");
         DAL.getInstance().tourDao().update(tour.get(), newTour);
         TourManager.Instance().fireAddedTourEvent();
     }

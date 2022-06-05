@@ -65,7 +65,7 @@ public class ToursOverviewVM implements EventListener {
         // Write File
         try {
             FileWriter w = new FileWriter(file);
-            // Get JSONArray through getObservableTours()
+            // Get JSONArray through getObservableTourLogs()
             w.write(toursToJson().toString(4));
             w.close();
 

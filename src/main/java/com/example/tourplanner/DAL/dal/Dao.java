@@ -26,5 +26,7 @@ public interface Dao <T> {
 
  ObservableList<T> getlogs(String selectedtournamne);
 
+    String getLogDate(TourLog tourLog, String tourname);
+
     TourLog getLogById(int id);
 }
