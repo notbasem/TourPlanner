@@ -75,6 +75,7 @@ public class TourLogsController implements Initializable {
 
     @FXML
     public void onSelectedTourLog() {
+
         TourLog selectedTourLog = tableView.getSelectionModel().getSelectedItem();
         /*
             if(selectedTourLog==null){selectedTourLog= tableView.getItems().get(0);}
@@ -90,6 +91,8 @@ public class TourLogsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         tableView.itemsProperty().bindBidirectional(tourLogsViewModel.getObservableTours());
 
         logDate.setCellValueFactory(new PropertyValueFactory("date"));
@@ -97,6 +100,8 @@ public class TourLogsController implements Initializable {
         logDistance.setCellValueFactory(new PropertyValueFactory("distance"));
         logComment.setCellValueFactory(new PropertyValueFactory("comment"));
         logRating.setCellValueFactory(new PropertyValueFactory("rating"));
+        tableView.getSelectionModel().select(0);
+        tableView.focusModelProperty().get().focus(0);
 
     }
 }
