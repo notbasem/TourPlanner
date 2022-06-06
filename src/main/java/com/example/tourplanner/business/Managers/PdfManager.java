@@ -42,7 +42,6 @@ public class PdfManager {
 
 
     public void exportSelectedTour(Optional<Tour> selectedTour, List<TourLog> tourLogsList) {
-        System.out.println("In PDFMANAGER");
         PdfWriter writer = null;
         try {
             writer = new PdfWriter(new FileOutputStream("PDF/"+selectedTour.get().getName() + ".pdf"));

@@ -136,21 +136,13 @@ public class TourLogDao implements Dao<TourLog> {
                 SELECT tour_id
                 FROM tourlogs WHERE tourname =? AND date=? AND duration =? AND distance =? AND comment =? AND rating = ? AND difficulty = ?
                 """)) {
-            // TODO: Kommentare entfernen
             statement.setString(1, tourname);
-            System.out.println(tourname);
             statement.setString(2, tourLog.getDate());
-            System.out.println(tourLog.getDate());
             statement.setString(3, tourLog.getDuration());
-            System.out.println(tourLog.getDuration());
             statement.setString(4, tourLog.getDistance());
-            System.out.println(tourLog.getDistance());
             statement.setString(5, tourLog.getComment());
-            System.out.println(tourLog.getComment());
             statement.setInt(6, tourLog.getRating());
-            System.out.println(tourLog.getRating());
             statement.setInt(7, tourLog.getDifficulty());
-            System.out.println(tourLog.getDifficulty());
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -171,19 +163,12 @@ public class TourLogDao implements Dao<TourLog> {
                 SELECT date
                 FROM tourlogs WHERE tourname =?  AND  duration =? AND distance =? AND comment =? AND rating = ? AND difficulty = ?
                 """)) {
-            System.out.println("hiiiiiiiiiiiiiiiiiiiiii");
             statement.setString(1, tourname);
-            System.out.println(tourname);
             statement.setString(2, tourLog.getDuration());
-            System.out.println(tourLog.getDuration());
             statement.setString(3, tourLog.getDistance());
-            System.out.println(tourLog.getDistance());
             statement.setString(4, tourLog.getComment());
-            System.out.println(tourLog.getComment());
             statement.setInt(5, tourLog.getRating());
-            System.out.println(tourLog.getRating());
             statement.setInt(6, tourLog.getDifficulty());
-            System.out.println(tourLog.getDifficulty());
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
