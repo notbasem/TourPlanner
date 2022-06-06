@@ -5,11 +5,10 @@ import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.Managers.TourManager;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
-public class TourLogsEditPopUPvMtEST {
+public class TourLogsEditPopUpVmTest {
 
 
     @Test

@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TourLogsVmTest {
 
-    @BeforeAll
-    static void addTour(){
+    @Test
+    public void testDeleteTourLog(){
         PopUpVM popUpVM = new PopUpVM();
 
         popUpVM.getTourNameInput().set("tourName");
@@ -23,11 +23,6 @@ public class TourLogsVmTest {
         popUpVM.addTour();
 
         TourManager.Instance().selectTour("tourName");
-
-    }
-
-    @Test
-    public void testDeleteTourLog(){
 
         TourLogsPopUpVM tourLogsPopUpVM = new TourLogsPopUpVM();
 

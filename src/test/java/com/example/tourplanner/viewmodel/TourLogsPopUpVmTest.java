@@ -38,7 +38,6 @@ public class TourLogsPopUpVmTest {
 
         assertEquals(tourLogsListsize+1, newtourLogsListsize);
 
-
     }
 
 

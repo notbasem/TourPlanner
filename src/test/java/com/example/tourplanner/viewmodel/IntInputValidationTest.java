@@ -3,36 +3,34 @@ package com.example.tourplanner.viewmodel;
 import com.example.tourplanner.view.validation.InputValidation;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 public class IntInputValidationTest {
+    StringProperty rating;
+    InputValidation inputValidation;
 
+    @BeforeAll
+    public void setup() {
+       rating = new SimpleStringProperty();
+       inputValidation  = new InputValidation();
+    }
 
     @Test
     public void inputValidationTestAssertFalse(){
-        StringProperty rating = new SimpleStringProperty();
-        rating.set("45");
-
-        InputValidation inputValidation  = new InputValidation();
-
+        this.rating.set("45");
         assertFalse( inputValidation.validateInt(rating));
-
     }
-
-
 
     @Test
     public void inputValidationTestAssertTrue(){
-        StringProperty rating = new SimpleStringProperty();
         rating.set("4");
-
-        InputValidation inputValidation  = new InputValidation();
-
         assertTrue( inputValidation.validateInt(rating));
-
     }
 
 
