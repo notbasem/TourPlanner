@@ -136,6 +136,7 @@ public class TourLogDao implements Dao<TourLog> {
                 SELECT tour_id
                 FROM tourlogs WHERE tourname =? AND date=? AND duration =? AND distance =? AND comment =? AND rating = ? AND difficulty = ?
                 """)) {
+            // TODO: Kommentare entfernen
             statement.setString(1, tourname);
             System.out.println(tourname);
             statement.setString(2, tourLog.getDate());
