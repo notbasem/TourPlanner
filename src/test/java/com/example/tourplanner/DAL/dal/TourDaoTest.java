@@ -29,15 +29,15 @@ class TourDaoTest {
 
     @Test
     @Order(2)
-    void delete() {
-        DAL.getInstance().tourDao().delete(tour.getName());
-    }
-
-    @Test
-    @Order(3)
     void update() {
         Tour newTour = new Tour("NEW TOUR", "Beautiful Tour", "Vienna", "Paris", "Car", 100.0F, "12");
         DAL.getInstance().tourDao().update(tour, newTour);
         DAL.getInstance().tourDao().get(newTour.getName());
+    }
+
+    @Test
+    @Order(3)
+    void delete() {
+        DAL.getInstance().tourDao().delete("NEW TOUR");
     }
 }
