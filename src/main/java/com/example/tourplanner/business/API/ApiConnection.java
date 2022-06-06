@@ -24,13 +24,14 @@ public class ApiConnection {
 
     public ApiConnection(String from, String to) {
         logger.info("Open new API-connection");
-        this.key = "MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf";
+        this.key = "MYxrzvUhjoxAXGiCfyQr99bcCu1KScXS";
         sendAsync(from, to);
     }
 
     public void sendAsync(String from, String to ) {
         logger.info("Sending async Request");
         URI url = URI.create(("http://www.mapquestapi.com/directions/v2/route?key="+key+"&from="+from+"&to="+to).replaceAll(" ", "%20"));
+        System.out.println(url);
         HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder(url).GET().build();
         CompletableFuture<HttpResponse<String>> future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());

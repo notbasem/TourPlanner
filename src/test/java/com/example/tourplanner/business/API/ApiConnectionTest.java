@@ -20,7 +20,7 @@ class ApiConnectionTest {
 
     @Test
     void getKeyTrue() {
-        assertEquals("MDApaG1PWkkep6VbZXPXdc8SWUYy1FFf", apiConnection.getKey());
+        assertEquals("MYxrzvUhjoxAXGiCfyQr99bcCu1KScXS", apiConnection.getKey());
     }
 
     @Test
