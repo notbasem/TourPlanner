@@ -1,5 +1,6 @@
 package com.example.tourplanner.view.controller;
 
+import com.example.tourplanner.view.validation.InputValidation;
 import com.example.tourplanner.viewmodel.TourLogsPopUpVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ public class TourLogsPopUpController implements Initializable {
     @FXML public TextField difficulty;
     @FXML public Label error;
     private TourLogsPopUpVM tourLogsPopUpVM;
+    private InputValidation inputValidation = new InputValidation();
 
     public TourLogsPopUpController(TourLogsPopUpVM tourLogsPopUpVM) {
         this.tourLogsPopUpVM = new TourLogsPopUpVM();
@@ -35,12 +37,13 @@ public class TourLogsPopUpController implements Initializable {
 
     public void addTourLog(ActionEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
-        if (validateInput()) {
+        if (validateInput()&&validateRatingandDifficutlyInput()) {
             tourLogsPopUpVM.addTourLog();
             stage.close();
         } else {
-            logger.error("Required field(s) is/are empty");
+                logger.error("Entered Data not accepted");
         }
+
     }
 
     @Override
@@ -51,6 +54,7 @@ public class TourLogsPopUpController implements Initializable {
         comment.textProperty().bindBidirectional(tourLogsPopUpVM.getCommentInput());
         rating.textProperty().bindBidirectional(tourLogsPopUpVM.getRatingInput());
         difficulty.textProperty().bindBidirectional(tourLogsPopUpVM.getDifficultyInput());
+
 
         // Disable Button if Textfields not set
         closeButton.disableProperty().bind(duration.textProperty().isEmpty()
@@ -64,13 +68,39 @@ public class TourLogsPopUpController implements Initializable {
 
     // also checks for blank input, not just empty
     private boolean validateInput() {
-        List<TextInputControl> textFields = Arrays.asList(duration, distance, comment, rating);
+        List<TextInputControl> textFields = Arrays.asList(duration, distance, comment, rating,difficulty);
         for (TextInputControl textField : textFields) {
             if (textField.getText() == null || textField.getText().isBlank()) {
                 error.setText("Required field(s) is/are empty");
                 return false;
             }
+
+
+
         }
+
         return true;
     }
+
+    private boolean validateRatingandDifficutlyInput()
+    {
+        if(!inputValidation.validateInt(rating.textProperty())){
+
+            error.setText("Choose a number from 1 to 5 for Rating");
+            return false;
+        }
+
+        if(!inputValidation.validateInt(difficulty.textProperty())){
+
+            error.setText("Choose a number from 1 to 5 for Difficulty");
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+
+
 }

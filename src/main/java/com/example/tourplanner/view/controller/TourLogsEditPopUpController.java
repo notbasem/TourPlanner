@@ -1,5 +1,6 @@
 package com.example.tourplanner.view.controller;
 
+import com.example.tourplanner.view.validation.InputValidation;
 import com.example.tourplanner.viewmodel.TourLogsEditPopUpVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,6 +29,7 @@ public class TourLogsEditPopUpController implements Initializable {
     @FXML public Label error;
 
     private final TourLogsEditPopUpVM tourLogsEditPopUpVM;
+    private InputValidation inputValidation = new InputValidation();
 
     public TourLogsEditPopUpController(TourLogsEditPopUpVM tourLogsEditPopUpVM){
         this.tourLogsEditPopUpVM = new TourLogsEditPopUpVM();
@@ -36,11 +38,11 @@ public class TourLogsEditPopUpController implements Initializable {
     @FXML
     public void updateLog(){
         Stage stage = (Stage) closeButton.getScene().getWindow();
-        if (validateInput()) {
+        if (validateInput()&&validateRatingandDifficutlyInput()) {
             tourLogsEditPopUpVM.updateLog();
             stage.close();
         } else {
-            logger.error("Required field(s) is/are empty");
+            logger.error("Entered Data not accepted");
         }
     }
 
@@ -69,7 +71,7 @@ public class TourLogsEditPopUpController implements Initializable {
     }
 
     // also checks for blank input, not just empty
-    private boolean validateInput() {
+    public boolean validateInput() {
         List<TextInputControl> textFields = Arrays.asList(date, duration, distance, comment, rating, difficulty);
         for (TextInputControl textField : textFields) {
             if (textField.getText() == null || textField.getText().isBlank()) {
@@ -79,4 +81,34 @@ public class TourLogsEditPopUpController implements Initializable {
         }
         return true;
     }
+
+
+
+
+
+
+    private boolean validateRatingandDifficutlyInput()
+    {
+        if(!inputValidation.validateInt(rating.textProperty())){
+
+            error.setText("Choose a number from 1 to 5 for Rating");
+            return false;
+        }
+
+        if(!inputValidation.validateInt(difficulty.textProperty())){
+
+            error.setText("Choose a number from 1 to 5 for Difficulty");
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+
+
 }

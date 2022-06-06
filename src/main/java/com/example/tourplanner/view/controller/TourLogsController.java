@@ -3,6 +3,7 @@ package com.example.tourplanner.view.controller;
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.FXMLDI;
 import com.example.tourplanner.business.Managers.TourManager;
+import com.example.tourplanner.view.validation.InputValidation;
 import com.example.tourplanner.viewmodel.TourLogsVM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,6 +37,7 @@ public class TourLogsController implements Initializable {
     @FXML
     public TableColumn<TourLog, String> logDifficulty;
     @FXML public TextField searchTextField;
+
 
 
     private final TourLogsVM tourLogsViewModel;
@@ -105,4 +107,6 @@ public class TourLogsController implements Initializable {
         searchTextField.textProperty().bindBidirectional(tourLogsViewModel.searchStringProperty());
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> tourLogsViewModel.searchTourLog());
     }
+
+
 }

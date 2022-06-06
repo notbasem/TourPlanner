@@ -1,5 +1,4 @@
 package com.example.tourplanner.business.Managers;
-
 import com.example.tourplanner.DAL.model.Tour;
 import com.example.tourplanner.DAL.model.TourLog;
 import com.example.tourplanner.business.API.ApiConnection;
@@ -21,6 +20,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class PdfManager {
         System.out.println("In PDFMANAGER");
         PdfWriter writer = null;
         try {
-            writer = new PdfWriter(selectedTour.get().getName() + ".pdf");
+            writer = new PdfWriter(new FileOutputStream("PDF/"+selectedTour.get().getName() + ".pdf"));
 
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf);
@@ -163,7 +163,8 @@ public class PdfManager {
     public void exportAlltours(ObservableList<Tour> tourList, List<TourLog> tourLogsList) {
         PdfWriter writer = null;
         try {
-            writer = new PdfWriter("allTours.pdf");
+
+            writer = new PdfWriter(new FileOutputStream("PDF/allTours.pdf"));
 
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf);

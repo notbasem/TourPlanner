@@ -2,6 +2,7 @@ package com.example.tourplanner.view.controller;
 
 import com.example.tourplanner.DAL.model.Tour;
 
+import com.example.tourplanner.view.validation.InputValidation;
 import com.example.tourplanner.viewmodel.TourDescriptionVM;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,6 +31,7 @@ public class TourDescriptionController implements Initializable {
 
     private TourDescriptionVM tourDescriptionViewModel;
 
+
     public TourDescriptionController(TourDescriptionVM tourDescriptionViewModel){
         this.tourDescriptionViewModel = tourDescriptionViewModel;
     }
@@ -53,6 +55,9 @@ public class TourDescriptionController implements Initializable {
         distanceInput.textProperty().bindBidirectional(tourDescriptionViewModel.getDistance());
         timeInput.textProperty().bindBidirectional(tourDescriptionViewModel.getTime());
         imageView.imageProperty().bindBidirectional(tourDescriptionViewModel.getImageProperty());
+
+
+
 
         distanceInput.setEditable(false);
         distanceInput.setMouseTransparent(false);

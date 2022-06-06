@@ -1,7 +1,6 @@
 package com.example.tourplanner.viewmodel;
 
 import com.example.tourplanner.business.Managers.TourManager;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
